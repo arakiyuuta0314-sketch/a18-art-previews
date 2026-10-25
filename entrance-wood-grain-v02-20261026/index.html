@@ -1,0 +1,60 @@
+<!doctype html><html lang="ja"><head><meta charset="UTF-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A18 木製額縁 木目改善 v02｜エントランス正式素材比較</title>
+<style>
+*{box-sizing:border-box}body{background:#f7f5f0;color:#242820;margin:0;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;line-height:1.5}
+main{max-width:840px;margin:auto;padding:16px 12px 44px}h1{font-size:21px;margin:3px 0 10px;line-height:1.5}
+p{margin:8px 0 14px}.minor{color:#6b736d;font-size:13px}.frame{background:#172018;border-radius:12px;padding:7px}
+.frame img{display:block;width:100%;height:auto;max-width:546px;margin:auto;aspect-ratio:546/483}
+fieldset{background:#fff;border:1px solid #d4ddd5;border-radius:11px;padding:12px;margin:12px 0}
+legend{font-weight:bold;padding:0 6px}.controls{display:flex;flex-wrap:wrap;gap:8px}
+button{border:1px solid #b2bfb2;background:#fff;border-radius:8px;padding:11px 10px;font-size:14px;cursor:pointer;flex:1 1 82px}
+button[aria-pressed=true]{background:#dfece1;border-color:#427b59;color:#194e33;font-weight:700}
+#current{font-size:14px;color:#44534a}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.grid img{width:100%;height:auto;display:block;border-radius:6px}
+figure{margin:0}figcaption{font-size:13px;text-align:center;margin:6px 0}
+.notice{font-size:13px;border-left:3px solid #9caba0;padding-left:12px;color:#5e6d63}
+@media(min-width:700px){main{padding:28px 22px 56px}h1{font-size:24px}}
+</style></head><body><main>
+<div class="minor">A18「とっておき美術館」｜正式原画 546×483 / 額縁だけ修正</div>
+<h1>木製額縁の木目改善・実画面比較</h1>
+<p>43番の正式素材をそのまま使い、3か所の木製額縁だけ質感を改善しました。</p>
+<div class="frame"><img id="scene" width="546" height="483" src="view_new_empty_100.png" alt="正式A18エントランスに木目付き額縁を3か所合成した画像"></div>
+<p id="current">改善版 木目付き／空き台紙／100%</p>
+<fieldset><legend>額縁の比較</legend><div class="controls">
+<button id="old" data-style="old" aria-pressed="false">修正前 茶色</button>
+<button id="new" data-style="new" aria-pressed="true">改善版 木目付き</button>
+<button id="none" data-style="none" aria-pressed="false">額縁なし</button>
+<button id="gold" data-style="gold" aria-pressed="false">元の金額縁</button>
+</div></fieldset>
+<fieldset><legend>写真表示</legend><div class="controls">
+<button id="empty" data-photo="empty" aria-pressed="true">空き台紙</button>
+<button id="photos" data-photo="photos" aria-pressed="false">写真サンプル</button>
+</div></fieldset>
+<fieldset><legend>額縁サイズ</legend><div class="controls">
+<button id="sz90" data-sz="90" aria-pressed="false">90%</button>
+<button id="sz100" data-sz="100" aria-pressed="true">100%</button>
+<button id="sz110" data-sz="110" aria-pressed="false">110%</button>
+</div></fieldset>
+<h2>修正前と改善版</h2>
+<div class="grid">
+<figure><img src="view_old_empty_100.png" alt="修正前の茶色い額縁" loading="lazy"><figcaption>修正前：平坦な茶色</figcaption></figure>
+<figure><img src="view_new_empty_100.png" alt="改善した木目付き額縁" loading="lazy"><figcaption>改善版：木目・立体感</figcaption></figure>
+</div>
+<p class="notice">正式キャラクターは原本を変更していません。原画の建築や位置は同一。赤いカーペットなし。照明はまだ固定背景から未分離。Lv.1採用は未決定です。これはゲーム統合前の美術確認用完成候補です。</p>
+</main>
+<script>
+(()=>{const s={style:"new",photo:"empty",size:100},im=document.querySelector("#scene");
+function render(){
+ im.src="view_"+s.style+"_"+s.photo+"_"+s.size+".png";
+ document.querySelectorAll("[data-style]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.style===s.style)));
+ document.querySelectorAll("[data-photo]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.photo===s.photo)));
+ document.querySelectorAll("[data-sz]").forEach(b=>b.setAttribute("aria-pressed",String(Number(b.dataset.sz)===s.size)));
+ document.querySelector("#current").textContent=({new:"改善版 木目付き",old:"修正前 茶色",none:"額縁なし",gold:"元の金額縁"})[s.style]+"／"+(s.photo==="empty"?"空き台紙":"写真サンプル")+"／"+s.size+"%";
+}
+document.querySelectorAll("[data-style]").forEach(b=>b.addEventListener("click",()=>{s.style=b.dataset.style;render()}));
+document.querySelectorAll("[data-photo]").forEach(b=>b.addEventListener("click",()=>{s.photo=b.dataset.photo;render()}));
+document.querySelectorAll("[data-sz]").forEach(b=>b.addEventListener("click",()=>{s.size=Number(b.dataset.sz);render()}));
+window.A18Wood={state:()=>({...s}),get ready(){return im.complete&&im.naturalWidth===546}};
+})();
+</script></body></html>

@@ -1,0 +1,63 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A18 天井灯と受付ランプの独立素材｜美術確認用</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#243127;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;line-height:1.6}
+main{max-width:880px;padding:14px 12px 46px;margin:auto}small{color:#657469}
+h1{font-size:21px;line-height:1.4;margin:5px 0 12px}h2{font-size:17px;margin-top:23px}
+p{margin:8px 0 14px}
+.stage{padding:8px;background:#152017;border-radius:12px}canvas{display:block;width:100%;max-width:546px;height:auto;aspect-ratio:546/483;margin:auto}
+fieldset{border:1px solid #d0dfd3;padding:11px 12px;border-radius:11px;background:white;margin:12px 0}
+legend{padding:0 6px;font-weight:700}
+.controls{display:flex;flex-wrap:wrap;gap:8px}.controls label{flex:1 1 150px;display:flex;align-items:center;gap:8px;background:#f1f6f1;padding:11px 10px;border-radius:8px;font-size:14px}
+input[type=checkbox]{accent-color:#34784f;width:18px;height:18px}
+.buttons{display:flex;flex-wrap:wrap;gap:7px}button{flex:1 1 97px;font:inherit;font-size:14px;padding:11px 8px;border:1px solid #b7cbb9;background:white;color:#253629;border-radius:8px;cursor:pointer}
+#status{font-size:14px;color:#526854;margin:9px 0}
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+figure{margin:0}.compare img{width:100%;height:auto;display:block;border-radius:8px}figcaption{font-size:12px;text-align:center;color:#65746c;margin:6px 0}
+.note{font-size:13px;color:#607164;border-left:3px solid #9fb6a3;padding-left:10px}
+@media(min-width:720px){main{padding:24px 20px}h1{font-size:24px}}
+</style></head><body><main>
+<small>A18「とっておき美術館」｜既存50番のエントランスを基準に制作</small>
+<h1>天井灯8点と受付ランプを独立素材化しました</h1>
+<p>「本体」と「発光」を分けています。天井の8灯は共通部品と配置情報から再利用できる構造です。背景や写真、正式キャラクターは変更していません。</p>
+<div class="stage"><canvas id="scene" width="546" height="483" aria-label="天井灯列と受付ランプを切り替えたエントランス"></canvas></div>
+<p id="status">画像を読み込んでいます</p>
+<fieldset><legend>照明を表示する</legend>
+ <div class="controls">
+ <label><input id="ceiling" type="checkbox" checked>天井灯8点</label>
+ <label><input id="desk" type="checkbox" checked>受付の卓上ランプ</label>
+ <label><input id="emission" type="checkbox" checked>発光も表示する</label>
+ </div>
+</fieldset>
+<div class="buttons">
+<button id="allOn">すべて点灯</button>
+<button id="bodyOnly">器具のみ</button>
+<button id="allOff">すべて取り外す</button>
+</div>
+<h2>外したときの下地も比較できます</h2>
+<div class="compare">
+<figure><img src="QA_source_v50.png" alt="元のエントランス" loading="lazy"><figcaption>修正前・50番</figcaption></figure>
+<figure><img src="QA_all_off.png" alt="天井灯と受付ランプを外した下地" loading="lazy"><figcaption>天井灯・受付ランプなし</figcaption></figure>
+</div>
+<p class="note">元画像の下に隠れていた天井・受付部分は、周囲の色と模様から推定修復しています。再合成した点灯状態も原画の画素完全一致ではありません。今回は美術確認用の候補であり、ゲーム本体への正式組み込みやLv別割り当ては未実施です。既存29・30・50番の素材は変更していません。</p>
+</main><script>
+(async()=>{const load=(src)=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error(src));im.src=src});
+try{
+ const files={base:"QA_ceiling_and_counter_removed_background.png",ceilingBody:"ceiling_lamp_row_body.png",
+ ceilingEmission:"ceiling_lamp_row_emission.png",deskBody:"counter_lamp_body.png",deskEmission:"counter_lamp_emission.png"};
+ const images={};for(const [name,file] of Object.entries(files))images[name]=await load(file);
+ const el=document.getElementById("scene"),ctx=el.getContext("2d");
+ function state(){return {ceiling:document.getElementById("ceiling").checked,desk:document.getElementById("desk").checked,emission:document.getElementById("emission").checked}}
+ function draw(){const s=state();ctx.clearRect(0,0,546,483);ctx.drawImage(images.base,0,0);
+  if(s.ceiling){ctx.drawImage(images.ceilingBody,0,0);if(s.emission)ctx.drawImage(images.ceilingEmission,0,0)}
+  if(s.desk){ctx.drawImage(images.deskBody,0,0);if(s.emission)ctx.drawImage(images.deskEmission,0,0)}
+  document.getElementById("status").textContent=(s.ceiling?"天井8灯あり":"天井灯なし")+" ／ "+(s.desk?"受付ランプあり":"受付ランプなし")+" ／ "+(s.emission?"発光あり":"器具のみ");
+  return true;}
+ document.querySelectorAll("input").forEach(el=>el.addEventListener("change",draw));
+ document.getElementById("allOn").addEventListener("click",()=>{for(const el of document.querySelectorAll("input"))el.checked=true;draw()});
+ document.getElementById("bodyOnly").addEventListener("click",()=>{document.getElementById("ceiling").checked=true;document.getElementById("desk").checked=true;document.getElementById("emission").checked=false;draw()});
+ document.getElementById("allOff").addEventListener("click",()=>{document.getElementById("ceiling").checked=false;document.getElementById("desk").checked=false;draw()});
+ window.A18Lighting51={ready:true,state,draw};
+ draw();
+}catch(e){document.getElementById("status").textContent="読込に失敗しました: "+e.message;throw e}
+})();
+</script></body></html>

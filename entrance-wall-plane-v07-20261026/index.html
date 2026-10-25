@@ -1,0 +1,60 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A18 エントランス右手前｜壁面を基準に額縁・台紙・写真を再投影 v07</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f6f4ef;color:#26312a;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;line-height:1.6}
+main{max-width:880px;margin:auto;padding:14px 12px 48px}small,.muted{color:#607164}h1{font-size:21px;line-height:1.42;margin:4px 0 12px}
+h2{font-size:17px;margin:24px 0 10px}p{margin:8px 0 14px}
+.stage{border-radius:12px;background:#152117;padding:8px;margin:10px 0}
+.stage img{display:block;width:100%;max-width:546px;height:auto;aspect-ratio:546/483;margin:auto}
+fieldset{background:#fff;border:1px solid #d2ded5;border-radius:11px;margin:12px 0;padding:10px 12px}
+legend{padding:0 7px;font-weight:700}
+.controls{display:flex;flex-wrap:wrap;gap:7px}.controls button{flex:1 1 92px;font:inherit;font-size:14px;border:1px solid #b8c7b9;border-radius:8px;padding:11px 8px;background:white;color:#26332b;cursor:pointer}
+.controls button[aria-pressed=true]{border-color:#397c58;background:#dfece1;color:#1d5137;font-weight:bold}
+#status{font-size:14px;color:#47604e;margin:7px 0 14px}
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+figure{margin:0}.compare img{display:block;width:100%;height:auto;border-radius:7px}figcaption{text-align:center;margin:6px 0;font-size:12px;color:#647269}
+.note{font-size:13px;color:#617168;border-left:3px solid #9bb29f;padding-left:10px}
+@media(min-width:750px){main{padding:24px 18px}h1{font-size:25px}}
+</style></head><body><main>
+<small>A18「とっておき美術館」／正式原画 546×483／美術確認用 v07</small>
+<h1>右手前の壁面に、額縁と台紙の角度を合わせました</h1>
+<p>背景画像の緑の展示壁から壁面四隅を計測して基準にしました。正面素材の木製・金縁・台紙・写真窓を、その壁面内で同じ変換により表示します。</p>
+<div class="stage"><img id="scene" src="view_wood_empty_100.png" width="546" height="483" alt="壁面に揃えた木製額縁・台紙・写真窓のA18エントランス"></div>
+<div id="status">木製／空き台紙／100%</div>
+<fieldset><legend>右手前の額縁を比較</legend><div class="controls">
+<button data-style="wood" aria-pressed="true">木製</button>
+<button data-style="gold" aria-pressed="false">金額縁</button>
+<button data-style="gold_body" aria-pressed="false">金色の基本枠</button>
+<button data-style="none" aria-pressed="false">額縁なし</button>
+</div></fieldset>
+<fieldset><legend>写真窓を比較</legend><div class="controls">
+<button data-mode="empty" aria-pressed="true">空き台紙</button>
+<button data-mode="photos" aria-pressed="false">写真サンプル</button>
+<button data-mode="registration" aria-pressed="false">四隅位置の確認</button>
+</div></fieldset>
+<fieldset><legend>サイズ</legend><div class="controls">
+<button data-scale="90" aria-pressed="false">90%</button>
+<button data-scale="100" aria-pressed="true">100%</button>
+<button data-scale="110" aria-pressed="false">110%</button>
+</div></fieldset>
+<h2>前回v06と今回v07の比較</h2>
+<div class="compare">
+<figure><img src="QA_previous_v06_wood_empty.png" alt="前回v06の木製額縁と台紙" loading="lazy"><figcaption>前回 v06</figcaption></figure>
+<figure><img src="view_wood_empty_100.png" alt="今回v07の統一射影変換" loading="lazy"><figcaption>壁面基準 v07</figcaption></figure>
+</div>
+<h2>壁面を基準にした位置合わせ</h2>
+<div class="stage"><img src="QA_wall_plane_and_derived_display_outer.png" loading="lazy" width="546" height="483" alt="元の壁面の四隅とその内部に合わせた新しい額縁の位置"></div>
+<p class="note">水色は壁面の推定四隅、赤色はそこから自動計算した額縁の位置です。建築形状は修正していません。</p>
+<p class="note">壁面の四隅は原画の建築線から推定した座標であり、最終美術判断は未承認です。元の右手前の豪華な金額縁を画素単位で再現したものではありません。今回は正面素材由来の木・金・台紙・写真を一括で変形しています。登録写真の入力・変形関数は単体試験済みですが、ゲーム本体へはまだ統合していません。Lv.1に採用するかは未決定です。</p>
+</main><script>
+(()=>{const state={style:"wood",mode:"empty",scale:100},view=document.querySelector('#scene');
+const names={wood:"木製",gold:"金額縁",gold_body:"金色の基本枠",none:"額縁なし"};
+function render(){
+ view.src='view_'+state.style+'_'+state.mode+'_'+state.scale+'.png';
+ for(const key of ['style','mode','scale'])document.querySelectorAll('[data-'+key+']').forEach(b=>b.setAttribute('aria-pressed',String((key==='scale'?Number(b.dataset[key]):b.dataset[key])===state[key])));
+ document.querySelector('#status').textContent=names[state.style]+'／'+({empty:'空き台紙',photos:'写真サンプル',registration:'四隅の位置確認'})[state.mode]+'／'+state.scale+'%';
+}
+for(const key of ['style','mode','scale'])document.querySelectorAll('[data-'+key+']').forEach(b=>b.addEventListener('click',()=>{state[key]=key==='scale'?Number(b.dataset[key]):b.dataset[key];render()}));
+window.A18SingleH={state:()=>({...state}),get ready(){return view.complete&&view.naturalWidth===546}};
+})();
+</script></body></html>

@@ -1,0 +1,59 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>A18 エントランス外側・右手前 壁灯独立素材 v01</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;color:#233027;background:#f5f3ec;line-height:1.65}main{max-width:820px;margin:auto;padding:14px 12px 42px}
+h1{font-size:21px;line-height:1.42;margin:5px 0 12px}h2{font-size:17px;margin-top:23px}p{margin:8px 0 13px}
+small,.muted{color:#687567}.stage{background:#172217;padding:8px;border-radius:12px}
+canvas{width:100%;max-width:546px;height:auto;aspect-ratio:546/483;display:block;margin:auto;border:0}
+fieldset{border:1px solid #d2dbd4;background:white;padding:10px 13px;border-radius:11px;margin:12px 0}legend{font-weight:700;padding:0 6px}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+label{display:flex;align-items:center;gap:8px;padding:10px 9px;background:#f4f7f4;border-radius:7px;font-size:14px}
+input[type=checkbox]{width:18px;height:18px;accent-color:#39714d}
+.buttons{display:flex;flex-wrap:wrap;gap:8px}button{padding:10px 11px;border-radius:8px;font:inherit;border:1px solid #b6c9b7;background:#fff;cursor:pointer;flex:1}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+figure{margin:0}figure img{width:100%;display:block;border-radius:7px}figcaption{font-size:12px;color:#68756a;text-align:center;margin:6px 0}
+.note{font-size:13px;border-left:3px solid #abb9aa;color:#647267;padding-left:10px}
+@media(min-width:760px){main{padding:25px 18px}h1{font-size:24px}}
+</style></head><body><main>
+<small>A18「とっておき美術館」｜49番の壁・額縁・写真・キャラクターを維持</small>
+<h1>壁灯4点を独立素材化した比較</h1>
+<p>左右外側の壁灯2点と右手前の壁灯2点です。各灯は「器具本体」と「発光」の2層のみです。灯りを消した壁は原画からの推定修復で、美術確認が必要です。</p>
+<div class="stage"><canvas id="scene" width="546" height="483" aria-label="灯りを独立切替できるエントランス"></canvas></div>
+<p id="status" class="muted">照明合成画像を準備しています</p>
+<fieldset><legend>各壁灯</legend><div class="controls">
+<label><input type="checkbox" data-lamp="outer_left" checked>左外側 壁灯</label>
+<label><input type="checkbox" data-lamp="outer_right" checked>右外側 壁灯</label>
+<label><input type="checkbox" data-lamp="foreground_left" checked>右手前 左側</label>
+<label><input type="checkbox" data-lamp="foreground_right" checked>右手前 右側</label>
+</div></fieldset>
+<fieldset><legend>発光の切替</legend><label><input type="checkbox" id="glow" checked>発光を表示（オフでも器具本体は残せます）</label></fieldset>
+<div class="buttons"><button id="allOn">すべて点灯</button><button id="bodyOnly">器具のみ</button><button id="allOff">すべて取り外す</button></div>
+<h2>元の画面との比較</h2>
+<div class="grid">
+<figure><img src="QA_source_v49.png" loading="lazy" alt="49番の変更前エントランス"><figcaption>修正前・49番</figcaption></figure>
+<figure><img src="QA_all_four_sconces_off.png" loading="lazy" alt="4つの壁灯を取り外したエントランス"><figcaption>4灯なし・修復背景</figcaption></figure></div>
+<p class="note">本素材は最終美術承認前の候補です。背景修復に元画像にない画素が含まれるため、器具を元に戻しても元画像との画素完全一致は主張しません。天井の灯列と受付ランプはまだ対象外です。ゲーム本体も変更していません。</p>
+</main><script>
+(async()=>{const ids=["outer_left","outer_right","foreground_left","foreground_right"];
+const coords={outer_left:[38,68],outer_right:[473,68],foreground_left:[392,203],foreground_right:[497,253]};
+const load=(src)=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error('Image failed '+src));im.src=src});
+try{
+const images={base:await load("QA_all_four_sconces_off.png")};
+for(const id of ids){images[id]={body:await load("fixture_"+id+"_body.png"),emission:await load("fixture_"+id+"_emission.png")}}
+const scene=document.querySelector("#scene"),ctx=scene.getContext("2d");let ready=true;
+function render(){
+ ctx.clearRect(0,0,546,483);ctx.drawImage(images.base,0,0);
+ const glow=document.querySelector("#glow").checked;
+ const enabled=ids.filter(id=>document.querySelector('[data-lamp="'+id+'"]').checked);
+ for(const id of enabled){const [x,y]=coords[id];if(glow)ctx.drawImage(images[id].emission,x,y);ctx.drawImage(images[id].body,x,y)}
+ document.querySelector("#status").textContent="表示中 "+enabled.length+"灯／"+(glow?"発光あり":"器具のみ")+"／原画546×483";
+ return true;
+}
+document.querySelectorAll("input").forEach(x=>x.addEventListener("change",render));
+document.getElementById("allOn").onclick=()=>{ids.forEach(id=>document.querySelector('[data-lamp="'+id+'"]').checked=true);document.querySelector("#glow").checked=true;render()};
+document.getElementById("bodyOnly").onclick=()=>{ids.forEach(id=>document.querySelector('[data-lamp="'+id+'"]').checked=true);document.querySelector("#glow").checked=false;render()};
+document.getElementById("allOff").onclick=()=>{ids.forEach(id=>document.querySelector('[data-lamp="'+id+'"]').checked=false);render()};
+window.A18Lighting={ready:true,ids,render,state:()=>({lit:ids.filter(id=>document.querySelector('[data-lamp="'+id+'"]').checked),glow:document.querySelector("#glow").checked})};
+render();
+}catch(e){document.querySelector("#status").textContent="表示エラー: "+e.message;throw e}
+})();
+</script></body></html>

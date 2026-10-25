@@ -1,0 +1,58 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A18 正面共通展示枠｜木製・金縁・写真窓 v05</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#243025;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;line-height:1.55}
+main{max-width:850px;margin:auto;padding:14px 12px 45px}
+h1{font-size:21px;line-height:1.4;margin:5px 0 12px}h2{font-size:17px}
+small{color:#5e7163}
+p{margin:8px 0 14px}
+.viewer{background:#142117;border-radius:12px;padding:8px;margin:12px 0}
+.viewer img{display:block;width:100%;max-width:546px;height:auto;aspect-ratio:546/483;margin:auto}
+fieldset{border:1px solid #cfd9d1;border-radius:12px;background:white;padding:10px;margin:12px 0}
+legend{padding:0 7px;font-weight:bold}
+.controls{display:flex;flex-wrap:wrap;gap:7px}
+.controls button{font:inherit;font-size:14px;flex:1 1 82px;border:1px solid #b8c8bb;border-radius:8px;background:white;padding:10px 7px;cursor:pointer}
+.controls button[aria-pressed=true]{border-color:#417e54;background:#dfeddf;color:#155532;font-weight:bold}
+.status{font-size:14px;color:#52665a}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+figure{margin:0}.grid img{display:block;width:100%;border-radius:7px}
+figcaption{text-align:center;font-size:12px;color:#657467;margin:6px 0}
+.note{border-left:3px solid #a6b7a8;padding-left:11px;font-size:13px;color:#596c5d}
+</style></head><body><main>
+<small>A18「とっておき美術館」｜原画546×483・正面共通額縁から生成</small>
+<h1>右手前の展示枠を、すべて同じ座標で統一しました</h1>
+<p>木製・金色・額縁なしの切替だけでなく、写真と空き台紙も同じ正面素材と写真窓から変形しています。</p>
+<div class="viewer"><img id="scene" src="view_wood_empty_100.png" width="546" height="483" alt="共通幾何の右手前木製額縁"></div>
+<div class="status" id="status">木製／空き台紙／100%</div>
+<fieldset><legend>右手前の額縁</legend><div class="controls">
+<button data-style="wood" aria-pressed="true">木製</button>
+<button data-style="gold" aria-pressed="false">金額縁</button>
+<button data-style="gold_sans_ornament" aria-pressed="false">金枠本体</button>
+<button data-style="none" aria-pressed="false">額縁なし</button>
+</div></fieldset>
+<fieldset><legend>写真窓・登録写真の表示テスト</legend><div class="controls">
+<button data-content="empty" aria-pressed="true">空き台紙</button>
+<button data-content="photos" aria-pressed="false">写真サンプル</button>
+<button data-content="registration" aria-pressed="false">四隅の位置QA</button>
+</div></fieldset>
+<fieldset><legend>サイズ</legend><div class="controls">
+<button data-size="90" aria-pressed="false">90%</button>
+<button data-size="100" aria-pressed="true">100%</button>
+<button data-size="110" aria-pressed="false">110%</button>
+</div></fieldset>
+<h2>写真窓は全状態で共通です</h2>
+<div class="grid"><figure><img src="view_wood_photos_100.png" loading="lazy" alt="木枠に写真を入れたエントランス"><figcaption>木製＋写真</figcaption></figure>
+<figure><img src="view_gold_photos_100.png" loading="lazy" alt="金枠に同一写真を入れたエントランス"><figcaption>金額縁＋同じ写真</figcaption></figure></div>
+<p class="note">正面向きの既存左額縁を元に、右手前の一組の外周・写真窓座標へ統一投影。木製／金色の表示形状と写真差し込み窓が一致します。逆向きへの変形技術例も保存済みです。元の豪華な右手前金額縁と装飾配置は異なるため、これを正式に置き換えるかは美術監修で判断します。ゲーム本体・登録写真の保存処理は変更していません。</p>
+</main><script>
+(()=>{const s={style:"wood",content:"empty",size:100},img=document.querySelector("#scene");
+const labels={wood:"木製",gold:"金額縁",gold_sans_ornament:"金枠本体",none:"額縁なし"};
+function render(){
+ img.src="view_"+s.style+"_"+s.content+"_"+s.size+".png";
+ for(const k of ["style","content","size"])document.querySelectorAll("[data-"+k+"]").forEach(b=>b.setAttribute("aria-pressed",String((k==="size"?Number(b.dataset[k]):b.dataset[k])===s[k])));
+ document.getElementById("status").textContent=labels[s.style]+"／"+({empty:"空き台紙",photos:"写真サンプル",registration:"四隅の位置QA"})[s.content]+"／"+s.size+"%";
+}
+for(const k of ["style","content","size"])document.querySelectorAll("[data-"+k+"]").forEach(b=>b.addEventListener("click",()=>{s[k]=k==="size"?Number(b.dataset[k]):b.dataset[k];render()}));
+window.A18Canonical={state:()=>({...s}),get ready(){return img.complete&&img.naturalWidth===546}};
+})();
+</script></body></html>

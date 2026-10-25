@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="UTF-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A18 額縁独立素材｜エントランス比較</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f5f0;color:#242820;font:16px/1.65 system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif}
+main{max-width:870px;margin:auto;padding:20px 14px 40px}h1{font-size:21px;line-height:1.45;margin:4px 0 7px}h2{font-size:17px;margin:20px 0 10px}
+p{margin:7px 0 16px}small,.hint{color:#626962;font-size:13px}fieldset{border:1px solid #d8dcd4;background:#fff;border-radius:12px;margin:12px 0;padding:12px}legend{font-weight:700;padding:0 7px}
+.controls{display:flex;flex-wrap:wrap;gap:7px}.controls button{appearance:none;border:1px solid #b6c4b4;background:#fff;border-radius:8px;padding:9px 11px;font:inherit;font-size:14px;cursor:pointer}
+.controls button[aria-pressed=true]{border-color:#477b5d;background:#e0ede3;color:#165034;font-weight:700}
+.framebox{border-radius:12px;background:#121b13;padding:8px;box-shadow:0 8px 20px #0002}
+.framebox img{display:block;width:100%;height:auto;max-width:546px;margin:auto;aspect-ratio:546/483;object-fit:contain;image-rendering:auto}
+.information{border-left:3px solid #9ba994;padding-left:12px;font-size:13px;color:#566052}
+.caption{font-size:14px;color:#626962;margin-top:12px}a{color:#1f6850}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.grid figure{margin:0}
+.grid img{width:100%;display:block;border-radius:6px}.grid figcaption{text-align:center;font-size:12px;margin-top:5px}
+@media(max-width:400px){h1{font-size:19px}main{padding:14px 10px}.controls button{flex:1;min-width:85px;font-size:13px}}
+</style></head><body><main>
+<small>A18「とっておき美術館」｜正式原画546 × 483の分離QA</small>
+<h1>エントランスの額縁を、取り外してみました</h1>
+<p>赤い絨毯は非表示。写真を飾る窓を残したまま、3か所の額縁を切り替えて比較できます。</p>
+<div class="framebox"><img id="scene" width="546" height="483" src="view_none_empty_100.png" alt="3か所の額縁を外したエントランス。登録写真窓と原本キャラは保持。"></div>
+<p class="caption" id="state">額縁なし／空き台紙／100%</p>
+<fieldset><legend>額縁の表示</legend><div class="controls" id="styles">
+<button id="none" data-style="none" aria-pressed="true">額縁なし</button>
+<button id="wood" data-style="wood" aria-pressed="false">木製の基本枠</button>
+<button id="gold_full" data-style="gold_full" aria-pressed="false">元の金色額縁</button>
+</div></fieldset>
+<fieldset><legend>写真表示</legend><div class="controls" id="pictures">
+<button id="empty" data-pic="empty" aria-pressed="true">空き台紙</button>
+<button id="photos" data-pic="photos" aria-pressed="false">写真を置く</button>
+</div></fieldset>
+<fieldset><legend>サイズ比較</legend><div class="controls" id="sizes">
+<button id="s90" data-size="90" aria-pressed="false">90%</button>
+<button id="s100" data-size="100" aria-pressed="true">100%</button>
+<button id="s110" data-size="110" aria-pressed="false">110%</button>
+</div></fieldset>
+<p class="information">これは美術確認用の完成候補です。Lv.1の採用デザインは未決定。原画の建築照明・壁灯・受付灯はまだ焼き込み状態で、次工程で独立化します。壁面の隠れていた部分は元画像からの推定復元です。</p>
+<h2>3種類の基本状態（すべて正式キャラ使用）</h2>
+<div class="grid">
+<figure><img src="QA_01_no_ornate_frames.png" alt="額縁なし" loading="lazy"><figcaption>額縁なし</figcaption></figure>
+<figure><img src="QA_02_simple_wood_frames.png" alt="木製基本枠" loading="lazy"><figcaption>木製基本枠</figcaption></figure>
+<figure><img src="QA_04_gold_full_restored.png" alt="元の金色額縁" loading="lazy"><figcaption>元の金色額縁</figcaption></figure>
+</div>
+<p class="hint">背面左右：原本由来5×5フレームと写真窓。右手前：原本の遠近台形を保持した等比変形。既存の正式キャラクターPNGをそのまま使用。ゲーム本体は未変更。</p>
+</main><script>
+(()=>{const state={style:"none",pic:"empty",size:100};const image=document.querySelector("#scene");
+function render(){document.querySelectorAll("[data-style]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.style===state.style)));
+document.querySelectorAll("[data-pic]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.pic===state.pic)));
+document.querySelectorAll("[data-size]").forEach(b=>b.setAttribute("aria-pressed",String(Number(b.dataset.size)===state.size)));
+image.src="view_"+state.style+"_"+state.pic+"_"+state.size+".png";
+document.querySelector("#state").textContent=({none:"額縁なし",wood:"木製の基本枠",gold_full:"元の金色額縁"})[state.style]+"／"+(state.pic==="empty"?"空き台紙":"サンプル写真")+"／"+state.size+"%";
+}
+document.querySelectorAll("[data-style]").forEach(b=>b.addEventListener("click",()=>{state.style=b.dataset.style;render()}));
+document.querySelectorAll("[data-pic]").forEach(b=>b.addEventListener("click",()=>{state.pic=b.dataset.pic;render()}));
+document.querySelectorAll("[data-size]").forEach(b=>b.addEventListener("click",()=>{state.size=Number(b.dataset.size);render()}));
+window.A18Frames={state:()=>({...state}),get ready(){return image.complete&&image.naturalWidth>0}};
+})();
+</script></body></html>

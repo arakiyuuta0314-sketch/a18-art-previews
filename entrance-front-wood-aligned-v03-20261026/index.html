@@ -1,0 +1,53 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A18 右手前の木製額縁｜金縁との位置合わせ v03</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f8f6f1;color:#243027;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;line-height:1.65}main{max-width:850px;margin:0 auto;padding:14px 12px 40px}
+h1{font-size:21px;line-height:1.4;margin:5px 0 12px}p{margin:7px 0 12px}.hint{color:#617067;font-size:13px}
+.stage{background:#132016;border-radius:12px;padding:8px}.stage img{width:100%;height:auto;aspect-ratio:546/483;max-width:546px;display:block;margin:auto}
+fieldset{background:white;border:1px solid #d4ded5;border-radius:11px;margin:13px 0;padding:11px}legend{font-weight:700;padding:0 6px}
+.buttons{display:flex;flex-wrap:wrap;gap:6px}.buttons button{flex:1 1 92px;font:inherit;font-size:14px;border:1px solid #b9c8be;border-radius:8px;background:#fff;color:#26332b;padding:10px 9px;cursor:pointer}
+button[aria-pressed=true]{background:#dcecdf;border-color:#3c7956;color:#21583a;font-weight:700}
+#status{color:#405349;font-size:14px;margin-top:10px}
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.compare figure{margin:0}.compare img{width:100%;height:auto;border-radius:8px;display:block}.compare figcaption{text-align:center;font-size:12px;margin:6px 0}
+.note{border-left:3px solid #93a997;padding-left:10px;font-size:13px;color:#5f6e64}
+@media(min-width:700px){main{padding:24px 18px}h1{font-size:25px}}
+</style></head><body><main>
+<div class="hint">A18「とっておき美術館」｜原画 546×483・正式キャラそのまま</div>
+<h1>右手前の木製額縁を、金額縁の位置に揃えました</h1>
+<p>右手前の額縁だけを切り替えて比べられます。奥の左右額縁や建築物は変わりません。</p>
+<div class="stage"><img id="scene" width="546" height="483" src="view_new_empty_100.png" alt="右手前の木製額縁を金額縁の見える輪郭に合わせた入口"></div>
+<div id="status">位置修正版／空き台紙／100%</div>
+<fieldset><legend>右手前の額縁</legend><div class="buttons">
+<button id="old" data-style="old" aria-pressed="false">修正前の木製</button>
+<button id="new" data-style="new" aria-pressed="true">位置修正版</button>
+<button id="gold" data-style="gold" aria-pressed="false">元の金額縁</button>
+<button id="none" data-style="none" aria-pressed="false">額縁なし</button>
+</div></fieldset>
+<fieldset><legend>展示写真</legend><div class="buttons">
+<button id="empty" data-photo="empty" aria-pressed="true">空き台紙</button>
+<button id="photos" data-photo="photos" aria-pressed="false">写真サンプル</button>
+</div></fieldset>
+<fieldset><legend>サイズ比較</legend><div class="buttons">
+<button id="sz90" data-sz="90" aria-pressed="false">90%</button>
+<button id="sz100" data-sz="100" aria-pressed="true">100%</button>
+<button id="sz110" data-sz="110" aria-pressed="false">110%</button>
+</div></fieldset>
+<h2>位置修正前と修正後</h2>
+<div class="compare">
+<figure><img src="view_old_empty_100.png" alt="修正前、右手前に太くずれた木製額縁" loading="lazy"><figcaption>修正前</figcaption></figure>
+<figure><img src="view_new_empty_100.png" alt="金額縁基準に合わせた木製額縁" loading="lazy"><figcaption>位置修正版</figcaption></figure>
+</div>
+<p class="note">元の金額縁の装飾と木製額縁の木目・太さは異なりますが、基準となる展示窓と壁上の位置を揃えています。金装飾の複雑な輪郭まで画素一致させるものではありません。Lv.1への採用とゲーム本体への統合は未確定です。</p>
+</main><script>
+(()=>{const s={style:"new",photo:"empty",size:100},im=document.querySelector("#scene");
+function render(){im.src="view_"+s.style+"_"+s.photo+"_"+s.size+".png";
+ document.querySelectorAll("[data-style]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.style===s.style)));
+ document.querySelectorAll("[data-photo]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.photo===s.photo)));
+ document.querySelectorAll("[data-sz]").forEach(b=>b.setAttribute("aria-pressed",String(Number(b.dataset.sz)===s.size)));
+ document.querySelector("#status").textContent=({new:"位置修正版",old:"修正前の木製",gold:"元の金額縁",none:"額縁なし"})[s.style]+"／"+(s.photo==="empty"?"空き台紙":"写真サンプル")+"／"+s.size+"%";
+}
+document.querySelectorAll("[data-style]").forEach(b=>b.addEventListener("click",()=>{s.style=b.dataset.style;render()}));
+document.querySelectorAll("[data-photo]").forEach(b=>b.addEventListener("click",()=>{s.photo=b.dataset.photo;render()}));
+document.querySelectorAll("[data-sz]").forEach(b=>b.addEventListener("click",()=>{s.size=Number(b.dataset.sz);render()}));
+window.A18Front={state:()=>({...s}),get ready(){return im.complete&&im.naturalWidth===546}};
+})();
+</script></body></html>

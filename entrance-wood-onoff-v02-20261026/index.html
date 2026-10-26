@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="data:,"><title>A18 エントランス｜木製額縁 ON/OFF 比較</title>
+<style>
+:root{color-scheme:dark;--bg:#171c1b;--panel:#242b29;--border:#45524a;--accent:#e5bf83}
+[hidden]{display:none!important}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#eee9df;font:15px/1.65 system-ui,-apple-system,"Noto Sans JP",sans-serif}
+main{margin:auto;max-width:760px;padding:20px 15px 48px}
+.eyebrow{font-size:11px;letter-spacing:.13em;color:#c9b89f}h1{font-size:20px;font-weight:700;margin:5px 0 3px}
+.sub{font-size:12px;color:#b5c0b9;margin:0 0 22px}
+.controls{display:flex;gap:9px;margin-bottom:14px}button{flex:1;min-height:49px;border:1px solid #647467;border-radius:13px;background:var(--panel);color:#f2f2e9;font-weight:700;cursor:pointer}
+button[aria-pressed="true"]{background:#a87a47;color:#15130f;border-color:#e4bd85}
+.canvas-wrap{background:#121715;border:1px solid var(--border);border-radius:12px;overflow:hidden;line-height:0}
+#mainScene{display:block;width:100%;aspect-ratio:546/483;height:auto;image-rendering:auto}
+.compare-title{display:flex;justify-content:space-between;align-items:center;margin:23px 0 9px}
+.compare-title h2{font-size:14px;margin:0}.compare-title label{font-size:13px;color:#e9d6b4}
+.compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.compare-grid figure{margin:0;min-width:0}.compare-grid img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--border)}
+figcaption{font-size:12px;text-align:center;margin-top:4px;color:#c8d3cc}
+.info{margin-top:16px;padding-top:13px;border-top:1px solid var(--border);font-size:12px;color:#bdc7bf}
+.mono{font-variant-numeric:tabular-nums;font-size:11px;color:#acaeaa}
+@media(max-width:390px){main{padding:16px 10px 35px}h1{font-size:18px}}
+</style></head>
+<body><main>
+<div class="eyebrow">A18 — とっておき美術館 / 美術監修用</div>
+<h1>エントランス 木製額縁 ON/OFF</h1>
+<p class="sub">既存の正式PNGから合成した2状態。どちらもLv.1未確定。</p>
+<div class="controls" role="group" aria-label="木製額縁">
+<button id="btnOff" type="button" aria-pressed="true">木製額縁 OFF</button>
+<button id="btnOn" type="button" aria-pressed="false">木製額縁 ON</button>
+</div>
+<div class="canvas-wrap"><canvas id="mainScene" width="546" height="483" role="img" aria-label="無装飾エントランス比較画像"></canvas></div>
+<div class="compare-title"><h2>同じ位置で左右比較</h2><label><input type="checkbox" id="compareToggle" checked> 表示</label></div>
+<section id="compareGrid" class="compare-grid" aria-label="並列比較">
+<figure><img src="entrance_OFF.png?v=20261026v02" width="546" height="483" alt="木製額縁OFF。額縁を除いたエントランス"><figcaption>OFF｜額縁なし</figcaption></figure>
+<figure><img src="entrance_ON.png?v=20261026v02" width="546" height="483" alt="木製額縁ON。3か所だけ木製額縁を追加"><figcaption>ON｜木製額縁3点</figcaption></figure>
+</section>
+<p class="info">背景・正式キャラクター・空き台紙・建築・照明条件は共通です。照明と隠れていた壁・受付周辺には元画像から推定修復した部分があり、美術監修待ちです。</p>
+<div class="mono" id="qaStatus" role="status" aria-live="polite">画像読み込み中</div>
+</main><script>
+(()=>{'use strict';
+ const files={OFF:"entrance_OFF.png?v=20261026v02",ON:"entrance_ON.png?v=20261026v02"},imgs={},state={wood:false};
+ const canvas=document.getElementById("mainScene"),ctx=canvas.getContext("2d",{alpha:false});
+ const b0=document.getElementById("btnOff"),b1=document.getElementById("btnOn"),status=document.getElementById("qaStatus");
+ const render=()=>{const image=imgs[state.wood?"ON":"OFF"];if(!image)return;ctx.clearRect(0,0,546,483);ctx.drawImage(image,0,0,546,483);b0.setAttribute("aria-pressed",String(!state.wood));b1.setAttribute("aria-pressed",String(state.wood));canvas.setAttribute("aria-label",state.wood?"木製額縁ON、3点だけ追加":"木製額縁OFF、無装飾版");status.textContent=state.wood?"現在：木製額縁 ON（3点）":"現在：木製額縁 OFF（なし）";};
+ const setWood=v=>{state.wood=!!v;render();};
+ b0.addEventListener("click",()=>setWood(false));b1.addEventListener("click",()=>setWood(true));
+ document.getElementById("compareToggle").addEventListener("change",e=>{document.getElementById("compareGrid").hidden=!e.target.checked;});
+ const start=async()=>{for(const [k,path] of Object.entries(files)){const i=new Image();i.src=path;await i.decode();if(i.naturalWidth!==546||i.naturalHeight!==483)throw Error("Invalid source "+k);imgs[k]=i;}render();window.A18WoodToggle52={ready:true,setWood,state:()=>({...state})};};
+ start().catch(e=>{console.error(e);status.textContent="画像を読み込めませんでした";});
+})();
+</script></body></html>

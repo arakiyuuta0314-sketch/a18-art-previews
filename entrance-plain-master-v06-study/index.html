@@ -1,0 +1,40 @@
+<!doctype html><html lang="ja"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="data:,"><title>A18 無装飾エントランス背景 v06｜再構築試作</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#141b18;color:#eeeade;font:14px/1.55 system-ui,-apple-system,"Noto Sans JP",sans-serif}
+main{max-width:780px;margin:auto;padding:18px 12px 42px}
+small{color:#bdc5b8}h1{font-size:20px;margin:4px 0 6px}h2{font-size:15px}
+.note{color:#c7d0c6;font-size:12px;margin:9px 0 14px}
+.controls{display:flex;gap:10px;margin:16px 0}button{border:1px solid #667365;border-radius:11px;flex:1;min-height:52px;background:#272e29;color:#f2eee8;font-weight:700}
+button[aria-pressed="true"]{background:#b18653;color:#1a1510}
+canvas{display:block;width:100%;height:auto;aspect-ratio:546/483;border:1px solid #536254;border-radius:10px;background:#151815}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+figure{margin:0}img{max-width:100%;width:100%;height:auto;border-radius:9px;border:1px solid #536254}figcaption{font-size:12px;text-align:center;color:#d9d4c7}
+details{border:1px solid #536254;border-radius:10px;padding:10px;margin-top:17px}
+summary{font-weight:700;color:#dec497;cursor:pointer}
+details figure{margin:12px 0 17px}details a{color:inherit}
+.status{font-size:12px;color:#c5ccbf;margin:14px 0}
+[hidden]{display:none!important}
+</style></head><body><main>
+<small>A18 とっておき美術館｜美術監修・装飾なし基準</small>
+<h1>エントランス背景の再構築 v06</h1>
+<p class="note">旧v05の拡幅構図をもとに、天井材と左右の緑壁面を再構築した試作です。木製額縁・植物・壁灯・カーペットは追加しません。美術承認前です。</p>
+<div class="controls" role="group" aria-label="背景を切替">
+<button type="button" id="new" aria-pressed="true">新・無装飾 v06</button>
+<button type="button" id="old" aria-pressed="false">旧・拡幅 v05</button></div>
+<canvas width="546" height="483" id="scene" role="img" aria-label="無装飾背景の試作"></canvas>
+<div class="pair"><figure><img src="reference_v05_OFF.png?v=20261026v06" alt="旧v05" width="546" height="483"><figcaption>旧 v05（修正前）</figcaption></figure>
+<figure><img src="entrance_OFF.png?v=20261026v06" alt="新v06" width="546" height="483"><figcaption>新 v06（無装飾基準の試作）</figcaption></figure></div>
+<details id="details"><summary>天井・背面左右を拡大して確認</summary>
+<figure><figcaption>天井｜左：旧、右：新</figcaption><a href="QA_ceiling_before_after.png" target="_blank"><img src="QA_ceiling_before_after.png" loading="lazy" alt="天井修復差分"></a></figure>
+<figure><figcaption>背面左｜左：旧、右：新</figcaption><a href="QA_left_back_before_after.png" target="_blank"><img src="QA_left_back_before_after.png" loading="lazy" alt="左展示壁差分"></a></figure>
+<figure><figcaption>背面右｜左：旧、右：新</figcaption><a href="QA_right_back_before_after.png" target="_blank"><img src="QA_right_back_before_after.png" loading="lazy" alt="右展示壁差分"></a></figure></details>
+<p class="status" id="status" role="status">画像読込中</p>
+<small>天井の中央装飾、既存木製腰壁・扉・前景は維持。壁と天井の見えない裏側は既存PNGから推定再構築しています。完成品質の採否は未決定。</small>
+</main>
+<script>(()=>{"use strict";const keys={new:"entrance_OFF.png?v=20261026v06",old:"reference_v05_OFF.png?v=20261026v06"},canvas=document.getElementById("scene"),ctx=canvas.getContext("2d",{alpha:false}),images={};let chosen="new";
+const draw=()=>{if(!images[chosen])return;ctx.drawImage(images[chosen],0,0);document.getElementById("new").setAttribute("aria-pressed",String(chosen==="new"));document.getElementById("old").setAttribute("aria-pressed",String(chosen==="old"));document.getElementById("status").textContent=chosen==="new"?"現在：無装飾の再構築 v06（美術監修待ち）":"現在：以前の拡幅 v05（未承認）"};
+for(const k of ["new","old"])document.getElementById(k).onclick=()=>{chosen=k;draw()};
+(async()=>{for(const [k,src] of Object.entries(keys)){let im=new Image();im.src=src;await im.decode();if(im.naturalWidth!==546||im.naturalHeight!==483)throw Error("Invalid "+k);images[k]=im}draw();window.A18PlainV06={ready:true,setMode:k=>{if(!keys[k])throw Error(k);chosen=k;draw()},state:()=>chosen}})().catch(e=>{console.error(e);document.getElementById("status").textContent="画像読み込みエラー"})})()</script>
+</body></html>

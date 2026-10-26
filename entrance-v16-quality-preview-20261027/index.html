@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>A18 エントランス背景｜画質比較 v16</title>
+<style>
+:root {color-scheme: light;--ink:#26342f;--green:#2c5344;--cream:#fbf7ef;--muted:#66746e}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;color:var(--ink)}
+main{width:min(1060px,calc(100% - 32px));margin:30px auto 70px}
+h1{font-size:clamp(22px,3vw,34px);line-height:1.35;margin:0 0 12px}
+p{margin:10px 0 20px}b{font-weight:700}
+.panel{background:#fff;border:1px solid #e0e6df;border-radius:16px;padding:clamp(14px,3vw,28px);margin:20px 0}
+.status{font-size:14px;background:#e8efe7;display:inline-block;padding:4px 14px;border-radius:80px;margin-bottom:14px}
+.compare{position:relative;aspect-ratio:546 / 483;max-width:760px;margin:auto;overflow:hidden;border-radius:8px;touch-action:pan-y}
+.compare img{display:block;width:100%;height:100%;position:absolute;object-fit:fill}
+#after{clip-path:inset(0 50% 0 0)}.split{position:absolute;z-index:2;top:0;bottom:0;left:50%;width:3px;background:#fff;box-shadow:0 0 5px #334b34}
+.split::before{content:"◀ ▶";color:#314e3f;background:white;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:24px;padding:8px 9px;white-space:nowrap;font-size:11px}
+.hints{display:flex;justify-content:space-between;gap:10px;max-width:760px;margin:10px auto;font-size:14px;color:var(--muted)}
+input[type=range]{width:min(100%,760px);accent-color:var(--green);display:block;margin:4px auto 20px;cursor:ew-resize}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cols figure{margin:0}.cols img{width:100%;height:auto;border-radius:8px}.cols figcaption{font-size:13px;color:var(--muted)}
+a{color:#2c634f;text-underline-offset:3px}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.links a{display:inline-block;padding:8px 14px;background:#edf4ed;border-radius:7px;font-weight:600}
+.note{font-size:14px;color:var(--muted)}
+@media(max-width:650px){main{margin:16px auto 36px}.cols{grid-template-columns:1fr}.panel{margin:12px 0}}
+</style>
+</head>
+<body><main>
+<span class="status">正式採用前の画質比較／ゲーム公開版は未変更</span>
+<h1>「とっておき美術館」エントランス背景</h1>
+<p>承認済みの <b>v10と同じ建築構図</b>を保ち、AI超解像と高解像度の床素材を部分的に適用した画質改善候補です。<b>右手前の壁・扉・柱の位置は再設計していません。</b></p>
+<section class="panel">
+<h2 style="font-size:20px;margin:0 0 16px">スライダーで比較</h2>
+<div class="compare" aria-label="左が現行v10、右が画質改善v16">
+<img src="original-v10-preview.webp" alt="変更前 v10" width="2184" height="1932">
+<img id="after" src="quality-v16-preview.webp" alt="変更後 v16" width="2184" height="1932">
+<div id="split" class="split" aria-hidden="true"></div>
+</div>
+<div class="hints"><span>左：現行 v10</span><span>右：画質改善 v16</span></div>
+<input aria-label="比較位置" type="range" id="range" min="0" max="100" value="50">
+<div class="links"><a href="quality-v16-2184x1932.png" target="_blank" rel="noopener">改善版を原寸で開く</a><a href="original-v10-546x483.png" target="_blank" rel="noopener">従来版を原寸で開く</a></div>
+</section>
+<section class="panel">
+<h2 style="font-size:20px;margin:0 0 16px">全体を並べて確認</h2>
+<div class="cols">
+<figure><img src="original-v10-546x483.png" alt="元の背景v10"><figcaption>従来版 v10 ／ 546×483</figcaption></figure>
+<figure><img src="quality-v16-preview.webp" alt="画質改善候補v16"><figcaption>新候補 v16 ／ 2184×1932</figcaption></figure>
+</div>
+</section>
+<p class="note">v16はゲーム内の隔離ブラウザで読み込み／描画を確認済み。ただし高解像度化ですべての元画像の粗さが消えるわけではなく、現在は監修用候補です。作品写真、保存データ、公開ゲームは変更していません。</p>
+</main><script>
+const range=document.getElementById('range'),after=document.getElementById('after'),split=document.getElementById('split');
+function update(){const n=Number(range.value);after.style.clipPath='inset(0 '+(100-n)+'% 0 0)';split.style.left=n+'%'}
+range.addEventListener('input',update);update();
+const target=document.querySelector('.compare');
+target.addEventListener('pointerdown',ev=>{if(ev.pointerType==='mouse'&&ev.button!==0)return;target.setPointerCapture(ev.pointerId);move(ev)});
+target.addEventListener('pointermove',ev=>{if(ev.buttons || ev.pointerType==='touch'){move(ev)}});
+function move(ev){const box=target.getBoundingClientRect();range.value=Math.max(0,Math.min(100,Math.round((ev.clientX-box.left)/box.width*100)));update()}
+</script></body></html>

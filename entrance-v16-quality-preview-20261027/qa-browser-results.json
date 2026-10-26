@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "viewport": [
+    390,
+    844
+  ],
+  "dpr": 2,
+  "jsExceptions": [],
+  "networkFailures": [],
+  "images": [
+    [
+      2184,
+      1932
+    ],
+    [
+      2184,
+      1932
+    ],
+    [
+      546,
+      483
+    ],
+    [
+      2184,
+      1932
+    ]
+  ],
+  "slider80": {
+    "range": "80",
+    "clip": "inset(0px 20% 0px 0px)",
+    "split": "80%"
+  },
+  "horizontalOverflow": false,
+  "server": "isolated localhost Chrome"
+}

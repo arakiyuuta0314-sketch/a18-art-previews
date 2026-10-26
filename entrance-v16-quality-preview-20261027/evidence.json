@@ -1,0 +1,14 @@
+{
+  "type": "unapproved quality preview only",
+  "source_sha256": "5604d749256a3a11db7da00e905a4bc49fc5b477e761673a6b6236cd01a032ea",
+  "candidate_sha256": "e8bafa15a776298765b7543a6cced5b3552560d5d3893bee38721e0ca848608c",
+  "source_size": [
+    546,
+    483
+  ],
+  "candidate_size": [
+    2184,
+    1932
+  ],
+  "game_main_untouched": true
+}

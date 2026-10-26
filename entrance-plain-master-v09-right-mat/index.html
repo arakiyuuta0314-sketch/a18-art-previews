@@ -13,15 +13,16 @@ details figure{margin:12px 0 16px}
 .status{font-size:12px;color:#c4d0c4;margin:10px 0}small{color:#b5c2b7}
 </style></head><body><main>
 <div class="series">とっておき美術館 A18｜美術監修用 v09</div>
-<h1>右手前の欠けた台紙を修復</h1>
+<h1>エントランス｜額縁なしを基準にした比較</h1>
+<p><strong>2026年10月26日：エントランス素材制作は一区切り。</strong> OFF（木製額縁なし）を今後の基準にします。ONは装飾案の比較用です。Lv.1の採用はまだ決めません。</p>
 <p>右手前の台紙を49番の正式PNGで復元しました。OFF・ONのどちらも台紙が揃い、ONでは正式な木製額縁を追加します。右奥の柱はそのままです。</p>
 <div class="controls" role="group" aria-label="木製額縁の切替">
-<button id="btnOn" type="button" aria-pressed="true">台紙修復＋木枠 ON</button>
-<button id="btnOff" type="button" aria-pressed="false">台紙修復・木枠 OFF</button>
+<button id="btnOff" type="button" aria-pressed="true">台紙修復・木枠 OFF</button>
+<button id="btnOn" type="button" aria-pressed="false">台紙修復＋木枠 ON</button>
 </div>
-<canvas id="scene" width="546" height="483" aria-label="右手前の台紙修復と木枠あり"></canvas>
+<canvas id="scene" width="546" height="483" aria-label="無装飾・額縁なしの基準背景"></canvas>
 <div id="status" class="status" role="status">画像読み込み中</div>
-<h2>同じ背景で木製額縁だけ切替</h2>
+<h2>額縁なしを基準に比較</h2>
 <div class="pair">
 <figure><img width="546" height="483" src="entrance_OFF.png?v=20261026v09" alt="額縁なし、無装飾v07"><figcaption>台紙あり｜木枠 OFF</figcaption></figure>
 <figure><img width="546" height="483" src="entrance_ON.png?v=20261026v09" alt="右手前の欠けた台紙を修復"><figcaption>台紙と木枠｜ON</figcaption></figure>
@@ -34,7 +35,7 @@ details figure{margin:12px 0 16px}
 </details>
 <small>正式台紙はON/OFFで共通。木枠の有無のみが切替対象です。Lv.1デザイン・最終美術採用は未決定です。</small>
 </main><script>
-(()=>{'use strict';const images={},paths={ON:'entrance_ON.png?v=20261026v09',OFF:'entrance_OFF.png?v=20261026v09'};let mode='ON';
+(()=>{'use strict';const images={},paths={ON:'entrance_ON.png?v=20261026v09',OFF:'entrance_OFF.png?v=20261026v09'};let mode='OFF';
 const canvas=document.getElementById('scene'),ctx=canvas.getContext('2d',{alpha:false}),buttons={ON:document.getElementById('btnOn'),OFF:document.getElementById('btnOff')},status=document.getElementById('status');
 function paint(){if(!images[mode])return;ctx.drawImage(images[mode],0,0,546,483);buttons.ON.setAttribute('aria-pressed',String(mode==='ON'));buttons.OFF.setAttribute('aria-pressed',String(mode==='OFF'));status.textContent=mode==='ON'?'表示中：台紙修復済み＋木枠あり':'表示中：台紙修復済み・木枠なし';canvas.setAttribute('aria-label',status.textContent)}
 for(const m of ['ON','OFF'])buttons[m].onclick=()=>{mode=m;paint()};

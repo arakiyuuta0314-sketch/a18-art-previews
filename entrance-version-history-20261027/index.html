@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>A18 エントランス｜過去バージョン実画像一覧</title>
+<style>
+:root{color-scheme:light;--bg:#f6f4ee;--ink:#253b33;--muted:#63756b;--green:#2a5947;--line:#d8ddd5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.55}
+main{max-width:1160px;margin:0 auto;padding:24px clamp(14px,4vw,38px) 80px}
+h1{font-size:clamp(22px,3.6vw,34px);line-height:1.35;margin:0 0 12px}
+p{margin:8px 0 12px}
+.notice{font-size:14px;color:#485a52}
+.status{font-size:12px;background:#e5eae2;color:#274537;padding:5px 12px;border-radius:20px;display:inline-block;margin-bottom:12px}
+.controls{position:sticky;top:0;z-index:5;background:rgba(246,244,238,.97);border-bottom:1px solid var(--line);padding:13px 0;margin:18px 0;backdrop-filter:blur(8px)}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{border:1px solid #cedad0;background:#fff;color:var(--ink);border-radius:20px;padding:8px 12px;cursor:pointer;font:inherit;font-size:13px}
+.filters button.active{background:var(--green);border-color:var(--green);color:#fff}
+.search{width:100%;border:1px solid #cad8cd;border-radius:9px;padding:10px 12px;margin-top:9px;background:#fff;font:inherit}
+#count{font-size:13px;color:var(--muted);margin:7px 0 0}
+h2{font-size:20px;padding-top:8px;margin:22px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;text-align:left;color:inherit;font:inherit;padding:0;box-shadow:0 1px 4px rgba(25,34,26,.035);min-width:0}
+.card:focus-visible{outline:3px solid #396b55;outline-offset:3px}
+.card img{width:100%;height:auto;aspect-ratio:546/483;object-fit:contain;display:block;background:#ede9df}
+.card .info{padding:11px 12px 13px}
+.name{font-size:15px;line-height:1.4;font-weight:700}
+.meta{font-size:12px;color:var(--muted);margin-top:6px}
+.no{font-weight:750;background:#e9f0e7;color:#315843;padding:2px 5px;border-radius:4px;margin-right:4px;display:inline-block}
+.note{font-size:12px;color:#637069;margin-top:5px}
+a{color:#26563f}
+#viewer{border:0;border-radius:14px;padding:0;color:var(--ink);max-width:min(1100px,96vw);width:100%;max-height:96dvh;box-shadow:0 15px 80px #16241b7a}
+#viewer::backdrop{background:#0d1710db}
+.viewer-body{background:#faf9f5;padding:12px;max-height:96dvh;overflow-y:auto}
+.viewer-controls{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}
+.viewer-controls button{border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);padding:8px 14px;font:inherit;cursor:pointer}
+#viewerTitle{font-size:17px;font-weight:700;margin:2px 0 7px}
+#viewerImage{width:100%;max-height:73dvh;object-fit:contain;background:#e5ded0;display:block}
+#viewerNote{font-size:13px;color:var(--muted);margin-top:8px}
+#viewerTip{font-size:12px;color:var(--muted)}
+details{font-size:13px;margin:10px 0}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:35px;padding-top:20px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card .info{padding:9px}.name{font-size:13px}.meta,.note{font-size:11px}}
+@media(max-width:380px){.filters button{padding:7px 9px;font-size:12px}}
+</style></head><body><main>
+<span class="status">実際に保存された旧画像をそのまま比較／ゲームは変更しません</span>
+<h1>とっておき美術館｜エントランス全履歴</h1>
+<p>10月25日の初期完成イメージから、装飾を外した各段階、木枠ON/OFF、保存済みのv10・v11・v14・v16まで。<strong>描き直した架空の画像ではなく、残っている実ファイル</strong>を一覧にしました。</p>
+<p class="notice">画像をタップすると拡大して前後の版へ移動できます。各カードの<strong>番号</strong>を教えてもらえれば、その版を修復の正本候補にできます。ここで並べたことは採用を意味しません。</p>
+<div class="controls"><div class="filters" id="filters">
+<button type="button" data-group="all" class="active">すべて</button>
+<button type="button" data-group="10/25">10/25 初期・分離</button>
+<button type="button" data-group="10/26">10/26 無装飾・木枠</button>
+<button type="button" data-group="10/27">10/27 描き直し・拡大</button>
+</div>
+<input id="search" class="search" aria-label="画像を検索" placeholder="例：カウンター、無装飾、v09、OFF、額縁">
+<p id="count"></p></div>
+<div id="groups" aria-live="polite"></div>
+<footer><p>このページは画像履歴の比較用です。個々の素材・マスク・切り抜き画像は除き、背景や館内全体が分かる状態を中心に収録しています。年月日と名称は保存フォルダ・実ファイル名に基づきます。</p><p><a href="../entrance-v16-quality-preview-20261027/">以前のv10/v16画質比較を見る</a></p></footer>
+</main>
+<dialog id="viewer" aria-label="画像の拡大表示"><div class="viewer-body">
+<div class="viewer-controls"><button id="prev" type="button">◀ 前の画像</button><button id="close" type="button" aria-label="閉じる">閉じる ×</button><button id="next" type="button">次の画像 ▶</button></div>
+<div id="viewerTitle"></div><img id="viewerImage" alt="">
+<div id="viewerNote"></div><div id="viewerTip">画像を左右にスワイプして切替／スマホではピンチ拡大も使用できます</div>
+<details><summary>元ファイル情報</summary><div id="source"></div></details>
+</div></dialog>
+<script>
+'use strict';
+const groupRoot=document.getElementById('groups'), count=document.getElementById('count');
+const dialog=document.getElementById('viewer'),image=document.getElementById('viewerImage'),title=document.getElementById('viewerTitle'),note=document.getElementById('viewerNote'),source=document.getElementById('source');
+let items=[],view=[],selected=0,active='all';
+const make=(tag,css='',content='')=>{const el=document.createElement(tag);if(css)el.className=css;if(content)el.textContent=content;return el};
+function render(){
+ const q=document.getElementById('search').value.trim().toLocaleLowerCase();
+ view=items.filter(x=>(active==='all'||x.group.startsWith(active))&&(!q||[x.label,x.note,x.group,x.original_path].join(' ').toLocaleLowerCase().includes(q)));
+ count.textContent=view.length+'件を表示／保存された全体画像 '+items.length+'件';
+ groupRoot.replaceChildren();
+ for(const group of [...new Set(view.map(x=>x.group))]){
+ const h=make('h2','',group);groupRoot.append(h);
+ const grid=make('div','grid');grid.setAttribute('aria-label',group);
+ for(const x of view.filter(x=>x.group===group)){
+ const card=make('button','card');card.type='button';card.dataset.i=x.i;
+ const im=make('img');im.src=x.img;im.loading='lazy';im.alt=x.label;im.width=546;im.height=483;
+ const info=make('div','info'),name=make('div','name'),no=make('span','no','#'+String(x.i).padStart(2,'0'));
+ name.append(no,document.createTextNode(x.label));
+ info.append(name,make('div','note',x.note),make('div','meta',x.width+'×'+x.height+' px'));
+ card.append(im,info);card.addEventListener('click',()=>openImage(view.findIndex(y=>y.i===x.i)));
+ grid.append(card);
+ }
+ groupRoot.append(grid);
+ }
+}
+function openImage(i){
+ if(!view.length)return;selected=(i+view.length)%view.length;const x=view[selected];
+ title.textContent='#'+String(x.i).padStart(2,'0')+'｜'+x.label;
+ image.src=x.img;image.alt=x.label;
+ note.textContent=x.group+'　'+x.width+'×'+x.height+' px　 '+x.note;
+ source.textContent=x.original_path;
+ if(!dialog.open)dialog.showModal();
+}
+document.querySelectorAll('#filters button').forEach(b=>b.addEventListener('click',()=>{
+ active=b.dataset.group;document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('active',x===b));render();
+}));
+document.getElementById('search').addEventListener('input',render);
+document.getElementById('close').addEventListener('click',()=>dialog.close());
+document.getElementById('prev').addEventListener('click',()=>openImage(selected-1));
+document.getElementById('next').addEventListener('click',()=>openImage(selected+1));
+dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+document.addEventListener('keydown',e=>{if(!dialog.open)return;if(e.key==='ArrowRight')openImage(selected+1);if(e.key==='ArrowLeft')openImage(selected-1)});
+let startX=0;
+image.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX},{passive:true});
+image.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>55)openImage(selected+(dx<0?1:-1))},{passive:true});
+fetch('manifest.json').then(r=>{if(!r.ok)throw Error('cannot load manifest');return r.json()}).then(data=>{items=data.items;render()}).catch(err=>count.textContent='読み込みエラー '+err.message);
+</script></body></html>

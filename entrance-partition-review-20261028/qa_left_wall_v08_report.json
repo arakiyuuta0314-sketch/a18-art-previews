@@ -1,0 +1,16 @@
+[
+  {
+    "width": 1200,
+    "height": 880,
+    "mobile": false,
+    "errors": [],
+    "result": "PASS"
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "mobile": true,
+    "errors": [],
+    "result": "PASS"
+  }
+]

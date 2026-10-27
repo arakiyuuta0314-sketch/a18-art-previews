@@ -38,7 +38,7 @@ a{color:#246b52}
 </style></head><body><main>
 <header>
 <h1>とっておき美術館｜仕切り壁</h1>
-<p class="meta">左は白い漆喰仕上げ。右は写真を登録できる展示壁。カウンターと壁の位置は指定値のまま。</p>
+<p class="meta">左は黒板の緑を取り除いた白い漆喰仕上げ（v05）。右は写真を登録できる展示壁。カウンターと壁の位置は指定値のまま。</p>
 </header>
 <nav aria-label="確認モード">
 <button id="tab-placement" type="button" aria-selected="true">右壁の配置</button>
@@ -47,7 +47,7 @@ a{color:#246b52}
 </nav>
 <section class="panel" id="placement">
 <div class="stage" id="stage">
-<img class="base" src="game_plaster_without_right.png" width="1200" height="880" alt="Chromeの実ゲーム。左壁を白漆喰に変更し、カウンターの高さを保った画面">
+<img class="base" src="game_plaster_without_right_v05.png" width="1200" height="880" alt="Chromeの実ゲーム。左壁を白漆喰に変更し、カウンターの高さを保った画面">
 <img class="wall" id="rightWall" src="partition-right-mirror-v03.png" width="860" height="488" draggable="false" alt="移動と伸縮ができる反転した右仕切り壁の独立素材">
 </div>
 <div class="tools">
@@ -69,7 +69,7 @@ a{color:#246b52}
 <p class="subtitle">左漆喰壁：X=-6、Y=200、幅215、高さ122。カウンター：X=-10、Y=318、幅233、高さ107。右壁：X=363、Y=243、幅188、高さ133（仮確定）。</p>
 </section>
 <section class="panel" id="photoPreview" hidden>
-<div class="stage"><img id="registeredScreen" class="base" src="game_plaster_right_registered.png" width="1200" height="880" alt="実際のChromeゲームで右の仕切り壁に画像を登録し表示したQA画面"></div>
+<div class="stage"><img id="registeredScreen" class="base" src="game_plaster_right_registered_v05.png" width="1200" height="880" alt="実際のChromeゲームで右の仕切り壁に画像を登録し表示したQA画面"></div>
 <div class="tools"><button id="photoPresent" type="button" aria-pressed="true">テスト画像あり</button><button id="photoAbsent" type="button" aria-pressed="false">テスト画像なし</button></div>
 <p class="subtitle">右の仕切り壁を調べると、端末から写真を登録して展示できます。上はテスト用画像を実際にゲームで登録し、保存後に表示したChrome画面です。登録後の再読み込みでも保持されることを確認しています。これは実際の写真アップロード機能を持つ公開ゲームではなく、機能の検証結果を写したプレビューです。</p>
 </section>
@@ -146,10 +146,10 @@ get('tab-material').onclick=()=>tab('material');
 get('tab-photo').onclick=()=>tab('photo');
 get('photoPresent').onclick=()=>photo(true);
 get('photoAbsent').onclick=()=>photo(false);
-function photo(yes){get('registeredScreen').src=yes?'game_plaster_right_registered.png':'game_plaster_right_empty.png';
+function photo(yes){get('registeredScreen').src=yes?'game_plaster_right_registered_v05.png':'game_plaster_right_empty_v05.png';
  get('photoPresent').setAttribute('aria-pressed',String(yes));get('photoAbsent').setAttribute('aria-pressed',String(!yes));}
 function material(side){
- const isRight=side==='right',src=isRight?'partition-right-mirror-v03.png':'partition-left-plaster-v04.png';
+ const isRight=side==='right',src=isRight?'partition-right-mirror-v03.png':'partition-left-plaster-v05.png';
  get('materialImg').src=src;get('materialLink').href=src;
  get('materialImg').alt=(isRight?'右の反転素材':'左の固定素材')+'・背景透過PNG';
  get('showLeft').setAttribute('aria-pressed',String(!isRight));

@@ -1,0 +1,12 @@
+[
+  {
+    "device": "desktop width1200",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "device": "iPhone width390",
+    "status": "PASS",
+    "page_errors": []
+  }
+]

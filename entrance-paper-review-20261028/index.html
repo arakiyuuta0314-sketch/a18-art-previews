@@ -2,7 +2,7 @@
 <html lang="ja">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>A18｜受付カウンター奥・紙の装飾プレビュー</title>
+<title>A18｜受付カウンター奥・重ね貼りの紙プレビュー</title>
 <style>
 :root{--ink:#29382f;--green:#265845;--paper:#f8f4ed;--muted:#647266;--line:#ddd7ca}
 *{box-sizing:border-box}
@@ -15,7 +15,7 @@ header p{margin:0 0 14px}
 .panel{background:white;border:1px solid var(--line);border-radius:13px;padding:11px;box-shadow:0 3px 14px #0000000a}
 .scene{aspect-ratio:1200/880;width:100%;overflow:hidden;border-radius:8px;background:#273930}
 .scene img{width:100%;height:100%;display:block;object-fit:fill}
-.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0 5px}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0 5px}
 button{font:inherit;cursor:pointer;touch-action:manipulation}
 .tabs button{background:white;border:1px solid #bec5bc;border-radius:9px;min-height:48px;padding:7px 6px;font-weight:700;font-size:14px;color:var(--ink)}
 .tabs button[aria-pressed=true]{background:var(--green);color:white;border-color:var(--green)}
@@ -31,21 +31,22 @@ button{font:inherit;cursor:pointer;touch-action:manipulation}
 .desc strong{display:block;margin-bottom:5px}
 a{color:#276549;text-decoration:underline;text-underline-offset:2px}
 .foot{margin-top:18px}
-@media(max-width:610px){main{padding:14px 9px 34px}.panel{padding:5px}.grid{gap:6px}.picture{height:118px;padding:6px}.desc{padding:8px;font-size:12px}.tabs{gap:5px}.tabs button{font-size:12px;min-height:47px}}
+@media(max-width:610px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}main{padding:14px 9px 34px}.panel{padding:5px}.grid{gap:6px}.picture{height:118px;padding:6px}.desc{padding:8px;font-size:12px}.tabs{gap:5px}.tabs button{font-size:12px;min-height:47px}}
 </style></head>
 <body><main>
 <header>
 <h1>とっておき美術館｜受付の掲示物</h1>
-<p>v09の明るい木壁はそのまま。カウンターと左壁を15px下へ動かして、紙の装飾だけ追加した監修用プレビュー。</p>
+<p>v09の明るい木壁と家具の位置はそのまま。紙を重ねて傾け、5色・5枚の自然な貼り方に変更した監修用プレビュー。</p>
 </header>
 <section class="panel" aria-label="実ゲーム画面での比較">
-<div class="scene"><img id="game" src="with-papers.png" width="1200" height="880" alt="実ゲームChrome画面。カウンター奥の木製仕切り壁にご案内と小さなメモ2枚を貼っている。カウンターと左壁は15ピクセル下げた配置"></div>
+<div class="scene"><img id="game" src="collage-v11.png" width="1200" height="880" alt="実ゲームChrome画面。カウンター裏の木壁に生成り・緑・水色・黄土・ピンクの5枚を少しずつ重ねて貼った受付"></div>
 <div class="tabs">
-<button type="button" id="present" aria-pressed="true">紙あり</button>
+<button type="button" id="present" aria-pressed="true">重ね貼り（v11）</button>
+<button type="button" id="previous" aria-pressed="false">以前の横並び</button>
 <button type="button" id="absent" aria-pressed="false">紙なし</button>
 <button type="button" id="photo" aria-pressed="false">右壁に作品あり</button>
 </div>
-<p class="caption" id="modeDescription">ゲームを実際にChromeで動かして撮影した画面。紙3枚を表示しています。背景・キャラクター・右壁は変更していません。</p>
+<p class="caption" id="modeDescription">Chromeで実際にゲームを動かして撮影した画面。5枚を重ね、紙色・角度・留め具を変えています。背景・キャラクター・右壁は変更していません。</p>
 </section>
 <div class="coords">
 <strong>位置の変更（反映済み）</strong>
@@ -53,24 +54,27 @@ a{color:#276549;text-decoration:underline;text-underline-offset:2px}
 カウンター：X=-10 / Y=333 / 幅233 / 高さ107
 右仕切り壁：X=363 / Y=243 / 幅188 / 高さ133（変更なし）
 </div>
-<h2>独立素材：紙3枚</h2>
+<h2>独立素材：色違いの紙5枚</h2>
 <div class="grid">
-<div class="item"><div class="picture checker"><img src="notice.png" width="268" height="204" alt="生成り色のご案内用紙"></div><div class="desc"><strong>案内紙</strong>生成り色の大きな紙。<a href="notice.png" target="_blank" rel="noopener">透過PNG</a></div></div>
-<div class="item"><div class="picture checker"><img src="memo.png" width="152" height="132" alt="クリーム色の小さなメモ"></div><div class="desc"><strong>職員メモ</strong>小さな業務メモ。<a href="memo.png" target="_blank" rel="noopener">透過PNG</a></div></div>
-<div class="item"><div class="picture checker"><img src="small-note.png" width="124" height="116" alt="ピン留めした短いメモ"></div><div class="desc"><strong>短いメモ</strong>小さな紙のアクセント。<a href="small-note.png" target="_blank" rel="noopener">透過PNG</a></div></div>
+<div class="item"><div class="picture checker"><img src="paper-sage-v11.png" alt="淡い緑の回転した紙・透明PNG"></div><div class="desc"><strong>淡い緑</strong>今日の予定を記した控えめなメモ。<a href="paper-sage-v11.png" target="_blank" rel="noopener">透過PNG</a></div></div>
+<div class="item"><div class="picture checker"><img src="paper-notice-v11.png" alt="生成りの回転した紙・透明PNG"></div><div class="desc"><strong>生成り</strong>手前に重ねた展示案内。<a href="paper-notice-v11.png" target="_blank" rel="noopener">透過PNG</a></div></div>
+<div class="item"><div class="picture checker"><img src="paper-blue-v11.png" alt="淡い水色の回転した紙・透明PNG"></div><div class="desc"><strong>淡い水色</strong>クリップで留めたスタッフ用紙。<a href="paper-blue-v11.png" target="_blank" rel="noopener">透過PNG</a></div></div>
+<div class="item"><div class="picture checker"><img src="paper-ochre-v11.png" alt="黄土色の回転した紙・透明PNG"></div><div class="desc"><strong>黄土色</strong>小さなMEMO用紙。<a href="paper-ochre-v11.png" target="_blank" rel="noopener">透過PNG</a></div></div>
+<div class="item"><div class="picture checker"><img src="paper-rose-v11.png" alt="薄いピンクの回転した紙・透明PNG"></div><div class="desc"><strong>薄いピンク</strong>端に重ねたひとことメモ。<a href="paper-rose-v11.png" target="_blank" rel="noopener">透過PNG</a></div></div>
 </div>
-<p class="foot">これは監修用プレビュー。紙は壁や背景に焼き込んでおらず、ゲーム内でも3枚の透明スプライトとして個別管理しています。家具の当たり判定・爺やの動線は今回の仕上げ対象外。正式ゲームの公開版はまだ変更していません。</p>
+<p class="foot">これは監修用プレビュー。紙は壁や背景に焼き込んでおらず、ゲーム内でも5枚の透明スプライトとして個別管理しています。家具の当たり判定・爺やの動線は今回の仕上げ対象外。正式ゲームの公開版はまだ変更していません。</p>
 </main>
 <script>
 (()=>{
 'use strict';
 const screen=document.getElementById('game');
 const caption=document.getElementById('modeDescription');
-const buttons=['present','absent','photo'];
+const buttons=['present','previous','absent','photo'];
 const views={
- present:['with-papers.png','紙3枚を表示した実Chromeゲーム画面です。カウンターと左壁はそれぞれ15px下げています。'],
- absent:['without-papers.png','紙を非表示にした実Chromeゲーム画面です。右壁や家具の配置は「紙あり」と同じです。'],
- photo:['right-photo-game.png','独立した紙装飾を表示したまま、右壁にテスト画像を登録して保存した実Chromeゲーム画面です。']
+ present:['collage-v11.png','5枚を重ねて貼ったv11。生成り・緑・水色・黄土・ピンクの紙を角度をつけて配置しています。'],
+ previous:['with-papers.png','比較用の前バージョン。生成り色の紙3枚が横並びだったv10の実ゲーム画面です。'],
+ absent:['collage-without.png','新配置のまま装飾だけ非表示にした実Chrome画面です。'],
+ photo:['collage-photo-v11.png','v11の重ね貼りを残したまま、右壁にテスト作品を登録した実ゲーム画面です。']
 };
 function show(mode){
  if(!Object.prototype.hasOwnProperty.call(views,mode))throw Error('E_A18_PAPER_VIEW_MODE');

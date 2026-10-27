@@ -1,0 +1,20 @@
+[
+  {
+    "resolution": [
+      1200,
+      880
+    ],
+    "mobile": false,
+    "pass": true,
+    "errors": []
+  },
+  {
+    "resolution": [
+      390,
+      844
+    ],
+    "mobile": true,
+    "pass": true,
+    "errors": []
+  }
+]

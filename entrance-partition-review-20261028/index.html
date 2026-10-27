@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>A18｜左右仕切り壁・配置調整プレビュー</title>
+<title>A18｜白漆喰の左壁と右壁の写真登録プレビュー</title>
 <style>
 :root{--green:#275747;--bg:#f6f3ec;--border:#dad5ca;--ink:#283a32}
 *{box-sizing:border-box}
@@ -10,7 +10,7 @@ main{max-width:1120px;margin:auto;padding:17px 12px 35px}
 h1{font-size:clamp(20px,5vw,30px);margin:0 0 7px}
 p{line-height:1.7;font-size:13px}
 .meta{color:#596c60;margin:3px 0 14px}
-nav{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}
+nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:12px 0}
 button{font:inherit;cursor:pointer;touch-action:manipulation}
 nav button,.tools button,.actions button,.assets button{background:white;border:1px solid #c6cabe;border-radius:10px;min-height:46px;padding:8px;color:var(--ink);font-weight:700}
 nav button[aria-selected=true],.tools button[aria-pressed=true],.actions .primary,.assets button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:white}
@@ -37,16 +37,17 @@ a{color:#246b52}
 @media(max-width:600px){.controls{grid-template-columns:1fr}.panel{padding:5px}.controls input{height:30px}.tools button,.actions button{font-size:13px}}
 </style></head><body><main>
 <header>
-<h1>とっておき美術館｜左右の仕切り壁</h1>
-<p class="meta">カウンターは10px下げた実ゲーム画面／左壁を確定座標に固定・右壁は反転素材で仮配置</p>
+<h1>とっておき美術館｜仕切り壁</h1>
+<p class="meta">左は白い漆喰仕上げ。右は写真を登録できる展示壁。カウンターと壁の位置は指定値のまま。</p>
 </header>
 <nav aria-label="確認モード">
-<button id="tab-placement" type="button" aria-selected="true">両側の配置を見る</button>
-<button id="tab-material" type="button" aria-selected="false">独立素材を見る</button>
+<button id="tab-placement" type="button" aria-selected="true">右壁の配置</button>
+<button id="tab-photo" type="button" aria-selected="false">写真登録後</button>
+<button id="tab-material" type="button" aria-selected="false">独立素材</button>
 </nav>
 <section class="panel" id="placement">
 <div class="stage" id="stage">
-<img class="base" src="game_left_fixed_counter_y318.png" width="1200" height="880" alt="A18の実ゲームをChromeで撮影。カウンターと左仕切り壁は指定座標で描画済み">
+<img class="base" src="game_plaster_without_right.png" width="1200" height="880" alt="Chromeの実ゲーム。左壁を白漆喰に変更し、カウンターの高さを保った画面">
 <img class="wall" id="rightWall" src="partition-right-mirror-v03.png" width="860" height="488" draggable="false" alt="移動と伸縮ができる反転した右仕切り壁の独立素材">
 </div>
 <div class="tools">
@@ -65,7 +66,12 @@ a{color:#246b52}
 <button type="button" class="primary" id="copy">この配置をコピー</button>
 <button type="button" id="reset">初期配置に戻す</button>
 </div>
-<p class="subtitle">左壁：X=-6、Y=200、横幅215、高さ122（固定）。カウンター：X=-10、Y=318、横幅233、高さ107（固定）。右壁の初期位置は左右対称の仮置きです。</p>
+<p class="subtitle">左漆喰壁：X=-6、Y=200、幅215、高さ122。カウンター：X=-10、Y=318、幅233、高さ107。右壁：X=363、Y=243、幅188、高さ133（仮確定）。</p>
+</section>
+<section class="panel" id="photoPreview" hidden>
+<div class="stage"><img id="registeredScreen" class="base" src="game_plaster_right_registered.png" width="1200" height="880" alt="実際のChromeゲームで右の仕切り壁に画像を登録し表示したQA画面"></div>
+<div class="tools"><button id="photoPresent" type="button" aria-pressed="true">テスト画像あり</button><button id="photoAbsent" type="button" aria-pressed="false">テスト画像なし</button></div>
+<p class="subtitle">右の仕切り壁を調べると、端末から写真を登録して展示できます。上はテスト用画像を実際にゲームで登録し、保存後に表示したChrome画面です。登録後の再読み込みでも保持されることを確認しています。これは実際の写真アップロード機能を持つ公開ゲームではなく、機能の検証結果を写したプレビューです。</p>
 </section>
 <section class="panel" id="material" hidden>
 <div class="assets">
@@ -75,10 +81,10 @@ a{color:#246b52}
 <div class="material checker">
 <img id="materialImg" src="partition-right-mirror-v03.png" width="860" height="488" alt="独立した右側用の仕切り壁・透過PNG">
 </div>
-<p class="subtitle">どちらも背景透過の独立PNG（860×488px）。写真・額縁・台紙は付けていません。右版は左版の左右を反転したもので、柱の奥行き方向も反転しています。</p>
+<p class="subtitle">左は木枠そのまま、黒板の面だけ暖かみのある白い漆喰仕上げに変更。右は緑の面に登録写真を重ねて展示できます。どちらも独立PNG（860×488px）です。</p>
 <p><a id="materialLink" href="partition-right-mirror-v03.png" target="_blank" rel="noopener">表示中の透過PNGを直接開く</a></p>
 </section>
-<p class="note">確認用プレビューです。背景とキャラクターは変更していません。右壁の配置は未承認・未実装で、実ゲームのスクリーンショット上に独立素材を重ねています。決まった配置はコピーして送ってください。</p>
+<p class="note">監修用プレビューです。右壁 X=363、Y=243、幅188、高さ133 は仮確定。写真の直接登録・保存はゲームの作業ブランチで動作検証済みですが、正式ゲームの公開版は変更していません。</p>
 </main>
 <script>
 (()=>{
@@ -86,7 +92,7 @@ a{color:#246b52}
 const get=id=>document.getElementById(id);
 const wall=get('rightWall'),stage=get('stage');
 const screen={x:133,y:53,w:934,h:827,totalW:1200,totalH:880,gameW:546,gameH:483};
-const initial={x:337,y:200,w:215,h:122},current={...initial};
+const initial={x:363,y:243,w:188,h:133},current={...initial};
 const ranges={x:[185,445],y:[145,335],w:[140,320],h:[65,175]};
 let visible=true,drag=null;
 function paint(){
@@ -131,14 +137,19 @@ get('copy').onclick=async()=>{
  catch(e){get('readout').textContent=msg+'（ここを長押ししてコピーしてください）';}
 };
 function tab(material){
- get('placement').hidden=material;get('material').hidden=!material;
- get('tab-placement').setAttribute('aria-selected',String(!material));
- get('tab-material').setAttribute('aria-selected',String(material));
+ get('placement').hidden=material!=='placement';get('material').hidden=material!=='material';
+ get('photoPreview').hidden=material!=='photo';
+ for(const section of ['placement','material','photo'])get('tab-'+section).setAttribute('aria-selected',String(material===section));
 }
-get('tab-placement').onclick=()=>tab(false);
-get('tab-material').onclick=()=>tab(true);
+get('tab-placement').onclick=()=>tab('placement');
+get('tab-material').onclick=()=>tab('material');
+get('tab-photo').onclick=()=>tab('photo');
+get('photoPresent').onclick=()=>photo(true);
+get('photoAbsent').onclick=()=>photo(false);
+function photo(yes){get('registeredScreen').src=yes?'game_plaster_right_registered.png':'game_plaster_right_empty.png';
+ get('photoPresent').setAttribute('aria-pressed',String(yes));get('photoAbsent').setAttribute('aria-pressed',String(!yes));}
 function material(side){
- const isRight=side==='right',src=isRight?'partition-right-mirror-v03.png':'partition-left-v03.png';
+ const isRight=side==='right',src=isRight?'partition-right-mirror-v03.png':'partition-left-plaster-v04.png';
  get('materialImg').src=src;get('materialLink').href=src;
  get('materialImg').alt=(isRight?'右の反転素材':'左の固定素材')+'・背景透過PNG';
  get('showLeft').setAttribute('aria-pressed',String(!isRight));

@@ -1,0 +1,20 @@
+[
+  {
+    "viewport": [
+      1200,
+      880
+    ],
+    "mobile": false,
+    "passed": true,
+    "errors": []
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "mobile": true,
+    "passed": true,
+    "errors": []
+  }
+]

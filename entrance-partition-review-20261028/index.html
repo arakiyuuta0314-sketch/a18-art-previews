@@ -1,153 +1,151 @@
 <!doctype html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>A18｜仕切り壁の配置調整プレビュー</title>
+<title>A18｜左右仕切り壁・配置調整プレビュー</title>
 <style>
-:root{--bg:#f6f3ec;--green:#245343;--ink:#293a33;--border:#ddd6c7}
+:root{--green:#275747;--bg:#f6f3ec;--border:#dad5ca;--ink:#283a32}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
-main{max-width:1120px;margin:auto;padding:16px 12px 40px}
-h1{font-size:clamp(20px,5vw,30px);margin:0 0 5px;line-height:1.45}
-p{font-size:13px;line-height:1.72}
-header p{color:#607168;margin:3px 0 15px}
-.tabs{display:flex;gap:8px;margin:13px 0 10px}
+body{background:var(--bg);color:var(--ink);margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif}
+main{max-width:1120px;margin:auto;padding:17px 12px 35px}
+h1{font-size:clamp(20px,5vw,30px);margin:0 0 7px}
+p{line-height:1.7;font-size:13px}
+.meta{color:#596c60;margin:3px 0 14px}
+nav{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}
 button{font:inherit;cursor:pointer;touch-action:manipulation}
-.tabs button,.actions button,.switch button{flex:1;border:1px solid #c9c7bc;background:white;border-radius:10px;min-height:45px;font-weight:700;color:#355345}
-.tabs button[aria-selected=true],.switch button[aria-pressed=true],.actions button.primary{background:var(--green);color:white;border-color:var(--green)}
-.panel{background:white;border:1px solid var(--border);border-radius:13px;padding:10px;box-shadow:0 3px 17px #0000000b}
-.panel[hidden]{display:none}
-.stage{position:relative;width:100%;aspect-ratio:1200/880;background:#25362e;border-radius:8px;overflow:hidden;touch-action:pan-y}
-.stage>img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none}
-.stage>img.partition{inset:auto;width:auto;height:auto;touch-action:none;cursor:grab}
-.stage>img.partition.dragging{cursor:grabbing}
-.stage>img.foreground{pointer-events:none}
-.switch{display:flex;gap:8px;margin-top:11px}
-.explain{color:#5b6b63;margin:8px 2px}
-.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;margin:14px 1px 4px}
-.control{display:block;font-size:13px;font-weight:700}
-.control-head{display:flex;justify-content:space-between;gap:6px;margin-bottom:7px}
-.control output{font-variant-numeric:tabular-nums;color:#586c62}
-.control input{display:block;width:100%;accent-color:var(--green);touch-action:pan-y}
-.readout{background:#eef3ee;border-radius:10px;padding:10px 12px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;margin:12px 0}
-.actions{display:flex;gap:8px;margin:10px 0 3px}
-.actions button{min-height:48px}
+nav button,.tools button,.actions button,.assets button{background:white;border:1px solid #c6cabe;border-radius:10px;min-height:46px;padding:8px;color:var(--ink);font-weight:700}
+nav button[aria-selected=true],.tools button[aria-pressed=true],.actions .primary,.assets button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:white}
+.panel{background:white;border:1px solid var(--border);padding:9px;border-radius:13px;box-shadow:0 3px 15px #0001}
+[hidden]{display:none!important}
+.stage{position:relative;overflow:hidden;width:100%;aspect-ratio:1200 / 880;background:#273931;border-radius:7px;touch-action:pan-y}
+.stage img.base{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.stage img.wall{position:absolute;inset:auto;width:auto;height:auto;touch-action:none;cursor:grab;user-select:none;-webkit-user-drag:none}
+.stage img.wall.dragging{cursor:grabbing}
+.tools,.actions,.assets{display:flex;gap:8px;margin:11px 0}
+.tools button,.actions button,.assets button{flex:1}
+.subtitle{margin:10px 3px;color:#59695f}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px 19px;margin:13px 4px}
+label{font-size:13px;font-weight:700}
+label span{display:flex;justify-content:space-between;gap:8px}
+output{font-variant-numeric:tabular-nums;color:var(--green)}
+input[type=range]{display:block;width:100%;accent-color:var(--green);margin-top:10px}
+.readout{font-size:13px;font-weight:700;background:#eff4ef;border-radius:10px;padding:12px;margin:13px 0;font-variant-numeric:tabular-nums}
 .checker{background-color:#fff;background-image:linear-gradient(45deg,#dadada 25%,transparent 25%),linear-gradient(-45deg,#dadada 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#dadada 75%),linear-gradient(-45deg,transparent 75%,#dadada 75%);background-size:32px 32px;background-position:0 0,0 16px,16px -16px}
-.asset{min-height:220px;display:grid;place-items:center;border-radius:10px;overflow:hidden;padding:18px}
-.asset img{display:block;width:min(100%,768px);height:auto}
-.linkrow{display:flex;gap:8px;flex-wrap:wrap}
-.linkrow a{color:#285d48;font-size:14px;text-decoration:underline;font-weight:700;padding:9px}
-.details{margin-top:14px;background:#eaf0eb;border-radius:10px;padding:8px 14px}
-.details strong{color:#214f3a}
-.note{color:#667269;margin-top:17px}
-@media(max-width:600px){.panel{padding:6px}.controls{grid-template-columns:1fr;gap:13px}.control input{height:29px}.stage{border-radius:5px}.tabs button,.switch button,.actions button{font-size:13px}}
-</style>
-</head>
-<body><main>
+.material{min-height:230px;border-radius:9px;padding:17px;display:grid;place-items:center}
+.material img{width:min(100%,860px);height:auto}
+a{color:#246b52}
+.note{background:#e9f0e9;padding:12px 15px;border-radius:10px;color:#4f665a;margin-top:17px}
+@media(max-width:600px){.controls{grid-template-columns:1fr}.panel{padding:5px}.controls input{height:30px}.tools button,.actions button{font-size:13px}}
+</style></head><body><main>
 <header>
-<h1>とっておき美術館｜受付奥の仕切り壁</h1>
-<p>配置調整プレビュー／カウンターは <strong>X=-10、Y=308、横幅233、高さ107</strong> で固定</p>
+<h1>とっておき美術館｜左右の仕切り壁</h1>
+<p class="meta">カウンターは10px下げた実ゲーム画面／左壁を確定座標に固定・右壁は反転素材で仮配置</p>
 </header>
-<nav class="tabs" aria-label="表示切替">
-<button id="tab-adjust" type="button" aria-selected="true">配置・サイズを調整</button>
-<button id="tab-asset" type="button" aria-selected="false">仕切り壁の単体素材</button>
+<nav aria-label="確認モード">
+<button id="tab-placement" type="button" aria-selected="true">両側の配置を見る</button>
+<button id="tab-material" type="button" aria-selected="false">独立素材を見る</button>
 </nav>
-<section id="adjust-panel" class="panel">
-<div class="stage" id="adjust-stage">
-<img class="base" src="counter-only.png" width="1200" height="880" alt="正式なA18のゲーム画面を撮影した背景。承認した木製カウンターと爺や、館長を含む">
-<img id="partition" class="partition" src="partition-wide-v02.png" draggable="false" width="928" height="496" alt="指で動かせる独立した木製の仕切り壁">
-<img class="foreground" src="foreground-counter-butler.png" width="1200" height="880" alt="" aria-hidden="true">
+<section class="panel" id="placement">
+<div class="stage" id="stage">
+<img class="base" src="game_left_fixed_counter_y318.png" width="1200" height="880" alt="A18の実ゲームをChromeで撮影。カウンターと左仕切り壁は指定座標で描画済み">
+<img class="wall" id="rightWall" src="partition-right-mirror-v03.png" width="860" height="488" draggable="false" alt="移動と伸縮ができる反転した右仕切り壁の独立素材">
 </div>
-<div class="switch">
-<button id="with" type="button" aria-pressed="true">仕切り壁あり</button>
-<button id="without" type="button" aria-pressed="false">仕切り壁なし</button>
+<div class="tools">
+<button type="button" id="show" aria-pressed="true">右の仕切り壁あり</button>
+<button type="button" id="hide" aria-pressed="false">右の仕切り壁なし</button>
 </div>
-<p class="explain">壁を指でドラッグすると移動できます。下の4つのスライダーでも調整可能。爺やとカウンターは前景として固定してあります。</p>
+<p class="subtitle">右壁を指でドラッグして移動できます。下のスライダーで左右・上下・幅・高さも変更可能です。左壁とカウンターは動きません。</p>
 <div class="controls">
-<label class="control"><span class="control-head">左右（X）<output id="x-value" for="x"></output></span><input id="x" type="range" min="-30" max="320" step="1"></label>
-<label class="control"><span class="control-head">上下（Y）<output id="y-value" for="y"></output></span><input id="y" type="range" min="160" max="345" step="1"></label>
-<label class="control"><span class="control-head">横幅<output id="w-value" for="w"></output></span><input id="w" type="range" min="140" max="325" step="1"></label>
-<label class="control"><span class="control-head">高さ<output id="h-value" for="h"></output></span><input id="h" type="range" min="70" max="175" step="1"></label>
+<label><span>左右（X）<output id="xVal"></output></span><input id="x" type="range" min="185" max="445" step="1"></label>
+<label><span>上下（Y）<output id="yVal"></output></span><input id="y" type="range" min="145" max="335" step="1"></label>
+<label><span>横幅<output id="wVal"></output></span><input id="w" type="range" min="140" max="320" step="1"></label>
+<label><span>高さ<output id="hVal"></output></span><input id="h" type="range" min="65" max="175" step="1"></label>
 </div>
 <p id="readout" class="readout" aria-live="polite"></p>
-<div class="actions"><button id="copy" class="primary" type="button">この配置をコピー</button>
-<button id="reset" type="button">初期配置に戻す</button></div>
-<p class="explain">前回の幅192・高さ132から、初期配置を <strong>幅232・高さ124</strong> に変更しています。ここでの変更は監修用プレビューにのみ反映されます。</p>
+<div class="actions">
+<button type="button" class="primary" id="copy">この配置をコピー</button>
+<button type="button" id="reset">初期配置に戻す</button>
+</div>
+<p class="subtitle">左壁：X=-6、Y=200、横幅215、高さ122（固定）。カウンター：X=-10、Y=318、横幅233、高さ107（固定）。右壁の初期位置は左右対称の仮置きです。</p>
 </section>
-<section id="asset-panel" class="panel" hidden>
-<div class="asset checker"><img src="partition-wide-v02.png" width="928" height="496" alt="透明背景の木と緑の仕切り壁。展示写真・額縁・台紙を含まない"></div>
-<p class="explain">仕切り壁だけの独立RGBA画像。写真・額縁・台紙は入れていません。横長候補（横幅232・高さ124に相当する比率）の透過素材です。さらに配置・寸法を決めた後、正式素材として調整します。</p>
-<div class="linkrow"><a href="partition-wide-v02.png" target="_blank" rel="noopener noreferrer">横長の透過PNGを開く</a>
-<a href="partition-wide-v02.webp" target="_blank" rel="noopener noreferrer">横長のWebPを開く</a></div>
+<section class="panel" id="material" hidden>
+<div class="assets">
+<button id="showLeft" type="button" aria-pressed="false">左の素材</button>
+<button id="showRight" type="button" aria-pressed="true">右の反転素材</button>
+</div>
+<div class="material checker">
+<img id="materialImg" src="partition-right-mirror-v03.png" width="860" height="488" alt="独立した右側用の仕切り壁・透過PNG">
+</div>
+<p class="subtitle">どちらも背景透過の独立PNG（860×488px）。写真・額縁・台紙は付けていません。右版は左版の左右を反転したもので、柱の奥行き方向も反転しています。</p>
+<p><a id="materialLink" href="partition-right-mirror-v03.png" target="_blank" rel="noopener">表示中の透過PNGを直接開く</a></p>
 </section>
-<div class="details"><p><strong>現在の扱い：</strong>カウンターは位置確定済み。仕切り壁は未承認で、移動と伸縮ができる仮配置です。背景を描き直していません。</p></div>
-<p class="note">※配置調整画面は、実ゲーム画面のスクリーンショット上で独立素材を合成するシミュレーションです。ゲームの実コードを操作・保存するものではありません。確定後にレイヤーと当たり判定も改修します。</p>
+<p class="note">確認用プレビューです。背景とキャラクターは変更していません。右壁の配置は未承認・未実装で、実ゲームのスクリーンショット上に独立素材を重ねています。決まった配置はコピーして送ってください。</p>
 </main>
 <script>
 (()=>{
 'use strict';
-const q=id=>document.getElementById(id);
-const stage=q('adjust-stage'),part=q('partition');
-const geometry={x:133,y:53,width:934,height:827,logicalW:546,logicalH:483,screenW:1200,screenH:880};
-const origin={x:12,y:231,w:232,h:124};
-const state={...origin};
-let visible=true,last=null;
-function tab(asset){
- q('adjust-panel').hidden=asset;q('asset-panel').hidden=!asset;
- q('tab-adjust').setAttribute('aria-selected',String(!asset));
- q('tab-asset').setAttribute('aria-selected',String(asset));
-}
-q('tab-adjust').onclick=()=>tab(false);
-q('tab-asset').onclick=()=>tab(true);
-function clamp(key,v){
- const ranges={x:[-30,320],y:[160,345],w:[140,325],h:[70,175]};
- return Math.min(ranges[key][1],Math.max(ranges[key][0],Math.round(v)));
-}
+const get=id=>document.getElementById(id);
+const wall=get('rightWall'),stage=get('stage');
+const screen={x:133,y:53,w:934,h:827,totalW:1200,totalH:880,gameW:546,gameH:483};
+const initial={x:337,y:200,w:215,h:122},current={...initial};
+const ranges={x:[185,445],y:[145,335],w:[140,320],h:[65,175]};
+let visible=true,drag=null;
 function paint(){
- for(const key of ['x','y','w','h']){
-  state[key]=clamp(key,state[key]);
-  q(key).value=state[key];
-  q(key+'-value').textContent=String(state[key]);
+ for(const key of Object.keys(current)){
+   const [min,max]=ranges[key];
+   current[key]=Math.round(Math.max(min,Math.min(max,current[key])));
+   get(key).value=current[key];get(key+'Val').textContent=current[key];
  }
- const scaleX=geometry.width/geometry.logicalW;
- const scaleY=geometry.height/geometry.logicalH;
- part.style.left=((geometry.x+state.x*scaleX)/geometry.screenW*100)+'%';
- part.style.top=((geometry.y+state.y*scaleY)/geometry.screenH*100)+'%';
- part.style.width=(state.w*scaleX/geometry.screenW*100)+'%';
- part.style.height=(state.h*scaleY/geometry.screenH*100)+'%';
- part.style.display=visible?'block':'none';
- q('readout').textContent='A18仕切り壁：X='+state.x+', Y='+state.y+', 横幅='+state.w+', 高さ='+state.h;
- q('with').setAttribute('aria-pressed',String(visible));
- q('without').setAttribute('aria-pressed',String(!visible));
+ const kx=screen.w/screen.gameW,ky=screen.h/screen.gameH;
+ wall.style.left=(screen.x+current.x*kx)/screen.totalW*100+'%';
+ wall.style.top=(screen.y+current.y*ky)/screen.totalH*100+'%';
+ wall.style.width=current.w*kx/screen.totalW*100+'%';
+ wall.style.height=current.h*ky/screen.totalH*100+'%';
+ wall.hidden=!visible;
+ get('show').setAttribute('aria-pressed',String(visible));
+ get('hide').setAttribute('aria-pressed',String(!visible));
+ get('readout').textContent='A18右仕切り壁：X='+current.x+', Y='+current.y+', 横幅='+current.w+', 高さ='+current.h;
 }
-for(const key of ['x','y','w','h'])
- q(key).addEventListener('input',e=>{state[key]=Number(e.target.value);paint();});
-q('with').onclick=()=>{visible=true;paint()};
-q('without').onclick=()=>{visible=false;paint()};
-part.addEventListener('dragstart',e=>e.preventDefault());
-part.addEventListener('pointerdown',e=>{
+for(const key of Object.keys(initial))get(key).addEventListener('input',e=>{current[key]=Number(e.target.value);paint()});
+get('show').onclick=()=>{visible=true;paint()};
+get('hide').onclick=()=>{visible=false;paint()};
+wall.addEventListener('dragstart',e=>e.preventDefault());
+wall.addEventListener('pointerdown',e=>{
  if(!visible)return;
- e.preventDefault();part.setPointerCapture(e.pointerId);part.classList.add('dragging');
- last={x:e.clientX,y:e.clientY,worldX:state.x,worldY:state.y};
+ e.preventDefault();wall.setPointerCapture(e.pointerId);
+ drag={px:e.clientX,py:e.clientY,x:current.x,y:current.y};
+ wall.classList.add('dragging');
 });
-part.addEventListener('pointermove',e=>{
- if(!last)return;
- const bounds=stage.getBoundingClientRect();
- const dx=(e.clientX-last.x)*geometry.screenW/bounds.width/(geometry.width/geometry.logicalW);
- const dy=(e.clientY-last.y)*geometry.screenH/bounds.height/(geometry.height/geometry.logicalH);
- state.x=last.worldX+dx;state.y=last.worldY+dy;paint();
+wall.addEventListener('pointermove',e=>{
+ if(!drag)return;
+ const r=stage.getBoundingClientRect(),kx=screen.w/screen.gameW,ky=screen.h/screen.gameH;
+ current.x=drag.x+(e.clientX-drag.px)*screen.totalW/r.width/kx;
+ current.y=drag.y+(e.clientY-drag.py)*screen.totalH/r.height/ky;
+ paint();
 });
-function stop(){last=null;part.classList.remove('dragging')}
-part.addEventListener('pointerup',stop);part.addEventListener('pointercancel',stop);part.addEventListener('lostpointercapture',stop);
-q('reset').onclick=()=>{Object.assign(state,origin);visible=true;paint();q('copy').textContent='この配置をコピー'};
-q('copy').onclick=async()=>{
- const result='A18仕切り壁：X='+state.x+', Y='+state.y+', 横幅='+state.w+', 高さ='+state.h;
- try{await navigator.clipboard.writeText(result);q('copy').textContent='コピーしました';}
- catch(e){q('readout').textContent=result+' （この文字を長押しでコピーしてください）';}
+function stop(){drag=null;wall.classList.remove('dragging')}
+wall.addEventListener('pointerup',stop);wall.addEventListener('pointercancel',stop);wall.addEventListener('lostpointercapture',stop);
+get('reset').onclick=()=>{Object.assign(current,initial);visible=true;get('copy').textContent='この配置をコピー';paint()};
+get('copy').onclick=async()=>{
+ const msg='A18右仕切り壁：X='+current.x+', Y='+current.y+', 横幅='+current.w+', 高さ='+current.h;
+ try{await navigator.clipboard.writeText(msg);get('copy').textContent='コピーしました';}
+ catch(e){get('readout').textContent=msg+'（ここを長押ししてコピーしてください）';}
 };
+function tab(material){
+ get('placement').hidden=material;get('material').hidden=!material;
+ get('tab-placement').setAttribute('aria-selected',String(!material));
+ get('tab-material').setAttribute('aria-selected',String(material));
+}
+get('tab-placement').onclick=()=>tab(false);
+get('tab-material').onclick=()=>tab(true);
+function material(side){
+ const isRight=side==='right',src=isRight?'partition-right-mirror-v03.png':'partition-left-v03.png';
+ get('materialImg').src=src;get('materialLink').href=src;
+ get('materialImg').alt=(isRight?'右の反転素材':'左の固定素材')+'・背景透過PNG';
+ get('showLeft').setAttribute('aria-pressed',String(!isRight));
+ get('showRight').setAttribute('aria-pressed',String(isRight));
+}
+get('showLeft').onclick=()=>material('left');
+get('showRight').onclick=()=>material('right');
 paint();
 })();
-</script>
-</body></html>
+</script></body></html>

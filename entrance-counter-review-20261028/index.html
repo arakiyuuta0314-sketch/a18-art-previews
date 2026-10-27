@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>A18｜受付カウンター 実ゲーム画面プレビュー</title>
+<style>
+:root{--ink:#26332e;--forest:#255947;--paper:#f6f4ed;--line:#d6d2c8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
+header{padding:20px 14px 15px;text-align:center}
+h1{font-size:clamp(20px,4vw,29px);line-height:1.5;margin:0 0 7px}
+header p{margin:0;font-size:13px;color:#606861;line-height:1.7}
+main{max-width:1150px;margin:auto;padding:0 12px 38px}
+nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+button{font:inherit;touch-action:manipulation;cursor:pointer}
+nav button,.actions button{border:1px solid #bcbfb8;color:var(--ink);padding:13px 7px;background:white;border-radius:10px;font-weight:700}
+nav button[aria-selected=true],.actions button.active{background:var(--forest);border-color:var(--forest);color:white}
+.panel{background:white;border:1px solid var(--line);border-radius:13px;padding:10px;box-shadow:0 2px 12px #0000000a}
+.stage{position:relative;overflow:hidden;background:#253329;border-radius:9px;width:100%;aspect-ratio:1200/880}
+.stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none}
+.stage .counter{width:auto;height:auto;inset:auto;touch-action:none;cursor:grab}
+.stage .counter.dragging{cursor:grabbing}
+.caption{margin:10px 4px 2px;color:#5f685e;font-size:13px;line-height:1.7}
+.adjust{display:none}.adjust.active{display:block}.display-panel.hidden{display:none}
+.actions{display:flex;gap:9px;margin:12px 0 6px;flex-wrap:wrap}
+.actions button{flex:1;min-width:115px}
+.controls{padding:12px 4px 4px;display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700}
+.field input{width:100%;accent-color:var(--forest)}
+.value{font-variant-numeric:tabular-nums;font-size:12px;color:#667064}
+.readout{font-size:13px;line-height:1.7;background:#f0f4f0;border-radius:9px;padding:9px 13px;margin:10px 0;color:#345547}
+.footnote{margin:17px 2px 0;font-size:13px;line-height:1.8;color:#666}
+@media(max-width:600px){.panel{padding:5px}.controls{grid-template-columns:1fr}.stage{border-radius:5px}header{padding-top:14px}.actions button{font-size:13px}}
+</style></head>
+<body><header><h1>とっておき美術館｜受付カウンター</h1>
+<p>2026年10月28日／エントランス確認用プレビュー</p></header>
+<main>
+<nav aria-label="プレビュー切り替え">
+<button id="tab-game" aria-selected="true" type="button">実ゲーム画面</button>
+<button id="tab-adjust" aria-selected="false" type="button">配置を調整する</button></nav>
+<section id="display-panel" class="panel display-panel">
+<div class="stage"><img id="actual" src="actual-game.png" width="1200" height="880" alt="実際のChromeブラウザで起動した美術館のゲーム画面。左側に木製L字受付、奥に爺や、手前に館長"></div>
+<div class="actions"><button id="show-current" class="active" type="button">カウンターあり</button>
+<button id="show-before" type="button">元の画面</button></div>
+<p class="caption">実際のA18を起動したブラウザで撮影した画面です。切り替えて元のエントランスと比較できます。</p>
+</section>
+<section id="adjust-panel" class="panel adjust" aria-label="配置調整">
+<div class="stage" id="adjust-stage">
+<img src="before-game.png" width="1200" height="880" alt="正式なゲーム背景と爺や、館長">
+<img id="counter" class="counter" src="counter.webp" width="936" height="428" alt="移動できる独立した木製L字カウンター"></div>
+<p class="caption">カウンターを指でドラッグして移動できます。下のスライダーでも調整可能です。※ここは位置確認用の画像合成です。ゲーム本体への変更はまだ保存されません。</p>
+<div class="controls">
+<label class="field">左右（X）<input id="x" type="range" min="0" max="250" step="1"><span id="x-value" class="value"></span></label>
+<label class="field">上下（Y）<input id="y" type="range" min="225" max="385" step="1"><span id="y-value" class="value"></span></label>
+<label class="field">横幅<input id="w" type="range" min="120" max="285" step="1"><span id="w-value" class="value"></span></label>
+</div>
+<p id="readout" class="readout" aria-live="polite"></p>
+<div class="actions"><button id="copy" type="button">この位置をコピー</button>
+<button id="reset" type="button">最初の配置に戻す</button></div>
+</section>
+<p class="footnote">これはカウンターの見た目・位置確認のためのプレビューで、正式公開版ゲームは変更していません。家具の当たり判定と爺やの会話位置は今後調整します。</p>
+</main>
+<script>
+(function(){
+'use strict';
+const el=id=>document.getElementById(id);
+const game=el('display-panel'),adjust=el('adjust-panel');
+function tab(name){
+ const a=name==='adjust';
+ game.classList.toggle('hidden',a);adjust.classList.toggle('active',a);
+ el('tab-game').setAttribute('aria-selected',String(!a));
+ el('tab-adjust').setAttribute('aria-selected',String(a));
+}
+el('tab-game').onclick=()=>tab('game');el('tab-adjust').onclick=()=>tab('adjust');
+function show(before){
+ el('actual').src=before?'before-game.png':'actual-game.png';
+ el('show-before').classList.toggle('active',before);
+ el('show-current').classList.toggle('active',!before);
+}
+el('show-before').onclick=()=>show(true);el('show-current').onclick=()=>show(false);
+const s={x:34,y:314,w:200};
+const stage=el('adjust-stage'),counter=el('counter');
+function paint(){
+ s.w=Math.max(120,Math.min(285,Math.round(s.w)));
+ s.x=Math.max(0,Math.min(546-s.w,Math.round(s.x)));
+ s.y=Math.max(225,Math.min(385,Math.round(s.y)));
+ const k=936/546;
+ counter.style.left=((131+s.x*k)/1200*100)+'%';
+ counter.style.top=((50+s.y*k)/880*100)+'%';
+ counter.style.width=((s.w*k)/1200*100)+'%';
+ counter.style.height='auto';
+ for(const key of ['x','y','w']){
+  el(key).value=s[key];el(key+'-value').textContent=String(s[key]);
+ }
+ el('readout').textContent='配置：X='+s.x+' / Y='+s.y+' / 横幅='+s.w+' / 高さ='+Math.round(s.w*428/936);
+}
+for(const key of ['x','y','w'])el(key).addEventListener('input',e=>{s[key]=Number(e.target.value);paint()});
+let last=null;
+counter.addEventListener('pointerdown',e=>{
+ e.preventDefault();counter.setPointerCapture(e.pointerId);counter.classList.add('dragging');last={x:e.clientX,y:e.clientY};
+});
+counter.addEventListener('pointermove',e=>{
+ if(!last)return;
+ const k=936/546,ratio=1200/stage.getBoundingClientRect().width;
+ s.x+=(e.clientX-last.x)*ratio/k;s.y+=(e.clientY-last.y)*ratio/k;
+ last={x:e.clientX,y:e.clientY};paint();
+});
+function finish(){last=null;counter.classList.remove('dragging')}
+counter.addEventListener('pointerup',finish);counter.addEventListener('pointercancel',finish);
+el('reset').onclick=()=>{s.x=34;s.y=314;s.w=200;paint()};
+el('copy').onclick=async()=>{
+ const msg='A18受付カウンター：X='+s.x+', Y='+s.y+', 横幅='+s.w+', 高さ='+Math.round(s.w*428/936);
+ try{await navigator.clipboard.writeText(msg);el('copy').textContent='コピーしました';}
+ catch(e){el('readout').textContent=msg+'（長押しでコピーしてください）';}
+};
+paint();
+})();
+</script>
+</body></html>

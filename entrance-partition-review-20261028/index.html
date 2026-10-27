@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>A18｜カウンター奥・左漆喰壁の実ゲームプレビュー</title>
+<title>A18｜カウンター奥・左壁の薄木材プレビュー</title>
 <style>
 :root{--green:#275747;--bg:#f6f3ec;--border:#dad5ca;--ink:#283a32}
 *{box-sizing:border-box}
@@ -38,7 +38,7 @@ a{color:#246b52}
 </style></head><body><main>
 <header>
 <h1>とっておき美術館｜カウンター奥の左壁</h1>
-<p class="meta">新候補：白い漆喰が柱や上端まで続く建築壁（v08）。前の展示ボード型と実ゲーム画面で比較できるよ。右壁・カウンター・配置は変更なし。</p>
+<p class="meta">v05の装飾・柱を維持して、中央の漆喰部分だけ明るい木目へ変更（v09）。以前の白漆喰やv08と実ゲーム画面で比較できます。</p>
 </header>
 <nav aria-label="確認モード">
 <button id="tab-left" type="button" aria-selected="true">左壁を比較</button>
@@ -47,14 +47,14 @@ a{color:#246b52}
 <button id="tab-material" type="button" aria-selected="false">独立素材</button>
 </nav>
 <section class="panel" id="leftReview">
-<div class="stage"><img id="leftScreen" class="base" src="game_left_wall_v08.png" width="1200" height="880" alt="カウンター奥に新しい白漆喰の左壁を組み込んだ実際のA18 Chromeゲーム画面"></div>
-<div class="tools"><button type="button" id="leftNew" aria-pressed="true">新しい壁（v08）</button><button type="button" id="leftOld" aria-pressed="false">以前の展示ボード（v05）</button></div>
-<p class="subtitle">両方とも実ゲームをChromeで起動した画面。右の作品の位置・大きさ、カウンターと左右仕切り壁の配置は同じ。木の額縁をやめ、漆喰面を柱まで続けて、木の装飾を下部の腰壁だけにした。</p>
-<p><a href="partition-left-wall-v08.png" target="_blank" rel="noopener">新しい左壁の透過PNGを開く</a></p>
+<div class="stage"><img id="leftScreen" class="base" src="game_left_oak_v09.png" width="1200" height="880" alt="v05の柱や装飾を残し中央だけ薄い木材にした左壁を組み込んだ実際のA18 Chromeゲーム画面"></div>
+<div class="tools"><button type="button" id="leftNew" aria-pressed="true">薄い木材（v09）</button><button type="button" id="leftOld" aria-pressed="false">白漆喰（v05）</button><button type="button" id="leftV08" aria-pressed="false">前回の壁（v08）</button></div>
+<p class="subtitle">3種類とも実ゲームをChromeで起動した画面。新候補v09では、v05の濃い木の柱・額縁・腰壁をそのまま残し、中央の白い漆喰面だけ薄いハニーオーク材に置き換えています。右壁・写真・カウンターは変更なし。</p>
+<p><a href="partition-left-oak-v09.png" target="_blank" rel="noopener">新しい左壁（v09）の透過PNGを開く</a></p>
 </section>
 <section class="panel" id="placement" hidden>
 <div class="stage" id="stage">
-<img class="base" src="game_plaster_without_right_v05.png" width="1200" height="880" alt="Chromeの実ゲーム。左壁を白漆喰に変更し、カウンターの高さを保った画面">
+<img class="base" src="game_left_oak_v09_no_right.png" width="1200" height="880" alt="Chromeの実ゲーム。左壁がv09の薄い木材、カウンターは固定し、右壁のみ表示調整できる画面">
 <img class="wall" id="rightWall" src="partition-right-mirror-v03.png" width="860" height="488" draggable="false" alt="移動と伸縮ができる反転した右仕切り壁の独立素材">
 </div>
 <div class="tools">
@@ -88,10 +88,10 @@ a{color:#246b52}
 <div class="material checker">
 <img id="materialImg" src="partition-right-mirror-v03.png" width="860" height="488" alt="独立した左壁／右側用の仕切り壁・透過PNG">
 </div>
-<p class="subtitle">左は木枠を廃して漆喰を柱まで連続させた建築壁の候補（v08）。右は既存の写真登録・表示機能を維持。独立PNG（860×488px）です。</p>
+<p class="subtitle">左はv05の木枠を維持し、中央だけ薄いオーク材にした新候補（v09）。右は既存の写真登録・表示機能を維持。独立PNG（860×488px）です。</p>
 <p><a id="materialLink" href="partition-right-mirror-v03.png" target="_blank" rel="noopener">表示中の透過PNGを直接開く</a></p>
 </section>
-<p class="note">監修用プレビューです。右壁 X=363、Y=243、幅188、高さ133 は仮確定。写真の直接登録・保存はゲームの作業ブランチで動作検証済みですが、正式ゲームの公開版は変更していません。</p>
+<p class="note">左の薄木材v09は採用前の候補です。左X=-6、Y=200、幅215、高さ122、右X=363、Y=243、幅188、高さ133、カウンターX=-10、Y=318、幅233、高さ107。写真登録機能は作業ブランチで検証済み、正式ゲームは未公開・未統合です。</p>
 </main>
 <script>
 (()=>{
@@ -150,12 +150,16 @@ function tab(material){
  for(const section of ['left','placement','material','photo'])get('tab-'+section).setAttribute('aria-selected',String(material===section));
 }
 get('tab-left').onclick=()=>tab('left');
-get('leftNew').onclick=()=>leftView(true);
-get('leftOld').onclick=()=>leftView(false);
-function leftView(newWall){
- get('leftScreen').src=newWall?'game_left_wall_v08.png':'game_plaster_right_centered_v06.png';
- get('leftNew').setAttribute('aria-pressed',String(newWall));
- get('leftOld').setAttribute('aria-pressed',String(!newWall));
+get('leftNew').onclick=()=>leftView('oak');
+get('leftOld').onclick=()=>leftView('v05');
+get('leftV08').onclick=()=>leftView('v08');
+function leftView(kind){
+ const screens={oak:'game_left_oak_v09.png',v05:'game_plaster_right_centered_v06.png',v08:'game_left_wall_v08.png'};
+ if(!Object.prototype.hasOwnProperty.call(screens,kind))throw Error('E_LEFT_REVIEW_KIND');
+ get('leftScreen').src=screens[kind];
+ get('leftNew').setAttribute('aria-pressed',String(kind==='oak'));
+ get('leftOld').setAttribute('aria-pressed',String(kind==='v05'));
+ get('leftV08').setAttribute('aria-pressed',String(kind==='v08'));
 }
 get('tab-placement').onclick=()=>tab('placement');
 get('tab-material').onclick=()=>tab('material');
@@ -172,7 +176,7 @@ function photo(mode){
  get('photoAbsent').setAttribute('aria-pressed',String(mode==='none'));
 }
 function material(side){
- const isRight=side==='right',src=isRight?'partition-right-mirror-v03.png':'partition-left-wall-v08.png';
+ const isRight=side==='right',src=isRight?'partition-right-mirror-v03.png':'partition-left-oak-v09.png';
  get('materialImg').src=src;get('materialLink').href=src;
  get('materialImg').alt=(isRight?'右の反転素材':'左の固定素材')+'・背景透過PNG';
  get('showLeft').setAttribute('aria-pressed',String(!isRight));

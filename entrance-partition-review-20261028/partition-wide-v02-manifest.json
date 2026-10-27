@@ -1,0 +1,23 @@
+{
+  "previous_logical_size": [
+    192,
+    132
+  ],
+  "wide_review_logical_size": [
+    232,
+    124
+  ],
+  "new_render_dimensions": [
+    928,
+    496
+  ],
+  "source_pixels": [
+    768,
+    528
+  ],
+  "status": "review-only independent transparent asset - NOT formally approved",
+  "transformation": "geometry-only resampling from v01 independent wall; no background composition",
+  "original_sha256": "1150203efc75fec08f06e6edcd8531550a7be34426b3e7a70828318d402908db",
+  "png_sha256": "8edff0bc51f95d43c7c7a345a8f7f511bd53373be2c6f195541d4ec16d5608bf",
+  "webp_sha256": "00a16d022c16b1c77ae4564549be69a4a3e1a84205cc75482d54bb8eb80b4f2c"
+}

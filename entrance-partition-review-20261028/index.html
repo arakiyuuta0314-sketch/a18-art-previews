@@ -4,82 +4,150 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>A18｜仕切り壁・独立素材確認</title>
+<title>A18｜仕切り壁の配置調整プレビュー</title>
 <style>
 :root{--bg:#f6f3ec;--green:#245343;--ink:#293a33;--border:#ddd6c7}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
-main{max-width:1120px;margin:auto;padding:17px 12px 42px}
-h1{font-size:clamp(20px,5vw,31px);margin:0 0 5px;line-height:1.5}
-p{font-size:13px;line-height:1.75}
-header p{color:#607168;margin:3px 0 17px}
-.tabs{display:flex;gap:9px;margin:16px 0 10px}
-button{font:inherit;cursor:pointer}
-.tabs button,.switch button{flex:1;border:1px solid #c9c7bc;background:white;border-radius:11px;min-height:47px;font-weight:700;color:#355345}
-.tabs button[aria-selected=true],.switch button[aria-pressed=true]{background:var(--green);color:white;border-color:var(--green)}
+main{max-width:1120px;margin:auto;padding:16px 12px 40px}
+h1{font-size:clamp(20px,5vw,30px);margin:0 0 5px;line-height:1.45}
+p{font-size:13px;line-height:1.72}
+header p{color:#607168;margin:3px 0 15px}
+.tabs{display:flex;gap:8px;margin:13px 0 10px}
+button{font:inherit;cursor:pointer;touch-action:manipulation}
+.tabs button,.actions button,.switch button{flex:1;border:1px solid #c9c7bc;background:white;border-radius:10px;min-height:45px;font-weight:700;color:#355345}
+.tabs button[aria-selected=true],.switch button[aria-pressed=true],.actions button.primary{background:var(--green);color:white;border-color:var(--green)}
 .panel{background:white;border:1px solid var(--border);border-radius:13px;padding:10px;box-shadow:0 3px 17px #0000000b}
 .panel[hidden]{display:none}
-.stage{background:#25362e;border-radius:8px;overflow:hidden}
-.stage>img{display:block;width:100%;height:auto}
-.switch{display:flex;gap:8px;margin-top:10px}
+.stage{position:relative;width:100%;aspect-ratio:1200/880;background:#25362e;border-radius:8px;overflow:hidden;touch-action:pan-y}
+.stage>img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none}
+.stage>img.partition{inset:auto;width:auto;height:auto;touch-action:none;cursor:grab}
+.stage>img.partition.dragging{cursor:grabbing}
+.stage>img.foreground{pointer-events:none}
+.switch{display:flex;gap:8px;margin-top:11px}
 .explain{color:#5b6b63;margin:8px 2px}
-.checker{background-color:#fff;background-image:linear-gradient(45deg,#d9d9d9 25%,transparent 25%),linear-gradient(-45deg,#d9d9d9 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d9d9d9 75%),linear-gradient(-45deg,transparent 75%,#d9d9d9 75%);background-size:32px 32px;background-position:0 0,0 16px,16px -16px,-16px 0}
-.asset{min-height:240px;display:grid;place-items:center;border-radius:10px;overflow:hidden;padding:25px}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;margin:14px 1px 4px}
+.control{display:block;font-size:13px;font-weight:700}
+.control-head{display:flex;justify-content:space-between;gap:6px;margin-bottom:7px}
+.control output{font-variant-numeric:tabular-nums;color:#586c62}
+.control input{display:block;width:100%;accent-color:var(--green);touch-action:pan-y}
+.readout{background:#eef3ee;border-radius:10px;padding:10px 12px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;margin:12px 0}
+.actions{display:flex;gap:8px;margin:10px 0 3px}
+.actions button{min-height:48px}
+.checker{background-color:#fff;background-image:linear-gradient(45deg,#dadada 25%,transparent 25%),linear-gradient(-45deg,#dadada 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#dadada 75%),linear-gradient(-45deg,transparent 75%,#dadada 75%);background-size:32px 32px;background-position:0 0,0 16px,16px -16px}
+.asset{min-height:220px;display:grid;place-items:center;border-radius:10px;overflow:hidden;padding:18px}
 .asset img{display:block;width:min(100%,768px);height:auto}
 .linkrow{display:flex;gap:8px;flex-wrap:wrap}
-.linkrow a{color:#285d48;font-size:14px;text-decoration:underline;font-weight:700;padding:10px}
+.linkrow a{color:#285d48;font-size:14px;text-decoration:underline;font-weight:700;padding:9px}
 .details{margin-top:14px;background:#eaf0eb;border-radius:10px;padding:8px 14px}
 .details strong{color:#214f3a}
-.note{margin-top:16px;color:#667269}
+.note{color:#667269;margin-top:17px}
+@media(max-width:600px){.panel{padding:6px}.controls{grid-template-columns:1fr;gap:13px}.control input{height:29px}.stage{border-radius:5px}.tabs button,.switch button,.actions button{font-size:13px}}
 </style>
 </head>
-<body>
-<main>
-<header><h1>とっておき美術館｜受付奥の仕切り壁</h1>
-<p>2026年10月28日・位置確認用／カウンターは X=-10、Y=308、幅233、高さ107 で固定</p></header>
-<nav class="tabs">
-<button id="tab-game" type="button" aria-selected="true">実際のゲーム画面</button>
-<button id="tab-asset" type="button" aria-selected="false">仕切り壁の単独素材</button>
+<body><main>
+<header>
+<h1>とっておき美術館｜受付奥の仕切り壁</h1>
+<p>配置調整プレビュー／カウンターは <strong>X=-10、Y=308、横幅233、高さ107</strong> で固定</p>
+</header>
+<nav class="tabs" aria-label="表示切替">
+<button id="tab-adjust" type="button" aria-selected="true">配置・サイズを調整</button>
+<button id="tab-asset" type="button" aria-selected="false">仕切り壁の単体素材</button>
 </nav>
-<section id="game" class="panel">
-<div class="stage"><img id="screen" src="with-partition.png" width="1200" height="880" alt="A18のChrome実ゲーム画面に、採用したL字受付と、その奥の緑と木製の仕切り壁を配置した様子"></div>
+<section id="adjust-panel" class="panel">
+<div class="stage" id="adjust-stage">
+<img class="base" src="counter-only.png" width="1200" height="880" alt="正式なA18のゲーム画面を撮影した背景。承認した木製カウンターと爺や、館長を含む">
+<img id="partition" class="partition" src="partition-wide-v02.png" draggable="false" width="928" height="496" alt="指で動かせる独立した木製の仕切り壁">
+<img class="foreground" src="foreground-counter-butler.png" width="1200" height="880" alt="" aria-hidden="true">
+</div>
 <div class="switch">
 <button id="with" type="button" aria-pressed="true">仕切り壁あり</button>
 <button id="without" type="button" aria-pressed="false">仕切り壁なし</button>
 </div>
-<p class="explain">実際にA18のゲームをChromeで起動して撮影したものです。カウンターの位置は両方とも同じです。壁だけを切り替えて見比べられます。</p>
-</section>
-<section id="asset" class="panel" hidden>
-<div class="asset checker"><img src="partition.png" width="768" height="528" alt="木製の枠と緑色の面で構成した仕切り壁だけを背景透過にした独立PNG素材。写真や額縁は含まない"></div>
-<p class="explain">壁単体の透過画像（768×528 px、RGBA）。写真・額縁・台紙・背景・キャラクターは含めていません。周囲の市松模様は透過確認のための表示で、画像には入っていません。</p>
-<div class="linkrow">
-<a href="partition.png" target="_blank" rel="noopener noreferrer">透過PNGを直接開く</a>
-<a href="partition.webp" target="_blank" rel="noopener noreferrer">ゲーム用WebPを直接開く</a>
+<p class="explain">壁を指でドラッグすると移動できます。下の4つのスライダーでも調整可能。爺やとカウンターは前景として固定してあります。</p>
+<div class="controls">
+<label class="control"><span class="control-head">左右（X）<output id="x-value" for="x"></output></span><input id="x" type="range" min="-30" max="320" step="1"></label>
+<label class="control"><span class="control-head">上下（Y）<output id="y-value" for="y"></output></span><input id="y" type="range" min="160" max="345" step="1"></label>
+<label class="control"><span class="control-head">横幅<output id="w-value" for="w"></output></span><input id="w" type="range" min="140" max="325" step="1"></label>
+<label class="control"><span class="control-head">高さ<output id="h-value" for="h"></output></span><input id="h" type="range" min="70" max="175" step="1"></label>
 </div>
+<p id="readout" class="readout" aria-live="polite"></p>
+<div class="actions"><button id="copy" class="primary" type="button">この配置をコピー</button>
+<button id="reset" type="button">初期配置に戻す</button></div>
+<p class="explain">前回の幅192・高さ132から、初期配置を <strong>幅232・高さ124</strong> に変更しています。ここでの変更は監修用プレビューにのみ反映されます。</p>
 </section>
-<div class="details">
-<p><strong>今回の扱い：</strong>カウンターのX=-10配置は確定。仕切り壁は、まだ試作・未承認。既存の正式背景は描き直していません。素材だけを独立させてゲーム画面に重ねています。</p>
-</div>
-<p class="note">※このページは美術素材の監修用です。正式な試遊ゲームへの公開反映ではありません。当たり判定と爺やの会話位置は仕切り壁の採用後に調整します。</p>
+<section id="asset-panel" class="panel" hidden>
+<div class="asset checker"><img src="partition-wide-v02.png" width="928" height="496" alt="透明背景の木と緑の仕切り壁。展示写真・額縁・台紙を含まない"></div>
+<p class="explain">仕切り壁だけの独立RGBA画像。写真・額縁・台紙は入れていません。横長候補（横幅232・高さ124に相当する比率）の透過素材です。さらに配置・寸法を決めた後、正式素材として調整します。</p>
+<div class="linkrow"><a href="partition-wide-v02.png" target="_blank" rel="noopener noreferrer">横長の透過PNGを開く</a>
+<a href="partition-wide-v02.webp" target="_blank" rel="noopener noreferrer">横長のWebPを開く</a></div>
+</section>
+<div class="details"><p><strong>現在の扱い：</strong>カウンターは位置確定済み。仕切り壁は未承認で、移動と伸縮ができる仮配置です。背景を描き直していません。</p></div>
+<p class="note">※配置調整画面は、実ゲーム画面のスクリーンショット上で独立素材を合成するシミュレーションです。ゲームの実コードを操作・保存するものではありません。確定後にレイヤーと当たり判定も改修します。</p>
 </main>
 <script>
 (()=>{
 'use strict';
 const q=id=>document.getElementById(id);
+const stage=q('adjust-stage'),part=q('partition');
+const geometry={x:133,y:53,width:934,height:827,logicalW:546,logicalH:483,screenW:1200,screenH:880};
+const origin={x:12,y:231,w:232,h:124};
+const state={...origin};
+let visible=true,last=null;
 function tab(asset){
- q('game').hidden=asset;q('asset').hidden=!asset;
- q('tab-game').setAttribute('aria-selected',String(!asset));
+ q('adjust-panel').hidden=asset;q('asset-panel').hidden=!asset;
+ q('tab-adjust').setAttribute('aria-selected',String(!asset));
  q('tab-asset').setAttribute('aria-selected',String(asset));
 }
-q('tab-game').onclick=()=>tab(false);
+q('tab-adjust').onclick=()=>tab(false);
 q('tab-asset').onclick=()=>tab(true);
-function screen(has){
- q('screen').src=has?'with-partition.png':'counter-only.png';
- q('with').setAttribute('aria-pressed',String(has));
- q('without').setAttribute('aria-pressed',String(!has));
+function clamp(key,v){
+ const ranges={x:[-30,320],y:[160,345],w:[140,325],h:[70,175]};
+ return Math.min(ranges[key][1],Math.max(ranges[key][0],Math.round(v)));
 }
-q('with').onclick=()=>screen(true);
-q('without').onclick=()=>screen(false);
+function paint(){
+ for(const key of ['x','y','w','h']){
+  state[key]=clamp(key,state[key]);
+  q(key).value=state[key];
+  q(key+'-value').textContent=String(state[key]);
+ }
+ const scaleX=geometry.width/geometry.logicalW;
+ const scaleY=geometry.height/geometry.logicalH;
+ part.style.left=((geometry.x+state.x*scaleX)/geometry.screenW*100)+'%';
+ part.style.top=((geometry.y+state.y*scaleY)/geometry.screenH*100)+'%';
+ part.style.width=(state.w*scaleX/geometry.screenW*100)+'%';
+ part.style.height=(state.h*scaleY/geometry.screenH*100)+'%';
+ part.style.display=visible?'block':'none';
+ q('readout').textContent='A18仕切り壁：X='+state.x+', Y='+state.y+', 横幅='+state.w+', 高さ='+state.h;
+ q('with').setAttribute('aria-pressed',String(visible));
+ q('without').setAttribute('aria-pressed',String(!visible));
+}
+for(const key of ['x','y','w','h'])
+ q(key).addEventListener('input',e=>{state[key]=Number(e.target.value);paint();});
+q('with').onclick=()=>{visible=true;paint()};
+q('without').onclick=()=>{visible=false;paint()};
+part.addEventListener('dragstart',e=>e.preventDefault());
+part.addEventListener('pointerdown',e=>{
+ if(!visible)return;
+ e.preventDefault();part.setPointerCapture(e.pointerId);part.classList.add('dragging');
+ last={x:e.clientX,y:e.clientY,worldX:state.x,worldY:state.y};
+});
+part.addEventListener('pointermove',e=>{
+ if(!last)return;
+ const bounds=stage.getBoundingClientRect();
+ const dx=(e.clientX-last.x)*geometry.screenW/bounds.width/(geometry.width/geometry.logicalW);
+ const dy=(e.clientY-last.y)*geometry.screenH/bounds.height/(geometry.height/geometry.logicalH);
+ state.x=last.worldX+dx;state.y=last.worldY+dy;paint();
+});
+function stop(){last=null;part.classList.remove('dragging')}
+part.addEventListener('pointerup',stop);part.addEventListener('pointercancel',stop);part.addEventListener('lostpointercapture',stop);
+q('reset').onclick=()=>{Object.assign(state,origin);visible=true;paint();q('copy').textContent='この配置をコピー'};
+q('copy').onclick=async()=>{
+ const result='A18仕切り壁：X='+state.x+', Y='+state.y+', 横幅='+state.w+', 高さ='+state.h;
+ try{await navigator.clipboard.writeText(result);q('copy').textContent='コピーしました';}
+ catch(e){q('readout').textContent=result+' （この文字を長押しでコピーしてください）';}
+};
+paint();
 })();
 </script>
 </body></html>

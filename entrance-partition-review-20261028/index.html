@@ -69,9 +69,9 @@ a{color:#246b52}
 <p class="subtitle">左漆喰壁：X=-6、Y=200、幅215、高さ122。カウンター：X=-10、Y=318、幅233、高さ107。右壁：X=363、Y=243、幅188、高さ133（仮確定）。</p>
 </section>
 <section class="panel" id="photoPreview" hidden>
-<div class="stage"><img id="registeredScreen" class="base" src="game_plaster_right_registered_v05.png" width="1200" height="880" alt="実際のChromeゲームで右の仕切り壁に画像を登録し表示したQA画面"></div>
-<div class="tools"><button id="photoPresent" type="button" aria-pressed="true">テスト画像あり</button><button id="photoAbsent" type="button" aria-pressed="false">テスト画像なし</button></div>
-<p class="subtitle">右の仕切り壁を調べると、端末から写真を登録して展示できます。上はテスト用画像を実際にゲームで登録し、保存後に表示したChrome画面です。登録後の再読み込みでも保持されることを確認しています。これは実際の写真アップロード機能を持つ公開ゲームではなく、機能の検証結果を写したプレビューです。</p>
+<div class="stage"><img id="registeredScreen" class="base" src="game_plaster_right_centered_v06.png" width="1200" height="880" alt="実際のChromeゲームで右の仕切り壁の中央に画像を登録し表示したQA画面"></div>
+<div class="tools"><button id="photoPresent" type="button" aria-pressed="true">中央寄せ後</button><button id="photoBefore" type="button" aria-pressed="false">変更前</button><button id="photoAbsent" type="button" aria-pressed="false">画像なし</button></div>
+<p class="subtitle">右の仕切り壁の緑色の表示面を測定し、写真を中央へ11px・上へ4px（ゲーム座標）移動。写真サイズは変更なし。中央寄せ後と変更前を切り替えられます。実際にゲームで登録したテスト画像の画面です。作品は保存・再読み込み後も保持されます。</p>
 </section>
 <section class="panel" id="material" hidden>
 <div class="assets">
@@ -144,10 +144,17 @@ function tab(material){
 get('tab-placement').onclick=()=>tab('placement');
 get('tab-material').onclick=()=>tab('material');
 get('tab-photo').onclick=()=>tab('photo');
-get('photoPresent').onclick=()=>photo(true);
-get('photoAbsent').onclick=()=>photo(false);
-function photo(yes){get('registeredScreen').src=yes?'game_plaster_right_registered_v05.png':'game_plaster_right_empty_v05.png';
- get('photoPresent').setAttribute('aria-pressed',String(yes));get('photoAbsent').setAttribute('aria-pressed',String(!yes));}
+get('photoPresent').onclick=()=>photo('center');
+get('photoBefore').onclick=()=>photo('before');
+get('photoAbsent').onclick=()=>photo('none');
+function photo(mode){
+ const images={center:'game_plaster_right_centered_v06.png',before:'game_plaster_right_registered_v05.png',none:'game_plaster_right_empty_v05.png'};
+ if(!Object.prototype.hasOwnProperty.call(images,mode))throw Error('E_A18_REVIEW_MODE');
+ get('registeredScreen').src=images[mode];
+ get('photoPresent').setAttribute('aria-pressed',String(mode==='center'));
+ get('photoBefore').setAttribute('aria-pressed',String(mode==='before'));
+ get('photoAbsent').setAttribute('aria-pressed',String(mode==='none'));
+}
 function material(side){
  const isRight=side==='right',src=isRight?'partition-right-mirror-v03.png':'partition-left-plaster-v05.png';
  get('materialImg').src=src;get('materialLink').href=src;

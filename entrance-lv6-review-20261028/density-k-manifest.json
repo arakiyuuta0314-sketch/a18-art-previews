@@ -1,0 +1,32 @@
+{
+  "status": "visual_comparison_only",
+  "purpose": "Would a full length ceremonial runner fill the open floor without additional furniture?",
+  "base": "H architectural variant",
+  "preserved": "G and original sources unchanged",
+  "materials": {
+    "body": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-carpet-independent-final-20261026\\entrance_red_carpet_body.png",
+    "gold_trim": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-carpet-independent-final-20261026\\entrance_red_carpet_gold_trim.png",
+    "shadow": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-carpet-independent-final-20261026\\entrance_red_carpet_contact_shadow.png",
+    "actor": "C:\\Users\\User\\source\\repos\\web-tools-preview\\a18\\layout-test\\assets\\curator-right-00.png"
+  },
+  "image": "lv6-density-k.png",
+  "source_to_canvas": [
+    [
+      553.0,
+      425.0
+    ],
+    [
+      706.0,
+      425.0
+    ],
+    [
+      779.0,
+      870.0
+    ],
+    [
+      495.0,
+      870.0
+    ]
+  ],
+  "photo_or_game_integration": false
+}

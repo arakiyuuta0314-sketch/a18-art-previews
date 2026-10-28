@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "viewport": "iphone390",
+      "tabs": 12,
+      "route": "PASS",
+      "zoom": "PASS",
+      "image_count": 12,
+      "horizontal_overflow": false,
+      "javascript_errors": 0
+    },
+    {
+      "viewport": "iphone430",
+      "tabs": 12,
+      "route": "PASS",
+      "zoom": "PASS",
+      "image_count": 12,
+      "horizontal_overflow": false,
+      "javascript_errors": 0
+    },
+    {
+      "viewport": "desktop1200",
+      "tabs": 12,
+      "route": "PASS",
+      "zoom": "PASS",
+      "image_count": 12,
+      "horizontal_overflow": false,
+      "javascript_errors": 0
+    }
+  ],
+  "preserved_g_sha256": "873506f002c18a746705883ade223cf2bd41e5f15b645520e221ef733920ab72"
+}

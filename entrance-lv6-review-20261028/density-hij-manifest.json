@@ -1,0 +1,50 @@
+{
+  "status": "visual_compare_only",
+  "base": "lv6-complete-g.png",
+  "variants": {
+    "H": "G + real wall-trim material / soft lamp pools / brass floor edge / backwall joinery",
+    "I": "H + existing historical bench in right foreground. Optional; visual compatibility unapproved.",
+    "J": "H + three historical test photos, purely to estimate visual density when artworks are installed; not actual photo ratio/rendering behavior."
+  },
+  "unchanged": [
+    "G pixel asset",
+    "all source files",
+    "Lv1 game",
+    "other gallery layouts",
+    "artwork slot IDs"
+  ],
+  "source_sha256": {
+    "entrance-wall-trim-final-20261025/entrance_wall_trim_wainscot_west.png": "8962b7c3d5805d58902dd1f63fe0728242845482e0d590e7901db7d261fec48d",
+    "entrance-wall-trim-final-20261025/entrance_wall_trim_wainscot_east.png": "9a312ed304be026d7328d3b2b46caeaf5731b958d85a397f42eeedc0d1031d14",
+    "layout-test/assets/candidate-v1.1/props/bench.png": "f5bb7f45b6073c690857975247891571fdb48029584d52204ed8dec02afddfef",
+    "entrance-rear-frames-final-20261025/demo_photo_left.jpg": "fb6e613aacdbc8b0f303e6f13539b0ad37ab4c309eeb169ef54b8ab1e1c5ad02",
+    "entrance-rear-frames-final-20261025/demo_photo_right.jpg": "c486720ffcc90847ceba016dc520263ab2eb039a375e08f628171a563b99cdfc",
+    "entrance-right-handrail-final-20261025/source_photo_03.png": "405301894101ab6f2cc2dd7a4176457dd1a0f57184602aa87c44eeaa1908992b"
+  },
+  "output": {
+    "H": {
+      "name": "lv6-density-h.png",
+      "sha256": "282f1b7459387f90041dd05cc99dc0ad5dafa7b350387080f1decf8d311d7422",
+      "size": [
+        1200,
+        880
+      ]
+    },
+    "I": {
+      "name": "lv6-density-i.png",
+      "sha256": "e8e761dc2cf4eec9741220274613ad75186238e8395a4f800576baa704e80101",
+      "size": [
+        1200,
+        880
+      ]
+    },
+    "J": {
+      "name": "lv6-density-j.png",
+      "sha256": "18202e8f716d69359cf7fe6319fc1aa0849e06b6214a63cd3b42c658556c46fc",
+      "size": [
+        1200,
+        880
+      ]
+    }
+  }
+}

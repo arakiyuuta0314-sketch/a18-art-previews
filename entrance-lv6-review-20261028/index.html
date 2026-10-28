@@ -12,7 +12,7 @@ h1{font-size:clamp(21px,5vw,30px);margin:6px 0 8px}
 header p{font-size:13px;color:#d8e6df;line-height:1.7;margin:0}
 main{max-width:1120px;margin:auto;padding:15px 10px 34px}
 .intro{font-size:13px;line-height:1.7;margin:0 4px 13px;color:var(--muted)}
-.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:12px}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:12px}
 button{font:inherit;cursor:pointer;touch-action:manipulation}
 .tabs button{min-width:0;min-height:52px;background:#fff;border:1px solid #c6cec7;border-radius:10px;padding:9px 3px;color:#31483b;font-size:14px;font-weight:700}
 .tabs button[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -40,14 +40,16 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <p class="intro">上のボタンで切り替えてください。iPhoneでも「拡大する」で細部を確認できます。</p>
 <nav class="tabs" role="tablist" aria-label="配置案の切り替え">
 <button role="tab" id="tab1" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">Lv.1<small>正式基準</small></button>
-<button role="tab" id="tabA" aria-selected="true" aria-controls="panel" tabindex="0" type="button">A案<small>絨毯＋照明</small></button>
+<button role="tab" id="tabA" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">A案<small>絨毯＋照明</small></button>
 <button role="tab" id="tabB" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">B案<small>＋植物</small></button>
 <button role="tab" id="tabC" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">C案<small>＋台座</small></button>
+<button role="tab" id="tabD" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">D案<small>＋矢印案内板</small></button>
+<button role="tab" id="tabE" aria-selected="true" aria-controls="panel" tabindex="0" type="button">E案<small>＋金枠・灯り</small></button>
 </nav>
-<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabA">
-<div class="top"><strong id="label">A案｜カーペット＋照明</strong><span id="status">既存独立素材を配置</span></div>
+<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabE">
+<div class="top"><strong id="label">E案｜矢印・金枠・展示灯・天井灯</strong><span id="status">新規素材ではなく旧独立素材を再配置</span></div>
 <div class="stage" id="stage"><div class="visual-wrap">
-<img id="visual" width="1200" height="880" src="lv6-existing-a.png" alt="現行のエントランスに既存の赤絨毯と4つの照明を置いた案A">
+<img id="visual" width="1200" height="880" src="lv6-existing-e.png" alt="Lv1背景にカーペット、柱灯、植物、台座、左右矢印、3つの金枠、展示灯、天井灯を重ねたLv6 E案">
 <svg id="route-overlay" class="route-overlay" viewBox="0 0 1200 880" preserveAspectRatio="xMidYMid meet" hidden role="img" aria-label="左右の通路予定位置はそれぞれの仕切り壁の裏。中央奥は展示室5の扉。">
 <defs><filter id="route-shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity=".45"/></filter></defs>
 <!-- Behind left partition (logical world x≈35..105 / y≈235..275) -->
@@ -65,10 +67,10 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <text x="629" y="137" fill="white" font-size="18" font-weight="bold" text-anchor="middle">奥の扉 → 展示室5</text>
 </svg></div></div>
 <div class="actions"><button id="zoom" type="button" aria-pressed="false">拡大する</button><button id="routes" type="button" aria-pressed="false">通路位置を見る</button><span id="hint">拡大後は指でスクロールできます。</span></div>
-<p class="desc" id="desc">旧素材の赤絨毯と柱灯（本体＋発光）を使用。中央の空きスペースを使い、受付・仕切り壁・人物を隠さない位置へ調整しています。</p>
+<p class="desc" id="desc">C案の既存素材に、左右の方向案内、3つの金枠、展示灯2灯、天井小型灯を重ねました。素材の旧座標は採用せず、現行壁へ合わせています。額縁の大きさと光のにじみは引き続き調整対象です。</p>
 </section>
-<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>現在は配置の見た目だけを比較します。</strong> 当たり判定、保存、ゲーム本体への組み込みは未実施です。B・C案の前景植物と台座は、旧画面で下端が切れるよう作られた素材のため、現在の操作UIとの重なりも確認してください。どの案も正式採用ではありません。</p>
-<footer>基準：2026年10月28日のLv.1ゲーム実画面。A/B/Cは既存の独立PNGから合成し、素材の出典と表示位置を別記録で管理しています。</footer>
+<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>採用方針と未決事項：</strong>ユーザー確認によりカーペット・柱照明・左右植物・木製台座の<strong>4種類はLv.6へ採用する方向で確定</strong>。具体的なサイズ・位置・微調整は未確定です。D・E案で追加した矢印案内板、額縁、展示灯、天井灯はまだ比較候補です。右の額縁は正式ゲームでは写真の縦横比に連動するため、現在の固定枠は見た目だけの仮配置です。ゲーム本体と衝突判定は変更していません。</p>
+<footer>基準：2026年10月28日のLv.1ゲーム実画面。A〜Eは既存の独立PNGから合成し、素材の出典と表示位置を別記録で管理しています。</footer>
 </main>
 <script>
 (()=>{'use strict';
@@ -85,9 +87,15 @@ const variants={
  desc:'A案に旧素材の観葉植物2点を追加。素材が画面下端で切れる仕様なので、その位置に合わせて左右の前景に置いています。'},
  C:{src:'lv6-existing-c.png',label:'C案｜B＋左右の台座',status:'既存独立素材を追加',
  alt:'B案に旧素材の木製台座を加えた案C',
- desc:'B案に旧素材の木製台座と接地影を追加。台座も旧画面の端に合わせた素材で、現在の壁・操作UIとの関係は採用前に調整が必要です。'}
+ desc:'B案に旧素材の木製台座と接地影を追加。台座も旧画面の端に合わせた素材で、現在の壁・操作UIとの関係は採用前に調整が必要です。'},
+ D:{src:'lv6-existing-d.png',label:'D案｜C＋左右矢印の案内板',status:'既存の方向案内板を追加',
+ alt:'C案に左向き、右向きの既存案内板を木製腰壁に追加したD案',
+ desc:'仕切り壁の裏へ向かう誘導として、旧素材の左右矢印板を背面の木製腰壁に配置。灯具・家具との重複を避けた位置です。'},
+ E:{src:'lv6-existing-e.png',label:'E案｜矢印・金枠・展示灯・天井灯',status:'新規素材ではなく旧独立素材を再配置',
+ alt:'Lv1背景にカーペット、柱灯、植物、台座、左右矢印、3つの金枠、展示灯、天井灯を重ねたLv6 E案',
+ desc:'C案の既存素材に、左右の方向案内、3つの金枠、展示灯2灯、天井小型灯を重ねました。素材の旧座標は採用せず、現行壁へ合わせています。額縁の大きさと光のにじみは引き続き調整対象です。'}
 };
-const keys=['1','A','B','C'];let active='A',expanded=false;
+const keys=['1','A','B','C','D','E'];let active='E',expanded=false;
 function center(){if(!expanded)return;const s=$('stage');s.scrollLeft=(s.scrollWidth-s.clientWidth)/2;s.scrollTop=Math.max(0,(s.scrollHeight-s.clientHeight)/2);}
 function show(k){
  active=k;const v=variants[k];$('visual').src=v.src;$('visual').alt=v.alt;

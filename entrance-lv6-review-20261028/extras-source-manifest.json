@@ -1,0 +1,120 @@
+{
+  "intent": "D adds existing wayfinding signs to accepted candidate C; E adds original golden frames and original lighting components",
+  "status": "visual test only, not adopted, coordinate adjustment experiment",
+  "existing_C_preserved": true,
+  "placements_logical": {
+    "west_sign": [
+      56,
+      170,
+      38,
+      37
+    ],
+    "east_sign": [
+      454,
+      170,
+      38,
+      37
+    ],
+    "back_left_frame": [
+      36,
+      55,
+      159,
+      98
+    ],
+    "back_right_frame": [
+      367,
+      55,
+      145,
+      98
+    ],
+    "right_partition_preview_only": [
+      389,
+      251,
+      148,
+      89
+    ],
+    "left_exhibit_lamp": [
+      98,
+      33,
+      45,
+      39
+    ],
+    "right_exhibit_lamp": [
+      408,
+      33,
+      47,
+      39
+    ],
+    "ceiling_light_origin": [
+      0,
+      0
+    ]
+  },
+  "source_assets": {
+    "entrance_west_sign.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-fixtures-final-20261025\\entrance_west_sign.png",
+      "sha256": "d1fbee69223b54cf3f334f7a54c90219b5bcdde2e262509cd0e5d5b04acd0bd4",
+      "size": [
+        39,
+        55
+      ]
+    },
+    "entrance_east_sign.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-fixtures-final-20261025\\entrance_east_sign.png",
+      "sha256": "ca60147ccaf45cc9f97c5449ed800e77a275bf0b55fbf2d6f4c9a7b3d738a7c9",
+      "size": [
+        40,
+        55
+      ]
+    },
+    "frame_left_original_gold.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-frames-independent-20261026\\frame_left_original_gold.png",
+      "sha256": "8acbe982f1889a36797f83550ab684e7e6f2a33ea132ea8b25d8e877a92a1ffe",
+      "size": [
+        546,
+        483
+      ]
+    },
+    "frame_right_original_gold.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-frames-independent-20261026\\frame_right_original_gold.png",
+      "sha256": "f782b1f4f5b9d789fd9c5ac61d8f27c44accf659246b2e3be5f7862ee31965d3",
+      "size": [
+        546,
+        483
+      ]
+    },
+    "entrance_picture_light_west_photo_safe.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-picture-lights-final-20261025\\entrance_picture_light_west_photo_safe.png",
+      "sha256": "a1a53baf3cdb96670b7fbb4b61335eaab6cc79c1ac5fba6e4035f16d026652b6",
+      "size": [
+        45,
+        39
+      ]
+    },
+    "entrance_picture_light_east_photo_safe.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-picture-lights-final-20261025\\entrance_picture_light_east_photo_safe.png",
+      "sha256": "96dd44337ca2d64b8829d1abb96a7522fde4902ad03e312903942398b2a88271",
+      "size": [
+        47,
+        39
+      ]
+    },
+    "ceiling_lamp_row_body.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\lighting-ceiling-counter-v01\\ceiling_lamp_row_body.png",
+      "sha256": "9ebdd4e821616463d666e0fb94e772e7ed8a1792d88d39bee2821ea9eef38eac",
+      "size": [
+        546,
+        483
+      ]
+    },
+    "ceiling_lamp_row_emission.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\lighting-ceiling-counter-v01\\ceiling_lamp_row_emission.png",
+      "sha256": "2cb04fe051fbeff45a9b383ec9f4671fc1a50f23cd70dc65b2babe4af6ba2bc1",
+      "size": [
+        546,
+        483
+      ]
+    }
+  },
+  "note": "No runtime photo-frame implementation altered; no sign or collision code changed"
+}

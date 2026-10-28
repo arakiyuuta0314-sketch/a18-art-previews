@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "source_file_count": 6,
+  "views": [
+    {
+      "viewport": "iphone12",
+      "width": 390,
+      "height": 844,
+      "tabs": 8,
+      "image_load": "PASS",
+      "routes": "PASS",
+      "zoom": "PASS",
+      "horizontal_overflow": false,
+      "js_errors": 0,
+      "result": "PASS"
+    },
+    {
+      "viewport": "iphone14plus",
+      "width": 430,
+      "height": 932,
+      "tabs": 8,
+      "image_load": "PASS",
+      "routes": "PASS",
+      "zoom": "PASS",
+      "horizontal_overflow": false,
+      "js_errors": 0,
+      "result": "PASS"
+    },
+    {
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 880,
+      "tabs": 8,
+      "image_load": "PASS",
+      "routes": "PASS",
+      "zoom": "PASS",
+      "horizontal_overflow": false,
+      "js_errors": 0,
+      "result": "PASS"
+    }
+  ]
+}

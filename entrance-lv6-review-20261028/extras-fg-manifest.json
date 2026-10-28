@@ -1,0 +1,121 @@
+{
+  "kind": "A18 Lv6 decorative concept images, unapproved",
+  "source_base": "lv6-existing-e.png",
+  "variants": {
+    "F": "E + historical reception lamp / historical vase masked + historical beam trim + bespoke small door crest",
+    "G": "F + visitor ledger, counter mounted medallion and two brass floor motifs"
+  },
+  "assets_reused": {
+    "entrance-wall-trim-final-20261025\\entrance_wall_trim_ceiling_west.png": "78c84b9edeac3babe77a064e8599ba005a141522bb26558a84972c3fe687f28f",
+    "entrance-wall-trim-final-20261025\\entrance_wall_trim_ceiling_east.png": "a6bf1181a012817e900dc40d1f33daf33e75d9e2d3d41064a86bd5c943150527",
+    "lighting-ceiling-counter-v01\\counter_lamp_body.png": "3fffecee78f276d30ac444c8a78824da39ee719bb6f101c93c0447e91d71fc3c",
+    "lighting-ceiling-counter-v01\\counter_lamp_emission.png": "8a31f39cd171ca72e811a9c008383af87c89e6770a92f343cd489b083013e44e",
+    "entrance-counter-flower-final-20261025\\entrance_counter_flower_vase.png": "8b62a320db1c39336e01f5c37417f19ff3343a40ff60126224ee6e8825e98a0d",
+    "entrance-counter-flower-final-20261025\\entrance_counter_flower_alpha_mask.png": "44e587bd48e655767c7c7fd91e87fe4f9bf1b506fe2fea971a0f9666d08c1385"
+  },
+  "output": {
+    "F": {
+      "file": "lv6-complete-f.png",
+      "sha256": "082a10474967f09a412f917bc6f5002fcf7c07cc6810845d653d35f9ed706786",
+      "positions": {
+        "west_ceiling": [
+          210,
+          92,
+          274,
+          10
+        ],
+        "east_ceiling": [
+          733,
+          92,
+          263,
+          10
+        ],
+        "crest": [
+          595,
+          102,
+          62,
+          25
+        ],
+        "desk_lamp_body": [
+          195,
+          633,
+          39,
+          70
+        ],
+        "desk_lamp_emission": [
+          198,
+          635,
+          33,
+          45
+        ],
+        "flower": [
+          443,
+          630,
+          46,
+          72
+        ]
+      }
+    },
+    "G": {
+      "file": "lv6-complete-g.png",
+      "sha256": "873506f002c18a746705883ade223cf2bd41e5f15b645520e221ef733920ab72",
+      "positions": {
+        "west_ceiling": [
+          210,
+          92,
+          274,
+          10
+        ],
+        "east_ceiling": [
+          733,
+          92,
+          263,
+          10
+        ],
+        "crest": [
+          590,
+          102,
+          73,
+          29
+        ],
+        "desk_lamp_body": [
+          195,
+          633,
+          39,
+          70
+        ],
+        "desk_lamp_emission": [
+          198,
+          635,
+          33,
+          45
+        ],
+        "flower": [
+          443,
+          630,
+          46,
+          72
+        ],
+        "visitor_ledger": [
+          304,
+          680,
+          48,
+          22
+        ],
+        "reception_badge": [
+          309,
+          760,
+          48,
+          34
+        ]
+      }
+    }
+  },
+  "unchanged": [
+    "approved Lv1 source imagery",
+    "original independent PNG sources",
+    "frame IDs",
+    "NPC/collision/game logic"
+  ],
+  "deferred_policy": "Every source stays preserved; unsuitable entrance assets are deferred for other rooms; never delete originals."
+}

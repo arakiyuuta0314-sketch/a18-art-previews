@@ -12,7 +12,7 @@ h1{font-size:clamp(21px,5vw,30px);margin:6px 0 8px}
 header p{font-size:13px;color:#d8e6df;line-height:1.7;margin:0}
 main{max-width:1120px;margin:auto;padding:15px 10px 34px}
 .intro{font-size:13px;line-height:1.7;margin:0 4px 13px;color:var(--muted)}
-.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:12px}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:12px}
 button{font:inherit;cursor:pointer;touch-action:manipulation}
 .tabs button{min-width:0;min-height:52px;background:#fff;border:1px solid #c6cec7;border-radius:10px;padding:9px 3px;color:#31483b;font-size:14px;font-weight:700}
 .tabs button[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -31,11 +31,11 @@ button{font:inherit;cursor:pointer;touch-action:manipulation}
 .note strong{color:#384939}
 footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 @media(max-width:600px){main{padding:12px 7px 25px}.panel{padding:6px}.top{padding:5px 5px 0}.tabs button{font-size:13px}.tabs button small{font-size:9px}}
-@media(max-width:350px){.tabs{grid-template-columns:1fr 1fr}}
+@media(max-width:350px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
 <header><div class="eyebrow">とっておき美術館｜エントランス美術検証</div>
-<h1>Lv.1 → Lv.6 既存素材の配置比較</h1>
-<p>作り直さず、以前制作した独立素材を現行Lv.1に合わせて配置しました。</p></header>
+<h1>エントランス Lv.6 完成イメージ</h1>
+<p>現行Lv.1はそのまま。既存独立素材を中心に、最高レベルの受付・建築装飾まで検討します。</p></header>
 <main>
 <p class="intro">上のボタンで切り替えてください。iPhoneでも「拡大する」で細部を確認できます。</p>
 <nav class="tabs" role="tablist" aria-label="配置案の切り替え">
@@ -44,12 +44,14 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <button role="tab" id="tabB" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">B案<small>＋植物</small></button>
 <button role="tab" id="tabC" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">C案<small>＋台座</small></button>
 <button role="tab" id="tabD" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">D案<small>＋矢印案内板</small></button>
-<button role="tab" id="tabE" aria-selected="true" aria-controls="panel" tabindex="0" type="button">E案<small>＋金枠・灯り</small></button>
+<button role="tab" id="tabE" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">E案<small>＋金枠・灯り</small></button>
+<button role="tab" id="tabF" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">F案<small>受付＋館章</small></button>
+<button role="tab" id="tabG" aria-selected="true" aria-controls="panel" tabindex="0" type="button">G案<small>最豪華候補</small></button>
 </nav>
-<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabE">
-<div class="top"><strong id="label">E案｜矢印・金枠・展示灯・天井灯</strong><span id="status">新規素材ではなく旧独立素材を再配置</span></div>
+<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabG">
+<div class="top"><strong id="label">G案｜Lv.6 最豪華候補</strong><span id="status">既存素材＋一部新規の小装飾</span></div>
 <div class="stage" id="stage"><div class="visual-wrap">
-<img id="visual" width="1200" height="880" src="lv6-existing-e.png" alt="Lv1背景にカーペット、柱灯、植物、台座、左右矢印、3つの金枠、展示灯、天井灯を重ねたLv6 E案">
+<img id="visual" width="1200" height="880" src="lv6-complete-g.png" alt="E案に既存の受付ランプと花器、金の天井装飾、扉上の館章、受付の装飾を加えたG案">
 <svg id="route-overlay" class="route-overlay" viewBox="0 0 1200 880" preserveAspectRatio="xMidYMid meet" hidden role="img" aria-label="左右の通路予定位置はそれぞれの仕切り壁の裏。中央奥は展示室5の扉。">
 <defs><filter id="route-shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity=".45"/></filter></defs>
 <!-- Behind left partition (logical world x≈35..105 / y≈235..275) -->
@@ -67,10 +69,10 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <text x="629" y="137" fill="white" font-size="18" font-weight="bold" text-anchor="middle">奥の扉 → 展示室5</text>
 </svg></div></div>
 <div class="actions"><button id="zoom" type="button" aria-pressed="false">拡大する</button><button id="routes" type="button" aria-pressed="false">通路位置を見る</button><span id="hint">拡大後は指でスクロールできます。</span></div>
-<p class="desc" id="desc">C案の既存素材に、左右の方向案内、3つの金枠、展示灯2灯、天井小型灯を重ねました。素材の旧座標は採用せず、現行壁へ合わせています。額縁の大きさと光のにじみは引き続き調整対象です。</p>
+<p class="desc" id="desc">F案をさらに華やかにしたLv.6の試作です。受付ランプ・切り抜き調整した花器・天井の金装飾に加え、館章、受付帳、金属の小さな飾りを追加。小装飾は新規作成したため、まだ正式採用ではありません。</p>
 </section>
-<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>採用方針と未決事項：</strong>ユーザー確認によりカーペット・柱照明・左右植物・木製台座の<strong>4種類はLv.6へ採用する方向で確定</strong>。具体的なサイズ・位置・微調整は未確定です。D・E案で追加した矢印案内板、額縁、展示灯、天井灯はまだ比較候補です。右の額縁は正式ゲームでは写真の縦横比に連動するため、現在の固定枠は見た目だけの仮配置です。ゲーム本体と衝突判定は変更していません。</p>
-<footer>基準：2026年10月28日のLv.1ゲーム実画面。A〜Eは既存の独立PNGから合成し、素材の出典と表示位置を別記録で管理しています。</footer>
+<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>採用方針と未決事項：</strong>ユーザー確認によりカーペット・柱照明・左右植物・木製台座の<strong>4種類はLv.6へ採用する方向で確定</strong>。具体的なサイズ・位置・微調整は未確定です。D・E案で追加した矢印案内板、額縁、展示灯、天井灯はまだ比較候補です。右の額縁は正式ゲームでは写真の縦横比に連動するため、現在の固定枠は見た目だけの仮配置です。F/Gの受付ランプ・花器・天井飾りは旧独立素材を使い、扉上の館章・受付帳・小さな金具は新規の試作です。<strong>ゲーム本体・当たり判定・保存・Lv.1正本は変更していません。</strong> 使わない素材は他室用として保留し、削除しません。</p>
+<footer>基準：2026年10月28日のLv.1実画面。A〜Eは既存素材中心、F/Gは受付・館章の追加案です。画像内の「Lv.1」は撮影時のUIであり、Lv.6のゲーム実装ではありません。素材の正本は削除・上書きしません。</footer>
 </main>
 <script>
 (()=>{'use strict';
@@ -93,9 +95,15 @@ const variants={
  desc:'仕切り壁の裏へ向かう誘導として、旧素材の左右矢印板を背面の木製腰壁に配置。灯具・家具との重複を避けた位置です。'},
  E:{src:'lv6-existing-e.png',label:'E案｜矢印・金枠・展示灯・天井灯',status:'新規素材ではなく旧独立素材を再配置',
  alt:'Lv1背景にカーペット、柱灯、植物、台座、左右矢印、3つの金枠、展示灯、天井灯を重ねたLv6 E案',
- desc:'C案の既存素材に、左右の方向案内、3つの金枠、展示灯2灯、天井小型灯を重ねました。素材の旧座標は採用せず、現行壁へ合わせています。額縁の大きさと光のにじみは引き続き調整対象です。'}
+ desc:'C案の既存素材に、左右の方向案内、3つの金枠、展示灯2灯、天井小型灯を重ねました。素材の旧座標は採用せず、現行壁へ合わせています。額縁の大きさと光のにじみは引き続き調整対象です。'},
+ F:{src:'lv6-complete-f.png',label:'F案｜E＋受付ランプ・花器・館章',status:'旧素材を再利用し切り抜き調整',
+ alt:'E案に元の受付ランプ、元の花器と天井金装飾、新規の小さな扉上の館章を加えたF案',
+ desc:'元の卓上ランプの本体・発光、元の受付花器（マスクで背景除去）、元の天井の金装飾を再配置しました。扉上の小さな館章だけ新規描画。受付・天井を中心に上品な賑わいを追加します。'},
+ G:{src:'lv6-complete-g.png',label:'G案｜Lv.6 最豪華候補',status:'既存素材＋一部新規の小装飾',
+ alt:'E案に既存の受付ランプと花器、金の天井装飾、扉上の館章、受付の装飾を加えたG案',
+ desc:'F案をさらに華やかにしたLv.6の試作です。受付ランプ・切り抜き調整した花器・天井の金装飾に加え、館章、受付帳、金属の小さな飾りを追加。小装飾は新規作成したため、まだ正式採用ではありません。'}
 };
-const keys=['1','A','B','C','D','E'];let active='E',expanded=false;
+const keys=['1','A','B','C','D','E','F','G'];let active='G',expanded=false;
 function center(){if(!expanded)return;const s=$('stage');s.scrollLeft=(s.scrollWidth-s.clientWidth)/2;s.scrollTop=Math.max(0,(s.scrollHeight-s.clientHeight)/2);}
 function show(k){
  active=k;const v=variants[k];$('visual').src=v.src;$('visual').alt=v.alt;

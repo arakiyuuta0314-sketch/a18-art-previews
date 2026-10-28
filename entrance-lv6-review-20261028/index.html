@@ -1,75 +1,97 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow">
-<title>A18｜エントランスLv.1とLv.6比較</title>
+<meta name="robots" content="noindex,nofollow"><title>A18｜Lv.6 既存素材配置比較</title>
 <style>
-:root{--green:#285b4b;--ink:#26382d;--sub:#66736a}
-*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
-header{padding:21px 14px 25px;background:#173a30;color:#fff;text-align:center}header small{color:#dcc395;letter-spacing:.07em;font-weight:700}
-h1{font-size:clamp(21px,5vw,30px);margin:5px 0 7px}header p{font-size:13px;line-height:1.7;color:#e0ebe5;margin:0}
-main{max-width:1040px;margin:auto;padding:16px 10px 30px}p.intro{font-size:13px;line-height:1.7;color:#65746c;margin:0 5px 13px}
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0 0 10px}
+:root{--forest:#1a3a30;--accent:#285d4a;--ink:#29392e;--muted:#67766a;--paper:#f7f5ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+header{padding:20px 12px 22px;background:var(--forest);color:#fff;text-align:center}
+header .eyebrow{font-size:12px;color:#e5cf9b;font-weight:700;letter-spacing:.08em}
+h1{font-size:clamp(21px,5vw,30px);margin:6px 0 8px}
+header p{font-size:13px;color:#d8e6df;line-height:1.7;margin:0}
+main{max-width:1120px;margin:auto;padding:15px 10px 34px}
+.intro{font-size:13px;line-height:1.7;margin:0 4px 13px;color:var(--muted)}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:12px}
 button{font:inherit;cursor:pointer;touch-action:manipulation}
-.tabs button{background:#fff;border:1px solid #c9d1c9;border-radius:10px;padding:14px 5px;font-size:15px;font-weight:700;color:#30453a;min-height:52px}
-.tabs button[aria-selected=true]{background:var(--green);color:white;border-color:var(--green)}
-.panel{background:#fff;padding:11px;border:1px solid #e1dfd4;border-radius:13px;box-shadow:0 4px 20px #0000000b}
-.top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px;margin-bottom:10px}
-.top strong{font-size:15px}.top span{color:var(--sub);font-size:12px}
-.stage{background:#14291f;border-radius:7px;overflow:auto;aspect-ratio:1200/880;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-.stage img{display:block;width:100%;height:auto;max-width:none;pointer-events:none;user-select:none}
-.stage.zoom{height:min(62vh,550px);aspect-ratio:auto}.stage.zoom img{width:220%}
-.actions{display:flex;align-items:center;gap:10px;margin:12px 0 5px}
-.actions button{flex:0 0 auto;padding:11px 17px;border-radius:9px;border:1px solid #aac0b0;color:#225340;background:#e6f0e8;font-weight:700;font-size:13px}
-.actions span{color:#637568;font-size:12px;line-height:1.6}
-.desc{font-size:13px;color:#5a6a60;line-height:1.85;margin:7px 1px 0}
-.notice{background:#eee9db;margin:16px 0 0;padding:13px 15px;border-radius:10px;font-size:13px;line-height:1.85}
-footer{font-size:12px;line-height:1.7;color:#778278;margin:14px 4px}
-@media(max-width:600px){main{padding:12px 7px 25px}.panel{padding:6px}.top{padding:5px 4px 0}.tabs button{font-size:14px}}
+.tabs button{min-width:0;min-height:52px;background:#fff;border:1px solid #c6cec7;border-radius:10px;padding:9px 3px;color:#31483b;font-size:14px;font-weight:700}
+.tabs button[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tabs button small{display:block;font-size:10px;font-weight:500;margin-top:2px;opacity:.9}
+.panel{background:#fff;border:1px solid #e1ded3;padding:10px;border-radius:13px;box-shadow:0 4px 17px #0000000b}
+.top{display:flex;align-items:baseline;flex-wrap:wrap;justify-content:space-between;gap:5px;margin:3px 3px 10px}
+.top strong{font-size:15px}.top span{font-size:12px;color:var(--muted)}
+.stage{width:100%;aspect-ratio:1200/880;overflow:auto;background:#20342b;border-radius:6px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.stage img{display:block;width:100%;height:auto;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.stage.zoom{height:min(60vh,580px);aspect-ratio:auto}.stage.zoom img{width:235%}
+.actions{display:flex;align-items:center;gap:10px;margin:12px 0 4px}
+.actions button{padding:11px 16px;border-radius:9px;border:1px solid #94ae9c;background:#e9f1e9;color:#27533f;font-weight:700;font-size:13px;flex-shrink:0}
+.actions span{font-size:12px;color:var(--muted);line-height:1.5}
+.desc{font-size:13px;line-height:1.85;color:#58685d;margin:8px 3px}
+.note{background:#eee9de;margin-top:15px;padding:13px 15px;border-radius:10px;font-size:13px;line-height:1.8}
+.note strong{color:#384939}
+footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
+@media(max-width:600px){main{padding:12px 7px 25px}.panel{padding:6px}.top{padding:5px 5px 0}.tabs button{font-size:13px}.tabs button small{font-size:9px}}
+@media(max-width:350px){.tabs{grid-template-columns:1fr 1fr}}
 </style></head><body>
-<header><small>とっておき美術館｜美術監修プレビュー</small>
-<h1>エントランス Lv.1 ⇄ Lv.6</h1>
-<p>完成済みのLv.1と、Lv.6の試作イメージを切り替えて比較できます。</p></header>
+<header><div class="eyebrow">とっておき美術館｜エントランス美術検証</div>
+<h1>Lv.1 → Lv.6 既存素材の配置比較</h1>
+<p>作り直さず、以前制作した独立素材を現行Lv.1に合わせて配置しました。</p></header>
 <main>
-<p class="intro">iPhoneでは「拡大する」を押すと、指でスクロールして細かい部分まで確認できます。</p>
-<nav class="tabs" aria-label="レベル切り替え" role="tablist">
-<button type="button" role="tab" id="tab6" aria-selected="true" aria-controls="panel">Lv.6 試作案</button>
-<button type="button" role="tab" id="tab1" aria-selected="false" aria-controls="panel">Lv.1 正式基準</button>
+<p class="intro">上のボタンで切り替えてください。iPhoneでも「拡大する」で細部を確認できます。</p>
+<nav class="tabs" role="tablist" aria-label="配置案の切り替え">
+<button role="tab" id="tab1" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">Lv.1<small>正式基準</small></button>
+<button role="tab" id="tabA" aria-selected="true" aria-controls="panel" tabindex="0" type="button">A案<small>絨毯＋照明</small></button>
+<button role="tab" id="tabB" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">B案<small>＋植物</small></button>
+<button role="tab" id="tabC" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">C案<small>＋台座</small></button>
 </nav>
-<section class="panel" id="panel" role="tabpanel" aria-labelledby="tab6">
-<div class="top"><strong id="label">Lv.6 最終到達形の試作案</strong><span id="status">静止合成イメージ／未採用</span></div>
-<div id="stage" class="stage"><img id="image" src="lv6-concept.png" width="1200" height="880" alt="Lv1のエントランスに赤いカーペット・照明・扉上の装飾を加えたLv6の試作"></div>
-<div class="actions"><button type="button" id="zoom" aria-pressed="false">拡大する</button><span id="hint">写真の隅まで確認できます。</span></div>
-<p class="desc" id="desc">Lv.1の建築背景・受付・左右の仕切り壁を維持し、赤いカーペット、柱照明、扉上の小装飾を仮に加えています。配置・形状・採用はすべて未確定です。</p>
+<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabA">
+<div class="top"><strong id="label">A案｜カーペット＋照明</strong><span id="status">既存独立素材を配置</span></div>
+<div class="stage" id="stage"><img id="visual" width="1200" height="880" src="lv6-existing-a.png" alt="現行のエントランスに既存の赤絨毯と4つの照明を置いた案A"></div>
+<div class="actions"><button id="zoom" type="button" aria-pressed="false">拡大する</button><span id="hint">拡大後は指でスクロールできます。</span></div>
+<p class="desc" id="desc">旧素材の赤絨毯と柱灯（本体＋発光）を使用。中央の空きスペースを使い、受付・仕切り壁・人物を隠さない位置へ調整しています。</p>
 </section>
-<p class="notice"><strong>確認用の静止画像です。</strong> Lv.6のゲームへの実装や当たり判定の完成を意味しません。Lv.1の正式ゲーム・保存データ・正式素材には変更を加えていません。</p>
-<footer>2026年10月28日／A18美術比較専用ページ。ユーザーの正式承認前の候補です。</footer>
+<p class="note"><strong>現在は配置の見た目だけを比較します。</strong> 当たり判定、保存、ゲーム本体への組み込みは未実施です。B・C案の前景植物と台座は、旧画面で下端が切れるよう作られた素材のため、現在の操作UIとの重なりも確認してください。どの案も正式採用ではありません。</p>
+<footer>基準：2026年10月28日のLv.1ゲーム実画面。A/B/Cは既存の独立PNGから合成し、素材の出典と表示位置を別記録で管理しています。</footer>
 </main>
 <script>
 (()=>{'use strict';
-const $=s=>document.getElementById(s);
-const info={
- 6:{src:'lv6-concept.png',label:'Lv.6 最終到達形の試作案',status:'静止合成イメージ／未採用',
- desc:'Lv.1の建築背景・受付・左右の仕切り壁を維持し、赤いカーペット、柱照明、扉上の小装飾を仮に加えています。配置・形状・採用はすべて未確定です。',
- alt:'Lv1のエントランスに赤いカーペット・照明・扉上の装飾を加えたLv6の試作'},
- 1:{src:'lv1-baseline.png',label:'Lv.1 正式基準',status:'実際のゲーム画面',
- desc:'2026年10月28日時点で採用されている正式なLv.1です。建築背景と受付、仕切り壁はLv.6でも維持する前提です。',
- alt:'正式採用済みLv1エントランス。L字受付、爺や、5枚の掲示物、右の仕切り壁'}
+const $=id=>document.getElementById(id);
+const variants={
+ '1':{src:'lv1-baseline.png',label:'Lv.1｜正式基準',status:'現行ゲームの実画面',
+ alt:'2026年10月28日正式採用のエントランスレベル1',
+ desc:'現在採用済みのエントランス。建築背景・受付・左右仕切り壁・キャラクターの配置を基準として維持します。'},
+ A:{src:'lv6-existing-a.png',label:'A案｜カーペット＋照明',status:'既存独立素材を配置',
+ alt:'現行のエントランスに既存の赤絨毯と4つの照明を置いた案A',
+ desc:'旧素材の赤絨毯と柱灯（本体＋発光）を使用。中央の空きスペースを使い、受付・仕切り壁・人物を隠さない位置へ調整しています。'},
+ B:{src:'lv6-existing-b.png',label:'B案｜A＋左右の植物',status:'既存独立素材を追加',
+ alt:'A案に旧素材の観葉植物を左右手前に加えた案B',
+ desc:'A案に旧素材の観葉植物2点を追加。素材が画面下端で切れる仕様なので、その位置に合わせて左右の前景に置いています。'},
+ C:{src:'lv6-existing-c.png',label:'C案｜B＋左右の台座',status:'既存独立素材を追加',
+ alt:'B案に旧素材の木製台座を加えた案C',
+ desc:'B案に旧素材の木製台座と接地影を追加。台座も旧画面の端に合わせた素材で、現在の壁・操作UIとの関係は採用前に調整が必要です。'}
 };
-let z=false;
-function center(){if(!z)return;const s=$('stage');s.scrollLeft=(s.scrollWidth-s.clientWidth)/2;s.scrollTop=(s.scrollHeight-s.clientHeight)/2;}
-function show(n){
- const a=info[n];$('image').src=a.src;$('image').alt=a.alt;
- $('label').textContent=a.label;$('status').textContent=a.status;$('desc').textContent=a.desc;
- for(const x of [1,6]){const b=$('tab'+x);b.setAttribute('aria-selected',String(n===x));b.tabIndex=n===x?0:-1;}
- $('panel').setAttribute('aria-labelledby','tab'+n);center();
+const keys=['1','A','B','C'];let active='A',expanded=false;
+function center(){if(!expanded)return;const s=$('stage');s.scrollLeft=(s.scrollWidth-s.clientWidth)/2;s.scrollTop=Math.max(0,(s.scrollHeight-s.clientHeight)/2);}
+function show(k){
+ active=k;const v=variants[k];$('visual').src=v.src;$('visual').alt=v.alt;
+ $('label').textContent=v.label;$('status').textContent=v.status;$('desc').textContent=v.desc;
+ for(const id of keys){const btn=$('tab'+id);btn.setAttribute('aria-selected',String(id===k));btn.tabIndex=id===k?0:-1;}
+ $('panel').setAttribute('aria-labelledby','tab'+k);center();
 }
-$('tab6').onclick=()=>show(6);$('tab1').onclick=()=>show(1);
+keys.forEach(k=>{
+ $('tab'+k).onclick=()=>show(k);
+ $('tab'+k).onkeydown=e=>{
+  if(!['ArrowLeft','ArrowRight'].includes(e.key))return;
+  e.preventDefault();const delta=e.key==='ArrowRight'?1:-1;const n=(keys.indexOf(k)+delta+keys.length)%keys.length;
+  show(keys[n]);$('tab'+keys[n]).focus();
+ };
+});
 $('zoom').onclick=()=>{
- z=!z;$('stage').classList.toggle('zoom',z);$('zoom').textContent=z?'全体に戻す':'拡大する';
- $('zoom').setAttribute('aria-pressed',String(z));
- $('hint').textContent=z?'指で画像を上下左右に動かせます。':'写真の隅まで確認できます。';center();
+ expanded=!expanded;$('stage').classList.toggle('zoom',expanded);
+ $('zoom').textContent=expanded?'全体に戻す':'拡大する';
+ $('zoom').setAttribute('aria-pressed',String(expanded));
+ center();
 };
-$('image').onload=center;window.addEventListener('resize',center);
+$('visual').onload=center;window.onresize=center;
 })();
 </script></body></html>

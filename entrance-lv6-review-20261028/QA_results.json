@@ -1,0 +1,41 @@
+{
+  "test": "iPhone preview 4-tab and zoom",
+  "results": [
+    {
+      "viewport": "iphone390",
+      "tabs": [
+        "1",
+        "A",
+        "B",
+        "C"
+      ],
+      "zoom": "PASS",
+      "errors": [],
+      "result": "PASS"
+    },
+    {
+      "viewport": "iphone430",
+      "tabs": [
+        "1",
+        "A",
+        "B",
+        "C"
+      ],
+      "zoom": "PASS",
+      "errors": [],
+      "result": "PASS"
+    },
+    {
+      "viewport": "pc1200",
+      "tabs": [
+        "1",
+        "A",
+        "B",
+        "C"
+      ],
+      "zoom": "PASS",
+      "errors": [],
+      "result": "PASS"
+    }
+  ]
+}

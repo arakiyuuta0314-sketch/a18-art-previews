@@ -1,0 +1,158 @@
+{
+  "purpose": "Unapproved visual layout comparison; no new art generated, no game edits",
+  "baseline": "lv1-baseline.png from actual Lv1 game screenshot 2026-10-28",
+  "coordinate_map": {
+    "logical": [
+      546,
+      483
+    ],
+    "screenshot": [
+      1200,
+      880
+    ],
+    "game_rect": [
+      133,
+      53,
+      934,
+      827
+    ]
+  },
+  "variants": {
+    "A": "original carpet + 4 existing pilaster lights",
+    "B": "A + original front plants",
+    "C": "B + original left/right plinths"
+  },
+  "artifacts": {
+    "A": {
+      "file": "lv6-existing-a.png",
+      "size": [
+        1200,
+        880
+      ],
+      "sha256": "9fff3b701b968c0a2450b9c5f3ac6a7d50c6d8bd1be84bfbd80342e70f84ff5d"
+    },
+    "B": {
+      "file": "lv6-existing-b.png",
+      "size": [
+        1200,
+        880
+      ],
+      "sha256": "09b24dda7f10d40953e3f8eb8d5572942668be3b201f0c0c54fcc9f7da428e44"
+    },
+    "C": {
+      "file": "lv6-existing-c.png",
+      "size": [
+        1200,
+        880
+      ],
+      "sha256": "58db231de06fdabf6e1819f7e6554e68af34b74f75e4ad6946321b05b4d231ea"
+    }
+  },
+  "original_assets": {
+    "entrance_red_carpet_contact_shadow.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-carpet-independent-final-20261026\\entrance_red_carpet_contact_shadow.png",
+      "sha256": "08e39a8147c9ea305ee47f26cb19df29e09fcce80e1a3cf83089492bd8634e15",
+      "size": [
+        235,
+        223
+      ]
+    },
+    "entrance_red_carpet_body.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-carpet-independent-final-20261026\\entrance_red_carpet_body.png",
+      "sha256": "5fb6f8561831ad20b61f200cc1ae7946eff5cd2b30257c9866903b2cacc9385f",
+      "size": [
+        235,
+        223
+      ]
+    },
+    "entrance_red_carpet_gold_trim.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-carpet-independent-final-20261026\\entrance_red_carpet_gold_trim.png",
+      "sha256": "f066feca73289733c97cd8c2ee0f4240522b2fd3d807e5694a8d420fd02e4247",
+      "size": [
+        220,
+        203
+      ]
+    },
+    "fixture_outer_left_emission.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\lighting-additional-sconces-v01\\fixture_outer_left_emission.png",
+      "sha256": "b0905601bd47a2d8091d22e886ce8ef29915da971803b1bbf96863811deed4d3",
+      "size": [
+        28,
+        82
+      ]
+    },
+    "fixture_outer_left_body.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\lighting-additional-sconces-v01\\fixture_outer_left_body.png",
+      "sha256": "9d0a6fc642d7a8162cf1cb3beb91fc32939d4f608ed605f0a855b0f2fb3c29fc",
+      "size": [
+        28,
+        82
+      ]
+    },
+    "fixture_outer_right_emission.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\lighting-additional-sconces-v01\\fixture_outer_right_emission.png",
+      "sha256": "541b31e556b4e85853c53798bb8318c32e630195d87b4ff6776f43ec535f1e5a",
+      "size": [
+        28,
+        82
+      ]
+    },
+    "fixture_outer_right_body.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\lighting-additional-sconces-v01\\fixture_outer_right_body.png",
+      "sha256": "e967302471fd3a784ad349b9986a55896f34b7ff50977df99e076d15ee4ba97b",
+      "size": [
+        28,
+        82
+      ]
+    },
+    "entrance_plant_left.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-front-plants-final-20261025\\entrance_plant_left.png",
+      "sha256": "377ba7b918dba9e02ab816449321b507625c853a09c45647bc07ef9133a54c85",
+      "size": [
+        66,
+        85
+      ]
+    },
+    "entrance_plant_right.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-front-plants-final-20261025\\entrance_plant_right.png",
+      "sha256": "4709c267e04578765c2e6bc02f65f04828c00d0492ece452a44b68057ada840c",
+      "size": [
+        88,
+        85
+      ]
+    },
+    "entrance_plinth_shadow_left.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-plinth-final-20261025\\entrance_plinth_shadow_left.png",
+      "sha256": "2ce162aa08575731485f35a5334091b0ba8bbf335e9183afbc4f0455677c37dc",
+      "size": [
+        68,
+        61
+      ]
+    },
+    "entrance_plinth_left.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-plinth-final-20261025\\entrance_plinth_left.png",
+      "sha256": "2728199d2e2a52464601308b3da57aac107dd17fd2c8b474567826079ee5d352",
+      "size": [
+        64,
+        57
+      ]
+    },
+    "entrance_plinth_shadow_right.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-plinth-final-20261025\\entrance_plinth_shadow_right.png",
+      "sha256": "5d47806df338c365f29d1c1910dbd9e04ad806065485ea703d9ceb5531975191",
+      "size": [
+        93,
+        52
+      ]
+    },
+    "entrance_plinth_right.png": {
+      "source": "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-plinth-final-20261025\\entrance_plinth_right.png",
+      "sha256": "ae9e8000ee595368fe309cf0a9bcf12f46dfd6af69e65fcd7bdd275c46933e6f",
+      "size": [
+        89,
+        48
+      ]
+    }
+  },
+  "decision": "All original assets kept outside game; placement is experimental"
+}

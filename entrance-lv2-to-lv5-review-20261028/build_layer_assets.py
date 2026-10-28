@@ -24,10 +24,16 @@ def counter_objects(im):
     f['place'](im,f['clean_flower'](),181,337,27,42)
     f['draw_ledger'](im)
     f['reception_medallion'](im)
-def gold_frames_and_picture_lights(im):ns['add_gold_and_exhibition_lights'](im)
+def gold_frames_and_picture_lights(im):ns['add_gold_frames_and_trim'](im)
+def picture_lights(im):ns['add_exhibition_lights'](im)
+def carpet(im):ns['add_long_carpet'](im)
+def pillars(im):ns['add_pillars'](im,3)
 steps={
     'lv2-standing-sign-left':(2,left_sign),
     'lv2-reception-lamp':(2,reception_lamp),
+    'lv2-carpet':(2,carpet),
+    'lv3-pillar-lights':(3,pillars),
+    'lv3-picture-lights':(3,picture_lights),
     'lv3-standing-sign-right':(3,right_sign),
     'lv4-gold-frames-picture-lights-and-trim':(4,gold_frames_and_picture_lights),
     'lv5-bench':(5,bench),

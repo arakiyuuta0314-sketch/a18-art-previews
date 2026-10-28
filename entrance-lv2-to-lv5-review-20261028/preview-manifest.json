@@ -17,28 +17,28 @@
       "file": "entrance-lv2.png",
       "width": 1200,
       "height": 880,
-      "sha256": "2f5f2e75a0cb66a8909e8d812f61cf9c6237bfdc1e1b99879c6f5e119c1a9c92",
-      "changed_pixels_vs_Lv1": 14571
+      "sha256": "5ef62071908fb7a65d071baa55da69dd8f00d264790e5e834183c18fc22db937",
+      "changed_pixels_vs_Lv1": 92249
     },
     "3": {
       "file": "entrance-lv3.png",
       "width": 1200,
       "height": 880,
-      "sha256": "196ce8e04896abe2d798360c8a8717720be78c24ff304a9c188cafb817f89cfd",
-      "changed_pixels_vs_Lv1": 110411
+      "sha256": "ccf161768dccfcb3b74864829de62ad004a46bf881ae69ab4d784a316fc7777e",
+      "changed_pixels_vs_Lv1": 119615
     },
     "4": {
       "file": "entrance-lv4.png",
       "width": 1200,
       "height": 880,
-      "sha256": "f40cfb68e13a925822b778737c5af736b9ccc89dde341b836c86c8e45763ae6a",
+      "sha256": "720cdcee95106cd52dfcaddf06515e713e08be823d5eabdee3ef9b6343084571",
       "changed_pixels_vs_Lv1": 632471
     },
     "5": {
       "file": "entrance-lv5.png",
       "width": 1200,
       "height": 880,
-      "sha256": "d9423019301d3f0e39f8de518be47b52184ccbcb8dc647e77b66b70751c468a1",
+      "sha256": "dbccd471554a4c6c296d5b09b2b72379170fc157173c4083840ef8e24ae686f0",
       "changed_pixels_vs_Lv1": 646530
     }
   },
@@ -46,17 +46,16 @@
   "growth": {
     "2": [
       "standing sign left",
-      "outer pillar lights 2",
-      "reception lamp"
+      "reception lamp",
+      "long red carpet"
     ],
     "3": [
       "standing sign right",
-      "inner pillar lights 2",
-      "long red carpet"
+      "pillar lights 4",
+      "picture lights 2"
     ],
     "4": [
       "three golden display frame overlays",
-      "picture lights 2",
       "wall gold top trim"
     ],
     "5": [

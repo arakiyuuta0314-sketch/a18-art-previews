@@ -6,11 +6,11 @@
   "immutableLv6Sha256": "1a058e8fe4f9f39659b4c31b1627d8dba44f080acb42607d99a39481eaa48349",
   "originalUExactMatch": true,
   "changed_pixels_stepwise": {
-    "1_to_2": 14571,
-    "2_to_3": 95840,
-    "3_to_4": 624100,
-    "4_to_5": 589501,
-    "5_to_6": 101455
+    "1_to_2": 92249,
+    "2_to_3": 27366,
+    "3_to_4": 623613,
+    "4_to_5": 589495,
+    "5_to_6": 104508
   },
   "feature_regions_checked": {
     "left_sign": [

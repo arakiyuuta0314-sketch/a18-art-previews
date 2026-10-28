@@ -36,6 +36,42 @@
       "sha256": "bc277be9ee1c2a8a26ecaa74634548d57b5e9094432dec4407c20e508b0d1bd5",
       "source": "existing isolated asset composited at approved screenshot coordinates"
     },
+    "lv2-carpet": {
+      "fromLevel": 2,
+      "file": "layers/lv2-carpet.png",
+      "alphaBounds": [
+        502,
+        428,
+        772,
+        858
+      ],
+      "sha256": "5aa3463ef3d5e63ce4bc33b248c5326116574547d5c666cdc821a517c407678d",
+      "source": "existing isolated asset composited at approved screenshot coordinates"
+    },
+    "lv3-pillar-lights": {
+      "fromLevel": 3,
+      "file": "layers/lv3-pillar-lights.png",
+      "alphaBounds": [
+        136,
+        155,
+        1064,
+        240
+      ],
+      "sha256": "82b016fe010655a6edda2494aff1d89c44a7f718447ee635aa2b8bee5dbc876a",
+      "source": "existing isolated asset composited at approved screenshot coordinates"
+    },
+    "lv3-picture-lights": {
+      "fromLevel": 3,
+      "file": "layers/lv3-picture-lights.png",
+      "alphaBounds": [
+        301,
+        110,
+        911,
+        177
+      ],
+      "sha256": "d1ab57ac504b8539e561118e26f5e29bedf9bf4bd26346a042a414ef315f9a65",
+      "source": "existing isolated asset composited at approved screenshot coordinates"
+    },
     "lv3-standing-sign-right": {
       "fromLevel": 3,
       "file": "layers/lv3-standing-sign-right.png",
@@ -57,7 +93,7 @@
         1051,
         635
       ],
-      "sha256": "4658ceb321ec888d4bd669c6f8666091f34a7a8dba8ca04f3b2a3d5a19a913af",
+      "sha256": "7243a7d0521ad703fc2c90c0c810f73d2593efd086b8800a6df3fbd853d5c11f",
       "source": "existing isolated asset composited at approved screenshot coordinates"
     },
     "lv5-bench": {

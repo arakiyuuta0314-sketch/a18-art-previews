@@ -28,7 +28,8 @@ areas={'left_sign':(176,332,250,421),'right_sign':(995,330,1068,422),
        'front_plant':(760,818,1067,879)}
 assert count(rgb[1],rgb[2],areas['left_sign'])>400
 assert count(rgb[2],rgb[3],areas['right_sign'])>400
-assert count(rgb[2],rgb[3],areas['carpet_center'])>1000
+assert count(rgb[1],rgb[2],areas['carpet_center'])>1000
+assert count(rgb[2],rgb[3],areas['carpet_center'])==0
 assert count(rgb[3],rgb[4],areas['gold_left'])>1000
 assert count(rgb[4],rgb[5],areas['bench'])>1000
 assert count(rgb[4],rgb[5],areas['left_tree'])>1000
@@ -39,7 +40,7 @@ for n in range(2,6):
     assert np.array_equal(rgb[n][:,0:130,:],rgb[1][:,0:130,:]),'E_LEFT_BORDER_CHANGED'
     assert np.array_equal(rgb[n][:,1080:,:],rgb[1][:,1080:,:]),'E_RIGHT_BORDER_CHANGED'
 # Light protection of unframed teal panels: no false block-shaped glow is applied in Lv2/3.
-for n in [2,3]:
+for n in [2]:
     assert np.array_equal(rgb[n][169:306,216:455],rgb[1][169:306,216:455])
     assert np.array_equal(rgb[n][169:306,785:992],rgb[1][169:306,785:992])
 # Contact image for QA (six source images, originals loaded read-only).

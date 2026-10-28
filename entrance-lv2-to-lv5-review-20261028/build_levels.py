@@ -35,8 +35,7 @@ layout=lush['ns']
 nop=layout['namespace']
 
 def add_pillars(img,level):
-    lights=[('outer_left',0),('outer_right',518)]
-    if level>=3: lights += [('outer_left',211),('outer_right',335)]
+    lights=[('outer_left',0),('outer_right',518),('outer_left',211),('outer_right',335)]
     for side,x in lights:
         for layer in ('emission','body'):
             obj=placement['load']('lighting-additional-sconces-v01',f'fixture_{side}_{layer}.png')
@@ -73,20 +72,23 @@ def add_long_carpet(img):
     mask=actor.crop(actor_box).getchannel('A').resize((60,79),Image.Resampling.LANCZOS)
     img.paste(BASE.crop((661,701,721,780)),(661,701),mask)
 
-def add_gold_and_exhibition_lights(img):
+def add_gold_frames_and_trim(img):
     src='entrance-frames-independent-20261026'
     l=extras['fetch'](src,'frame_left_original_gold.png')
     r=extras['fetch'](src,'frame_right_original_gold.png')
     for art,rect in ((l,(36,55,159,98)),(r,(367,55,145,98)),(l,(389,251,148,89))):
         _,_,w,h=rect
         extras['paste'](img,extras['gold'](art,(w,h)),rect[0],rect[1])
+    for direction,x,w in [('west',45,160),('east',351,154)]:
+        trim=fg['source']('entrance-wall-trim-final-20261025',f'entrance_wall_trim_ceiling_{direction}.png')
+        fg['place'](img,trim,x,23,w,6,.8)
+
+
+def add_exhibition_lights(img):
     for name,x,y,w,h in [('entrance_picture_light_west_photo_safe.png',98,33,45,39),
                           ('entrance_picture_light_east_photo_safe.png',408,33,47,39)]:
         lamp=extras['fetch']('entrance-picture-lights-final-20261025',name)
         extras['paste'](img,lamp,x,y,w,h,.94)
-    for direction,x,w in [('west',45,160),('east',351,154)]:
-        trim=fg['source']('entrance-wall-trim-final-20261025',f'entrance_wall_trim_ceiling_{direction}.png')
-        fg['place'](img,trim,x,23,w,6,.8)
 
 def add_lounge_and_counter(img):
     layout['bench'](img,257) # Q-approved image dimensions and feet/armrests
@@ -99,19 +101,18 @@ def add_lounge_and_counter(img):
 image_records={}
 for level in range(2,6):
     img=BASE.copy()
-    add_pillars(img,level)
     add_sign(img,'left')
     add_reception_lamp(img)
+    add_long_carpet(img)
     if level>=3:
         add_sign(img,'right')
-        add_long_carpet(img)
+        add_pillars(img,level)
+        add_exhibition_lights(img)
     if level>=4:
-        add_gold_and_exhibition_lights(img)
+        add_gold_frames_and_trim(img)
     if level>=5:
         add_lounge_and_counter(img)
-    # Avoid unframed teal wall rectangles in Lv2/3: the historic warm-light
-    # mask was tailored to the golden framed wall, which begins only in Lv4.
-    # Existing independent pillar bulbs/desk lamp already glow at Lv2/3.
+    # Global warm reflection only where golden frames already exist.
     if level>=4:
         img=nop['light_environment'](img,{4:.60,5:.89}[level])
     target=HERE/f'entrance-lv{level}.png'
@@ -134,9 +135,9 @@ manifest={
  'render_method':'source independent PNG compositing + previously verified screenshot coordinates; baseline and approved images immutable',
  'levels':image_records,
  'cumulative':True,
- 'growth':{'2':['standing sign left','outer pillar lights 2','reception lamp'],
-           '3':['standing sign right','inner pillar lights 2','long red carpet'],
-           '4':['three golden display frame overlays','picture lights 2','wall gold top trim'],
+ 'growth':{'2':['standing sign left','reception lamp','long red carpet'],
+           '3':['standing sign right','pillar lights 4','picture lights 2'],
+           '4':['three golden display frame overlays','wall gold top trim'],
            '5':['257px cushioned bench','tall left tree','rear-right partition foliage','reception accessories'],
            '6':['approved U image only: full right-front planting, foreground plants, ceiling lights, crest, floor accents, final reflectance']},
  'not_validated':['collisions','door transitions','gallery room naming','picture frames portrait/square runtime','live iPhone Safari'],

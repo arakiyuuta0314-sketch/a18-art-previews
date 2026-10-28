@@ -21,10 +21,10 @@ button{font:inherit;cursor:pointer;touch-action:manipulation}
 .top{display:flex;align-items:baseline;flex-wrap:wrap;justify-content:space-between;gap:5px;margin:3px 3px 10px}
 .top strong{font-size:15px}.top span{font-size:12px;color:var(--muted)}
 .stage{width:100%;aspect-ratio:1200/880;overflow:auto;background:#20342b;border-radius:6px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-.stage img{display:block;width:100%;height:auto;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none}
-.stage.zoom{height:min(60vh,580px);aspect-ratio:auto}.stage.zoom img{width:235%}
+.visual-wrap{position:relative;width:100%;height:auto}.stage img{display:block;width:100%;height:auto;max-width:none;pointer-events:none;user-select:none;-webkit-user-drag:none}.route-overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.route-overlay[hidden]{display:none}
+.stage.zoom{height:min(60vh,580px);aspect-ratio:auto}.stage.zoom .visual-wrap{width:235%}
 .actions{display:flex;align-items:center;gap:10px;margin:12px 0 4px}
-.actions button{padding:11px 16px;border-radius:9px;border:1px solid #94ae9c;background:#e9f1e9;color:#27533f;font-weight:700;font-size:13px;flex-shrink:0}
+.actions button{padding:11px 16px;border-radius:9px;border:1px solid #94ae9c;background:#e9f1e9;color:#27533f;font-weight:700;font-size:13px;flex-shrink:0}.actions{flex-wrap:wrap}.actions button[aria-pressed=true]{background:#285d4a;color:white}
 .actions span{font-size:12px;color:var(--muted);line-height:1.5}
 .desc{font-size:13px;line-height:1.85;color:#58685d;margin:8px 3px}
 .note{background:#eee9de;margin-top:15px;padding:13px 15px;border-radius:10px;font-size:13px;line-height:1.8}
@@ -46,11 +46,28 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 </nav>
 <section class="panel" id="panel" role="tabpanel" aria-labelledby="tabA">
 <div class="top"><strong id="label">A案｜カーペット＋照明</strong><span id="status">既存独立素材を配置</span></div>
-<div class="stage" id="stage"><img id="visual" width="1200" height="880" src="lv6-existing-a.png" alt="現行のエントランスに既存の赤絨毯と4つの照明を置いた案A"></div>
-<div class="actions"><button id="zoom" type="button" aria-pressed="false">拡大する</button><span id="hint">拡大後は指でスクロールできます。</span></div>
+<div class="stage" id="stage"><div class="visual-wrap">
+<img id="visual" width="1200" height="880" src="lv6-existing-a.png" alt="現行のエントランスに既存の赤絨毯と4つの照明を置いた案A">
+<svg id="route-overlay" class="route-overlay" viewBox="0 0 1200 880" preserveAspectRatio="xMidYMid meet" hidden role="img" aria-label="左右の通路予定位置はそれぞれの仕切り壁の裏。中央奥は展示室5の扉。">
+<defs><filter id="route-shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity=".45"/></filter></defs>
+<!-- Behind left partition (logical world x≈35..105 / y≈235..275) -->
+<path d="M 315,440 Q 242,431 163,465" stroke="#f7db99" stroke-width="9" stroke-linecap="round" stroke-dasharray="12 11" fill="none" opacity=".9"/>
+<path d="M 162,465 l 19,-15 m -19,15 l 22,9" stroke="#f7db99" stroke-width="6" stroke-linecap="round" fill="none"/>
+<rect x="139" y="388" width="229" height="42" rx="12" fill="#173e34" stroke="#f1d18f" stroke-width="2" filter="url(#route-shadow)"/>
+<text x="253" y="415" fill="white" font-size="20" font-weight="bold" text-anchor="middle">← 展示室1｜仕切り裏</text>
+<!-- Behind right partition (logical world x≈468..515 / y≈220..246) -->
+<path d="M 868,420 Q 975,411 1044,446" stroke="#f7db99" stroke-width="9" stroke-linecap="round" stroke-dasharray="12 11" fill="none" opacity=".9"/>
+<path d="M 1044,446 l -21,-12 m 21,12 l -21,14" stroke="#f7db99" stroke-width="6" stroke-linecap="round" fill="none"/>
+<rect x="806" y="369" width="254" height="42" rx="12" fill="#173e34" stroke="#f1d18f" stroke-width="2" filter="url(#route-shadow)"/>
+<text x="933" y="396" fill="white" font-size="20" font-weight="bold" text-anchor="middle">展示室2｜仕切り裏 →</text>
+<!-- Central rear door remains the Gallery 5 connection -->
+<rect x="520" y="112" width="218" height="36" rx="11" fill="#173e34" stroke="#f1d18f" stroke-width="2" filter="url(#route-shadow)"/>
+<text x="629" y="137" fill="white" font-size="18" font-weight="bold" text-anchor="middle">奥の扉 → 展示室5</text>
+</svg></div></div>
+<div class="actions"><button id="zoom" type="button" aria-pressed="false">拡大する</button><button id="routes" type="button" aria-pressed="false">通路位置を見る</button><span id="hint">拡大後は指でスクロールできます。</span></div>
 <p class="desc" id="desc">旧素材の赤絨毯と柱灯（本体＋発光）を使用。中央の空きスペースを使い、受付・仕切り壁・人物を隠さない位置へ調整しています。</p>
 </section>
-<p class="note"><strong>現在は配置の見た目だけを比較します。</strong> 当たり判定、保存、ゲーム本体への組み込みは未実施です。B・C案の前景植物と台座は、旧画面で下端が切れるよう作られた素材のため、現在の操作UIとの重なりも確認してください。どの案も正式採用ではありません。</p>
+<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>現在は配置の見た目だけを比較します。</strong> 当たり判定、保存、ゲーム本体への組み込みは未実施です。B・C案の前景植物と台座は、旧画面で下端が切れるよう作られた素材のため、現在の操作UIとの重なりも確認してください。どの案も正式採用ではありません。</p>
 <footer>基準：2026年10月28日のLv.1ゲーム実画面。A/B/Cは既存の独立PNGから合成し、素材の出典と表示位置を別記録で管理しています。</footer>
 </main>
 <script>
@@ -86,6 +103,7 @@ keys.forEach(k=>{
   show(keys[n]);$('tab'+keys[n]).focus();
  };
 });
+$('routes').onclick=()=>{const overlay=$('route-overlay');const next=overlay.hasAttribute('hidden');if(next)overlay.removeAttribute('hidden');else overlay.setAttribute('hidden','');$('routes').setAttribute('aria-pressed',String(next));$('routes').textContent=next?'通路表示を消す':'通路位置を見る';};
 $('zoom').onclick=()=>{
  expanded=!expanded;$('stage').classList.toggle('zoom',expanded);
  $('zoom').textContent=expanded?'全体に戻す':'拡大する';

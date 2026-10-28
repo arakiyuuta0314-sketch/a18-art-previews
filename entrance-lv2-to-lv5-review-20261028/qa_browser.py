@@ -14,7 +14,7 @@ with sync_playwright() as p:
         page=context.new_page()
         errors=[]
         page.on('pageerror',lambda e:errors.append('JS '+str(e)))
-        page.on('console',lambda m:errors.append('CONSOLE '+m.text) if m.type=='error' else None)
+        page.on('console',lambda m:errors.append('CONSOLE '+m.text+' URL='+str(m.location.get('url',''))) if m.type=='error' else None)
         response=page.goto(url,wait_until='domcontentloaded',timeout=45000)
         if public: assert response.status==200,response.status
         assert page.locator('article.panel').count()==6

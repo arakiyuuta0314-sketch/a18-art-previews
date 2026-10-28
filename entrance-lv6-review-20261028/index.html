@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><title>A18｜Lv.6 既存素材配置比較</title>
+<meta name="robots" content="noindex,nofollow"><title>A18｜エントランス Lv.6 承認デザイン U案</title>
 <style>
 :root{--forest:#1a3a30;--accent:#285d4a;--ink:#29392e;--muted:#67766a;--paper:#f7f5ee}
 *{box-sizing:border-box}
@@ -36,14 +36,14 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 @media(max-width:350px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
 <header><div class="eyebrow">とっておき美術館｜エントランス美術検証</div>
-<h1>エントランス Lv.6｜左右の立て看板</h1>
-<p>選んでもらったT案の植物・ベンチ・絨毯はそのまま。左右の壁付け矢印を外して、端寄りの自立式看板を比較します。</p></header>
+<h1>エントランス Lv.6｜完成デザイン</h1>
+<p>U案をエントランスLv.6の完成美術として承認しました。Lv.1とLv.6を基準に、中間レベルの成長を設計します。</p></header>
 <main>
-<p class="intro">U案は端寄り、V案は少し内側です。T案と切り替えて、方向案内と床への収まりを確認してください。</p>
+<p class="intro">Lv.6の美術基準はU案です。比較用のT案・V案も保存しています。実際のLv.6プレイ画面ではありません。</p>
 <nav aria-label="エントランス立て看板の比較">
 <div class="tabs primary-tabs" role="tablist" aria-label="T・U・V案の比較">
 <button role="tab" id="tabT" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">T案<small>壁付けのまま</small></button>
-<button role="tab" id="tabU" aria-selected="true" aria-controls="panel" tabindex="0" type="button">U案<small>端寄りの看板</small></button>
+<button role="tab" id="tabU" aria-selected="true" aria-controls="panel" tabindex="0" type="button">U案<small>Lv.6美術確定</small></button>
 <button role="tab" id="tabV" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">V案<small>少し内側</small></button>
 </div>
 <details class="history">
@@ -73,9 +73,9 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <button role="tab" id="tabX" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">M＋<small>最大の光</small></button>
 </div></details></nav>
 <section class="panel" id="panel" role="tabpanel" aria-labelledby="tabU">
-<div class="top"><strong id="label">U案｜T案＋端寄りの左右立て看板</strong><span id="status">左右通路の案内／静止画のみ</span></div>
+<div class="top"><strong id="label">U案｜エントランス Lv.6 完成デザイン</strong><span id="status">美術承認済み／ゲーム実装は未了</span></div>
 <div class="stage" id="stage"><div class="visual-wrap">
-<img id="visual" width="1200" height="880" src="lv6-standing-u.png" alt="T案から腰壁の矢印を外し、左端と右端の床に木製の矢印立て看板を配置したU案">
+<img id="visual" width="1200" height="880" src="approved-entrance-lv6-20261028.png" alt="ユーザー承認済みのエントランスLv.6完成美術。ロング絨毯と端寄りの木製方向案内看板">
 <svg id="route-overlay" class="route-overlay" viewBox="0 0 1200 880" preserveAspectRatio="xMidYMid meet" hidden role="img" aria-label="左右の通路予定位置はそれぞれの仕切り壁の裏。中央奥は展示室5の扉。">
 <defs><filter id="route-shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity=".45"/></filter></defs>
 <!-- Behind left partition (logical world x≈35..105 / y≈235..275) -->
@@ -93,13 +93,13 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <text x="629" y="137" fill="white" font-size="18" font-weight="bold" text-anchor="middle">奥の扉 → 展示室5</text>
 </svg></div></div>
 <div class="actions"><button id="zoom" type="button" aria-pressed="false">拡大する</button><button id="routes" type="button" aria-pressed="false">通路位置を見る</button><span id="hint">拡大後は指でスクロールできます。</span></div>
-<p class="desc" id="desc">ユーザーが選んだT案を維持し、左右の壁付け矢印標識を端寄りの床に立つ小さな木製看板へ置き換えました。左は展示室1へ、右は展示室2へ向かう方向です。脚と盤面は独立素材として調整可能で、実際の通行判定は未実装です。</p>
+<p class="desc" id="desc">2026年10月28日、U案をエントランスLv.6の完成美術として承認しました。自立式木製方向看板、ロング絨毯、ベンチ、植え込み、暖色照明を完成時の外観基準として固定します。写真表示と通行判定を含むゲーム実装は別工程です。</p>
 </section>
-<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>立て看板の比較：</strong>U案は左右のより端に近い場所、V案は少し内側です。既存の金色矢印・深緑色の盤面は再利用し、木製の脚を追加しました。通路への導線と看板の視認性を比較するための試作で、まだ採用確定ではありません。<strong>T案の背景、装飾、植木、ベンチ、絨毯は変更していません。</strong></p><p class="note"><strong>前回の変更：</strong>Q案のベンチは寸法・位置とも変更していません。右下の長い植え込みは左へ約55px延ばし、カーペットの右端付近に合わせました。ベンチ下には見える隙間を残し、ベンチと右展示額縁の間は空けたままです。左仕切り壁右端の植木は高くし、葉も増やしました。<strong>まだ静止画の配置案で、実際の歩行判定は未実装です。</strong></p><p class="note"><strong>以前のQ/R：</strong>O案は変更せず保持しています。Q案はベンチ257pxと右下の植え込み252pxを、右側の展示額縁の幅（約252px）に揃えました。R案は同じ装飾でベンチ232px・植え込み224px。左側は仕切り壁の右端に新しい鉢植えを追加。どちらも**正式採用前の静止案**で、通路の当たり判定は未実装です。</p><p class="note"><strong>前回の確認：</strong>光量は従来のM案より少し弱く調整しました。ベンチは右方向へ延ばし、右下の同型鉢を低い植え込みへ置換。O案とP案は右仕切り壁の裏から見える葉の量と通路側への張り出し量だけが異なります。<strong>ゲームへの配置・当たり判定は未実装です。</strong> 左側の植物や、他室用の保留素材は変更していません。</p>
+<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>美術デザイン確定：</strong>U案をエントランスLv.6の完成デザインとして承認しました。V案は比較履歴として保留します。<strong>この表示は静止画で、ゲーム本体のレイヤー・当たり判定・レベル進行はまだ未実装です。</strong></p><p class="note"><strong>前回の変更：</strong>Q案のベンチは寸法・位置とも変更していません。右下の長い植え込みは左へ約55px延ばし、カーペットの右端付近に合わせました。ベンチ下には見える隙間を残し、ベンチと右展示額縁の間は空けたままです。左仕切り壁右端の植木は高くし、葉も増やしました。<strong>まだ静止画の配置案で、実際の歩行判定は未実装です。</strong></p><p class="note"><strong>以前のQ/R：</strong>O案は変更せず保持しています。Q案はベンチ257pxと右下の植え込み252pxを、右側の展示額縁の幅（約252px）に揃えました。R案は同じ装飾でベンチ232px・植え込み224px。左側は仕切り壁の右端に新しい鉢植えを追加。どちらも**正式採用前の静止案**で、通路の当たり判定は未実装です。</p><p class="note"><strong>前回の確認：</strong>光量は従来のM案より少し弱く調整しました。ベンチは右方向へ延ばし、右下の同型鉢を低い植え込みへ置換。O案とP案は右仕切り壁の裏から見える葉の量と通路側への張り出し量だけが異なります。<strong>ゲームへの配置・当たり判定は未実装です。</strong> 左側の植物や、他室用の保留素材は変更していません。</p>
 <details class="history"><summary>旧案の比較方針・保留事項</summary>
 <p class="note"><strong>今回の比較：</strong>Kはロング絨毯のみ、LはKに既存の赤い木製ベンチ（縦横比・接地影調整）を追加、MはLに壁・額縁周辺・床へ広がる柔らかな照明を追加。M＋は照明をさらに強くした比較用で、採用候補の基準はMです。ベンチは既存素材と描き直し案を実際に比較し、既存の木製ベンチの方が現行美術と調和すると評価しました。どの案も当たり判定や作品保存は未実装です。</p><p class="note"><strong>過去の比較：</strong>G案は元のまま保存。H＝建築の縁取り・床と光の質感、I＝H＋旧ベンチ（右手前）、J＝H＋仮の展示写真3点、K＝Hを基にした長い中央絨毯です。Jの写真は以前のテスト素材であり、登録済みの実作品やゲーム内の写真寸法の再現ではありません。Kの絨毯は既存素材を変形した別の配置案で、G案の原本を置き換えてはいません。作品未登録でも成立するLv.6を検討するため、H/IとJを比較します。</p><p class="note"><strong>採用方針と未決事項：</strong>ユーザー確認によりカーペット・柱照明・左右植物・木製台座の<strong>4種類はLv.6へ採用する方向で確定</strong>。具体的なサイズ・位置・微調整は未確定です。D・E案で追加した矢印案内板、額縁、展示灯、天井灯はまだ比較候補です。右の額縁は正式ゲームでは写真の縦横比に連動するため、現在の固定枠は見た目だけの仮配置です。F/Gの受付ランプ・花器・天井飾りは旧独立素材を使い、扉上の館章・受付帳・小さな金具は新規の試作です。<strong>ゲーム本体・当たり判定・保存・Lv.1正本は変更していません。</strong> 使わない素材は他室用として保留し、削除しません。</p>
 </details>
-<footer>基準：2026年10月28日のLv.1実画面。T/U/Vは静止比較で、ゲームへの実装はありません。画像内の「Lv.1」は撮影時の表示です。旧素材・他室用の保留素材は削除していません。</footer>
+<footer>2026年10月28日、U案のLv.6美術を承認済み。画像の「Lv.1」はスクリーンショット撮影時の表示です。ゲーム実装は別工程。過去案や保留素材は保持しています。</footer>
 </main>
 <script>
 (()=>{'use strict';
@@ -171,9 +171,9 @@ const variants={
  T:{src:'lv6-lush-t.png',label:'T案｜植え込み延長・左の高木・葉を増量',status:'見た目の比較／未実装',
  alt:'Q案と同じベンチのまま、右下の植え込みをカーペット端まで長くし、左仕切りの植木を高く葉を増やしたT案',
  desc:'Q案のベンチ257pxと照明は固定。右下の植え込みは左へ約55px伸ばしてカーペット右端付近まで延長。ベンチとの隙間を残し、額縁とベンチの間も家具を置きません。左仕切り右端の植木は約143pxの高さへ育て、葉を増やしました。TはSより葉が多い案です。'},
- U:{src:'lv6-standing-u.png',label:'U案｜T案＋端寄りの左右立て看板',status:'左右通路の案内／静止画のみ',
+ U:{src:'approved-entrance-lv6-20261028.png',label:'U案｜Lv.6完成美術（承認済み）',status:'美術承認済み／ゲーム実装未了',
  alt:'T案から腰壁の矢印を外し、左端と右端の床に木製の矢印立て看板を配置したU案',
- desc:'ユーザーが選んだT案を維持し、左右の壁付け矢印標識を端寄りの床に立つ小さな木製看板へ置き換えました。左は展示室1へ、右は展示室2へ向かう方向です。脚と盤面は独立素材として調整可能で、実際の通行判定は未実装です。'},
+ desc:'2026年10月28日、U案をエントランスLv.6の完成美術として承認しました。左右の自立式方向看板、赤い絨毯、ベンチ、植え込み、暖色照明を固定基準とします。実ゲームへの表示・衝突・保存処理の組み込みは未実装です。'},
  V:{src:'lv6-standing-v.png',label:'V案｜少し内側の左右立て看板',status:'U案より内寄りの配置',
  alt:'T案から壁付け矢印を外し、左右の矢印立て看板をU案より少し内側に置いたV案',
  desc:'U案と同じ矢印と自立式の脚です。左右を少しだけ内側に配置し、通路入口・展示壁との距離がどう見えるかを比較するための案です。'}

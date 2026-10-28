@@ -1,0 +1,52 @@
+{
+  "schema": "a18-visual-approval/v1",
+  "roomId": "entrance",
+  "roomName": "エントランス",
+  "approvedLevel": 6,
+  "approvalDate": "2026-10-28",
+  "decision": "U案をエントランスLv.6の最終デザインとして採用（ユーザー明示承認）",
+  "approvedVariant": "U",
+  "approvedReferenceFile": "approved-entrance-lv6-20261028.png",
+  "previewSourceFile": "lv6-standing-u.png",
+  "identicalPixelsAndFileBytes": true,
+  "sha256": "1a058e8fe4f9f39659b4c31b1627d8dba44f080acb42607d99a39481eaa48349",
+  "dimensions": {
+    "width": 1200,
+    "height": 880
+  },
+  "baselineLevel1File": "lv1-baseline.png",
+  "baselineLevel1Sha256": "0dbed64e7108d7f4335b4c04c0672a005a07edad78ad0121a278fc5470719db6",
+  "composition": "ユーザー承認済みT案の内装＋左右の端寄りの自立式木製方向看板",
+  "wayfinding": {
+    "west": {
+      "direction": "left",
+      "toRoomId": "gallery1",
+      "unlockLevel": 2
+    },
+    "east": {
+      "direction": "right",
+      "toRoomId": "gallery2",
+      "unlockLevel": 3
+    },
+    "north": {
+      "toRoomId": "gallery5",
+      "unlockLevel": 6
+    }
+  },
+  "artSelection": "approved",
+  "runtimeIntegration": "NOT_IMPLEMENTED",
+  "collisionWalkableSpaceQA": "NOT_TESTED",
+  "photoFrameAspectRatioSupport": "NOT_TESTED",
+  "dynamicLayerCompositing": "NOT_IMPLEMENTED",
+  "originalMaterials": "preserved",
+  "otherGalleryLayouts": "untouched",
+  "issueMerge": "NOT_AUTHORIZED",
+  "mainMerge": "NOT_AUTHORIZED",
+  "notes": [
+    "Approval is for the completed Level 6 appearance, not a running in-game Level 6.",
+    "The static reference screenshot contains the captured Lv.1 UI overlay, which is not the desired Level 6 runtime UI.",
+    "While implementing, create independent depth-aware sprites, not a flattened single background replacing game objects.",
+    "Photos must stay intact with correct frame portrait/landscape response.",
+    "Use Lv.1 and Lv.6 as end-state anchors; design Lv.2-5 intermediate growth without changing either approved design."
+  ]
+}

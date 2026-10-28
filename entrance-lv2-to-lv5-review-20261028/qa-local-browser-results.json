@@ -1,0 +1,34 @@
+{
+  "url": "file:///C:/Users/User/source/repos/a18-art-previews-publish/entrance-lv2-to-lv5-review-20261028/index.html",
+  "engine": "Chromium",
+  "physical_iPhone_Safari": "NOT_TESTED",
+  "viewports": {
+    "390x844": {
+      "images_loaded": 6,
+      "errors": [],
+      "overflow": {
+        "scroll": 390,
+        "inner": 390
+      },
+      "two_column_toggled": true
+    },
+    "375x812": {
+      "images_loaded": 6,
+      "errors": [],
+      "overflow": {
+        "scroll": 375,
+        "inner": 375
+      },
+      "two_column_toggled": true
+    },
+    "1440x900": {
+      "images_loaded": 6,
+      "errors": [],
+      "overflow": {
+        "scroll": 1440,
+        "inner": 1440
+      },
+      "two_column_toggled": false
+    }
+  }
+}

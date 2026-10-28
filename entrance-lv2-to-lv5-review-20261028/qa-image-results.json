@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "levels": 6,
+  "proposals": 4,
+  "immutableLv1Sha256": "0dbed64e7108d7f4335b4c04c0672a005a07edad78ad0121a278fc5470719db6",
+  "immutableLv6Sha256": "1a058e8fe4f9f39659b4c31b1627d8dba44f080acb42607d99a39481eaa48349",
+  "originalUExactMatch": true,
+  "changed_pixels_stepwise": {
+    "1_to_2": 14571,
+    "2_to_3": 95840,
+    "3_to_4": 624100,
+    "4_to_5": 589501,
+    "5_to_6": 101455
+  },
+  "feature_regions_checked": {
+    "left_sign": [
+      176,
+      332,
+      250,
+      421
+    ],
+    "right_sign": [
+      995,
+      330,
+      1068,
+      422
+    ],
+    "carpet_center": [
+      570,
+      484,
+      679,
+      649
+    ],
+    "gold_left": [
+      195,
+      146,
+      471,
+      314
+    ],
+    "bench": [
+      788,
+      738,
+      1055,
+      812
+    ],
+    "left_tree": [
+      436,
+      489,
+      531,
+      642
+    ],
+    "front_plant": [
+      760,
+      818,
+      1067,
+      879
+    ]
+  },
+  "screenshot_ui_protection": "PASS",
+  "historical_sources_changed": false,
+  "runtime_collisions": "NOT_TESTED",
+  "real_iPhone_Safari": "NOT_TESTED",
+  "browser": "PENDING"
+}

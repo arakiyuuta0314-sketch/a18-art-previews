@@ -1,0 +1,92 @@
+{
+  "schema": "a18-entrance-level-growth-preview/v1",
+  "status": "visual proposals for user comparison; Lv2-5 NOT APPROVED",
+  "anchors": {
+    "level1": {
+      "source": "entrance-lv6-review-20261028\\lv1-baseline.png",
+      "sha256": "0dbed64e7108d7f4335b4c04c0672a005a07edad78ad0121a278fc5470719db6"
+    },
+    "level6": {
+      "source": "entrance-lv6-review-20261028\\approved-entrance-lv6-20261028.png",
+      "sha256": "1a058e8fe4f9f39659b4c31b1627d8dba44f080acb42607d99a39481eaa48349"
+    }
+  },
+  "render_method": "source independent PNG compositing + previously verified screenshot coordinates; baseline and approved images immutable",
+  "levels": {
+    "2": {
+      "file": "entrance-lv2.png",
+      "width": 1200,
+      "height": 880,
+      "sha256": "2f5f2e75a0cb66a8909e8d812f61cf9c6237bfdc1e1b99879c6f5e119c1a9c92",
+      "changed_pixels_vs_Lv1": 14571
+    },
+    "3": {
+      "file": "entrance-lv3.png",
+      "width": 1200,
+      "height": 880,
+      "sha256": "196ce8e04896abe2d798360c8a8717720be78c24ff304a9c188cafb817f89cfd",
+      "changed_pixels_vs_Lv1": 110411
+    },
+    "4": {
+      "file": "entrance-lv4.png",
+      "width": 1200,
+      "height": 880,
+      "sha256": "f40cfb68e13a925822b778737c5af736b9ccc89dde341b836c86c8e45763ae6a",
+      "changed_pixels_vs_Lv1": 632471
+    },
+    "5": {
+      "file": "entrance-lv5.png",
+      "width": 1200,
+      "height": 880,
+      "sha256": "d9423019301d3f0e39f8de518be47b52184ccbcb8dc647e77b66b70751c468a1",
+      "changed_pixels_vs_Lv1": 646530
+    }
+  },
+  "cumulative": true,
+  "growth": {
+    "2": [
+      "standing sign left",
+      "outer pillar lights 2",
+      "reception lamp"
+    ],
+    "3": [
+      "standing sign right",
+      "inner pillar lights 2",
+      "long red carpet"
+    ],
+    "4": [
+      "three golden display frame overlays",
+      "picture lights 2",
+      "wall gold top trim"
+    ],
+    "5": [
+      "257px cushioned bench",
+      "tall left tree",
+      "rear-right partition foliage",
+      "reception accessories"
+    ],
+    "6": [
+      "approved U image only: full right-front planting, foreground plants, ceiling lights, crest, floor accents, final reflectance"
+    ]
+  },
+  "not_validated": [
+    "collisions",
+    "door transitions",
+    "gallery room naming",
+    "picture frames portrait/square runtime",
+    "live iPhone Safari"
+  ],
+  "original_art_deletion": false,
+  "game_source_edited": false,
+  "merge_authorized": false,
+  "source_scripts": [
+    "entrance-lv6-review-20261028\\build_existing_placements.py",
+    "entrance-lv6-review-20261028\\build_extra_ornament_comparison.py",
+    "entrance-lv6-review-20261028\\build_f_g_lv6.py",
+    "entrance-lv6-review-20261028\\build_density_k.py",
+    "entrance-lv6-review-20261028\\build_planting_nop.py",
+    "entrance-lv6-review-20261028\\build_layout_qr.py",
+    "entrance-lv6-review-20261028\\build_lush_st.py",
+    "entrance-lv6-review-20261028\\build_standing_uv.py"
+  ]
+}

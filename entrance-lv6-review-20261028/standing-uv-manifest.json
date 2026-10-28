@@ -1,0 +1,76 @@
+{
+  "status": "static visual compare only, unapproved sign positions",
+  "base": "lv6-lush-t.png (no vegetation, bench or carpet edits)",
+  "heritage_source_sha256": {
+    "C:\\Users\\User\\source\\repos\\a18-art-previews-publish\\entrance-lv6-review-20261028\\lv6-lush-t.png": "b83a33ca5044251a95930cb5d54dddc419fc27f259ed0cfedf7d2c19e7ff80f1",
+    "C:\\Users\\User\\source\\repos\\a18-art-previews-publish\\entrance-lv6-review-20261028\\lv1-baseline.png": "0dbed64e7108d7f4335b4c04c0672a005a07edad78ad0121a278fc5470719db6",
+    "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-fixtures-final-20261025\\entrance_west_sign.png": "d1fbee69223b54cf3f334f7a54c90219b5bcdde2e262509cd0e5d5b04acd0bd4",
+    "C:\\Users\\User\\source\\repos\\a18-totteoki-museum-pages\\entrance-fixtures-final-20261025\\entrance_east_sign.png": "ca60147ccaf45cc9f97c5449ed800e77a275bf0b55fbf2d6f4c9a7b3d738a7c9"
+  },
+  "variants": {
+    "U": {
+      "file": "lv6-standing-u.png",
+      "sha256": "1a058e8fe4f9f39659b4c31b1627d8dba44f080acb42607d99a39481eaa48349",
+      "west_sign_rect": [
+        181,
+        337,
+        59,
+        81
+      ],
+      "east_sign_rect": [
+        1002,
+        337,
+        59,
+        81
+      ],
+      "wall_signs_removed_areas": [
+        [
+          218,
+          341,
+          305,
+          411
+        ],
+        [
+          893,
+          343,
+          982,
+          411
+        ]
+      ]
+    },
+    "V": {
+      "file": "lv6-standing-v.png",
+      "sha256": "434c04365d2ed9fff15cffffdf489b94e73f3916babb523f0d8d378ab653deaf",
+      "west_sign_rect": [
+        197,
+        332,
+        61,
+        85
+      ],
+      "east_sign_rect": [
+        971,
+        332,
+        61,
+        85
+      ],
+      "wall_signs_removed_areas": [
+        [
+          218,
+          341,
+          305,
+          411
+        ],
+        [
+          893,
+          343,
+          982,
+          411
+        ]
+      ]
+    }
+  },
+  "user_intent": "T baseline, independent floor standing directional boards at left/right edges without obstructing rear passage",
+  "collision": "not implemented, route still requires physical QA",
+  "original_source_mutation": false,
+  "unused_materials": "retain for other galleries"
+}

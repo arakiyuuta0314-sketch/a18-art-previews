@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "viewport": "iphone390",
+      "tabs": 24,
+      "status": "PASS",
+      "js_errors": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "viewport": "iphone430",
+      "tabs": 24,
+      "status": "PASS",
+      "js_errors": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "viewport": "desktop1200",
+      "tabs": 24,
+      "status": "PASS",
+      "js_errors": 0,
+      "horizontal_overflow": false
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "status": "visual-preview-not-adopted",
+  "source_base": "lv6-density-k.png",
+  "candidate_comparison": {
+    "L": "Adjusted original bench at corrected aspect ratio 155x64 and realistic ground shadow; selected for visual compatibility",
+    "M": "L with enhanced wall/frame/ceiling and floor reflected light (1.25x)",
+    "M_plus": "L with brighter illumination (1.7x) for upper-bound comparison",
+    "Bench_repaint_study": "Refabricated hand-drawn style rejected as too planar vs original source"
+  },
+  "placement": {
+    "x": 792,
+    "y": 745,
+    "w": 155,
+    "h": 64,
+    "floor": 809
+  },
+  "illumination": {
+    "average_light_fraction": 0.06035,
+    "max_strength": 0.31
+  },
+  "illumination_plus": {
+    "average_light_fraction": 0.07704,
+    "max_strength": 0.31
+  },
+  "input_sha256": {
+    "lv6-density-k.png": "8a981c466b5de2569c664a7cf0a440a7061d05b33a238323e9676a65a5fbf99e",
+    "bench.png": "f5bb7f45b6073c690857975247891571fdb48029584d52204ed8dec02afddfef",
+    "sofa_red.png": "ee5c6098dc5671a556c893639dfe86233ebcd566cf19cf490dbc199112be0790"
+  },
+  "output": {
+    "L": {
+      "file": "lv6-l-bench.png",
+      "sha256": "70b21b4e3b782352c57fad818ff59431e334921552358310fbb1e4a1ec34cb92",
+      "size": [
+        1200,
+        880
+      ],
+      "bytes": 941403
+    },
+    "M": {
+      "file": "lv6-m-bench-light.png",
+      "sha256": "d4137868d0e8bd759d69a9045e05b62e26a37b78a17f2c53bd156c4df9c551b3",
+      "size": [
+        1200,
+        880
+      ],
+      "bytes": 931279
+    },
+    "M_plus": {
+      "file": "lv6-mplus-bench-light.png",
+      "sha256": "7a650c10f6a98193f2656aa510a4e7469c50420b7e347713ab2c0effb87ae797",
+      "size": [
+        1200,
+        880
+      ],
+      "bytes": 926312
+    },
+    "Bench_repaint_study": {
+      "file": "bench-study/lv6-bench-repaint-study.png",
+      "sha256": "7ef48d2340e51b05626a84fb23323181f689a7817dc622ec2413254be42141f6",
+      "size": [
+        1200,
+        880
+      ],
+      "bytes": 937779
+    }
+  },
+  "preservation": "All existing gallery/source files unchanged; this is static preview only. Historical bench remains deferred asset."
+}

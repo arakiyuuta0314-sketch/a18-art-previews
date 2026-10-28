@@ -17,6 +17,8 @@ button{font:inherit;cursor:pointer;touch-action:manipulation}
 .tabs button{min-width:0;min-height:52px;background:#fff;border:1px solid #c6cec7;border-radius:10px;padding:9px 3px;color:#31483b;font-size:14px;font-weight:700}
 .tabs button[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:#fff}
 .tabs button small{display:block;font-size:10px;font-weight:500;margin-top:2px;opacity:.9}
+.history{margin:2px 0 14px}.history summary{cursor:pointer;font-size:13px;color:#315746;font-weight:650;padding:8px 10px;background:#edf2eb;border-radius:8px}.history[open] .history-tabs{margin:10px 0 0}
+.primary-tabs button{min-height:58px}.primary-tabs button[aria-selected=true]{box-shadow:0 0 0 2px #c4d8c3 inset}
 .panel{background:#fff;border:1px solid #e1ded3;padding:10px;border-radius:13px;box-shadow:0 4px 17px #0000000b}
 .top{display:flex;align-items:baseline;flex-wrap:wrap;justify-content:space-between;gap:5px;margin:3px 3px 10px}
 .top strong{font-size:15px}.top span{font-size:12px;color:var(--muted)}
@@ -34,11 +36,20 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 @media(max-width:350px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
 <header><div class="eyebrow">とっておき美術館｜エントランス美術検証</div>
-<h1>エントランス Lv.6 空間の完成度</h1>
-<p>G案を維持しながら、建築の密度・家具の追加・展示写真の有無を比較します。</p></header>
+<h1>エントランス Lv.6｜ロング絨毯・ベンチ・照明</h1>
+<p>ロング絨毯のK案を基準に、右下のベンチと照明の広がりを見比べられます。</p></header>
 <main>
-<p class="intro">上のボタンで切り替えてください。iPhoneでも「拡大する」で細部を確認できます。</p>
-<nav class="tabs" role="tablist" aria-label="配置案の切り替え">
+<p class="intro">まず K・L・M・M+ を比較してください。iPhoneでも拡大できます。以前の案は「過去案を開く」にまとめています。</p>
+<nav aria-label="美術比較の切り替え">
+<div class="tabs primary-tabs" role="tablist" aria-label="今回のL/M候補">
+<button role="tab" id="tabK" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">K案<small>ロング絨毯</small></button>
+<button role="tab" id="tabL" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">L案<small>＋既存ベンチ</small></button>
+<button role="tab" id="tabM" aria-selected="true" aria-controls="panel" tabindex="0" type="button">M案<small>＋光を強化</small></button>
+<button role="tab" id="tabN" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">M＋<small>光をさらに強く</small></button>
+</div>
+<details class="history">
+<summary>過去案（Lv.1〜J）も比較する</summary>
+<div class="tabs history-tabs" role="tablist" aria-label="従来の美術候補">
 <button role="tab" id="tab1" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">Lv.1<small>正式基準</small></button>
 <button role="tab" id="tabA" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">A案<small>絨毯＋照明</small></button>
 <button role="tab" id="tabB" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">B案<small>＋植物</small></button>
@@ -50,12 +61,11 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <button role="tab" id="tabH" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">H案<small>壁・床の質感</small></button>
 <button role="tab" id="tabI" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">I案<small>＋鑑賞ベンチ</small></button>
 <button role="tab" id="tabJ" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">J案<small>展示写真あり</small></button>
-<button role="tab" id="tabK" aria-selected="true" aria-controls="panel" tabindex="0" type="button">K案<small>ロング絨毯</small></button>
-</nav>
-<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabK">
-<div class="top"><strong id="label">K案｜カーペットの奥行きを強化</strong><span id="status">既存素材を遠近変形した構成案</span></div>
+</div></details></nav>
+<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabM">
+<div class="top"><strong id="label">M案｜長い絨毯＋既存ベンチ＋照明強化</strong><span id="status">設計比較／未実装</span></div>
 <div class="stage" id="stage"><div class="visual-wrap">
-<img id="visual" width="1200" height="880" src="lv6-density-k.png" alt="G案を基に、既存の赤いカーペットを手前まで長く延ばしたK案">
+<img id="visual" width="1200" height="880" src="lv6-m-bench-light.png" alt="長い赤い絨毯の右手前に既存の赤い木製ベンチを置き、照明の壁と床への反射を広げたM案">
 <svg id="route-overlay" class="route-overlay" viewBox="0 0 1200 880" preserveAspectRatio="xMidYMid meet" hidden role="img" aria-label="左右の通路予定位置はそれぞれの仕切り壁の裏。中央奥は展示室5の扉。">
 <defs><filter id="route-shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity=".45"/></filter></defs>
 <!-- Behind left partition (logical world x≈35..105 / y≈235..275) -->
@@ -73,10 +83,10 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <text x="629" y="137" fill="white" font-size="18" font-weight="bold" text-anchor="middle">奥の扉 → 展示室5</text>
 </svg></div></div>
 <div class="actions"><button id="zoom" type="button" aria-pressed="false">拡大する</button><button id="routes" type="button" aria-pressed="false">通路位置を見る</button><span id="hint">拡大後は指でスクロールできます。</span></div>
-<p class="desc" id="desc">G案の元絨毯は残したまま、別案として中央の赤い絨毯を手前まで延長。既存の絨毯・金縁・接地影を遠近に合わせて再構成した静止案です。家具を増やさず、館の奥から入口まで空間をつないで見せます。サイズ・織り目は今後の品質調整が必要です。</p>
+<p class="desc" id="desc">K案のロング絨毯に、旧素材を縦横比を保って調整した赤い木製ベンチを右手前へ追加。壁灯、展示灯、天井灯の暖かな光と床の反射をやや強めました。ベンチの配置や明るさは今後の検討対象です。</p>
 </section>
-<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>新しい比較：</strong>G案は元のまま保存。H＝建築の縁取り・床と光の質感、I＝H＋旧ベンチ（右手前）、J＝H＋仮の展示写真3点、K＝Hを基にした長い中央絨毯です。Jの写真は以前のテスト素材であり、登録済みの実作品やゲーム内の写真寸法の再現ではありません。Kの絨毯は既存素材を変形した別の配置案で、G案の原本を置き換えてはいません。作品未登録でも成立するLv.6を検討するため、H/IとJを比較します。</p><p class="note"><strong>採用方針と未決事項：</strong>ユーザー確認によりカーペット・柱照明・左右植物・木製台座の<strong>4種類はLv.6へ採用する方向で確定</strong>。具体的なサイズ・位置・微調整は未確定です。D・E案で追加した矢印案内板、額縁、展示灯、天井灯はまだ比較候補です。右の額縁は正式ゲームでは写真の縦横比に連動するため、現在の固定枠は見た目だけの仮配置です。F/Gの受付ランプ・花器・天井飾りは旧独立素材を使い、扉上の館章・受付帳・小さな金具は新規の試作です。<strong>ゲーム本体・当たり判定・保存・Lv.1正本は変更していません。</strong> 使わない素材は他室用として保留し、削除しません。</p>
-<footer>基準：2026年10月28日のLv.1実画面。Gを起点とするH/I/Jも静止比較です。Jの作品画像はテスト写真です。画像内の「Lv.1」は撮影時のUIであり、Lv.6の実装状態ではありません。素材の原本は削除・上書きしません。</footer>
+<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>今回の比較：</strong>Kはロング絨毯のみ、LはKに既存の赤い木製ベンチ（縦横比・接地影調整）を追加、MはLに壁・額縁周辺・床へ広がる柔らかな照明を追加。M＋は照明をさらに強くした比較用で、採用候補の基準はMです。ベンチは既存素材と描き直し案を実際に比較し、既存の木製ベンチの方が現行美術と調和すると評価しました。どの案も当たり判定や作品保存は未実装です。</p><p class="note"><strong>過去の比較：</strong>G案は元のまま保存。H＝建築の縁取り・床と光の質感、I＝H＋旧ベンチ（右手前）、J＝H＋仮の展示写真3点、K＝Hを基にした長い中央絨毯です。Jの写真は以前のテスト素材であり、登録済みの実作品やゲーム内の写真寸法の再現ではありません。Kの絨毯は既存素材を変形した別の配置案で、G案の原本を置き換えてはいません。作品未登録でも成立するLv.6を検討するため、H/IとJを比較します。</p><p class="note"><strong>採用方針と未決事項：</strong>ユーザー確認によりカーペット・柱照明・左右植物・木製台座の<strong>4種類はLv.6へ採用する方向で確定</strong>。具体的なサイズ・位置・微調整は未確定です。D・E案で追加した矢印案内板、額縁、展示灯、天井灯はまだ比較候補です。右の額縁は正式ゲームでは写真の縦横比に連動するため、現在の固定枠は見た目だけの仮配置です。F/Gの受付ランプ・花器・天井飾りは旧独立素材を使い、扉上の館章・受付帳・小さな金具は新規の試作です。<strong>ゲーム本体・当たり判定・保存・Lv.1正本は変更していません。</strong> 使わない素材は他室用として保留し、削除しません。</p>
+<footer>基準：2026年10月28日のLv.1実画面。K/L/M/M＋は画像のみの比較で、ゲームへの実装は未実施です。画像内に写る「Lv.1」はスクリーンショット撮影時のUIです。既存素材の原本と他室用保留素材は保持しています。</footer>
 </main>
 <script>
 (()=>{'use strict';
@@ -117,9 +127,18 @@ const variants={
  desc:'H案の3つの空白額に以前のテスト写真を仮配置した比較専用画像です。写真は実ユーザーの登録作品ではなく、保存もしていません。額縁の実際の縦横比変化もまだ再現していません。'},
  K:{src:'lv6-density-k.png',label:'K案｜カーペットの奥行きを強化',status:'既存素材を遠近変形した構成案',
  alt:'G案を基に、既存の赤いカーペットを手前まで長く延ばしたK案',
- desc:'G案の元絨毯は残したまま、別案として中央の赤い絨毯を手前まで延長。既存の絨毯・金縁・接地影を遠近に合わせて再構成した静止案です。家具を増やさず、館の奥から入口まで空間をつないで見せます。サイズ・織り目は今後の品質調整が必要です。'}
+ desc:'G案の元絨毯は残したまま、別案として中央の赤い絨毯を手前まで延長。既存の絨毯・金縁・接地影を遠近に合わせて再構成した静止案です。家具を増やさず、館の奥から入口まで空間をつないで見せます。サイズ・織り目は今後の品質調整が必要です。'},
+ L:{src:'lv6-l-bench.png',label:'L案｜長い絨毯＋赤い木製ベンチ',status:'旧ベンチ素材の縦横比・接地感を調整',
+ alt:'K案のロング絨毯と右手前の赤い木製鑑賞ベンチを組み合わせたL案',
+ desc:'K案のロング絨毯に、既存の赤い木製ベンチを右手前に配置。縦横比・色味・接地影を調整しました。これまでのI案より絨毯との距離と家具のバランスを確認してください。'},
+ M:{src:'lv6-m-bench-light.png',label:'M案｜L＋暖色照明を強化',status:'やや強めの照明／採用候補の基準',
+ alt:'L案に柱灯と展示灯の照り返し、天井梁の反射と床の暖色光を強化したM案',
+ desc:'K案のロング絨毯に、旧素材を縦横比を保って調整した赤い木製ベンチを右手前へ追加。壁灯、展示灯、天井灯の暖かな光と床の反射をやや強めました。ベンチの配置や明るさは今後の検討対象です。'},
+ N:{src:'lv6-mplus-bench-light.png',label:'M＋案｜照明をさらに強く',status:'明るさの上限を見るための比較',
+ alt:'M案のベンチとロング絨毯を維持して、壁と床の暖色照明をさらに強くした案',
+ desc:'M案より照明を一段強くした比較案です。豪華さは増しますが、木の重厚感や空間の陰影が薄れないかを確認してください。'}
 };
-const keys=['1','A','B','C','D','E','F','G','H','I','J','K'];let active='K',expanded=false;
+const keys=['1','A','B','C','D','E','F','G','H','I','J','K','L','M','N'];let active='M',expanded=false;
 function center(){if(!expanded)return;const s=$('stage');s.scrollLeft=(s.scrollWidth-s.clientWidth)/2;s.scrollTop=Math.max(0,(s.scrollHeight-s.clientHeight)/2);}
 function show(k){
  active=k;const v=variants[k];$('visual').src=v.src;$('visual').alt=v.alt;
@@ -131,8 +150,9 @@ keys.forEach(k=>{
  $('tab'+k).onclick=()=>show(k);
  $('tab'+k).onkeydown=e=>{
   if(!['ArrowLeft','ArrowRight'].includes(e.key))return;
-  e.preventDefault();const delta=e.key==='ArrowRight'?1:-1;const n=(keys.indexOf(k)+delta+keys.length)%keys.length;
-  show(keys[n]);$('tab'+keys[n]).focus();
+  e.preventDefault();const group=['K','L','M','N'].includes(k)?['K','L','M','N']:['1','A','B','C','D','E','F','G','H','I','J'];
+  const delta=e.key==='ArrowRight'?1:-1;const n=(group.indexOf(k)+delta+group.length)%group.length;
+  show(group[n]);$('tab'+group[n]).focus();
  };
 });
 $('routes').onclick=()=>{const overlay=$('route-overlay');const next=overlay.hasAttribute('hidden');if(next)overlay.removeAttribute('hidden');else overlay.setAttribute('hidden','');$('routes').setAttribute('aria-pressed',String(next));$('routes').textContent=next?'通路表示を消す':'通路位置を見る';};

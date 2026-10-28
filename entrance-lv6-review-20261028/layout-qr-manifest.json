@@ -1,0 +1,97 @@
+{
+  "role": "Static A18 Lv6 art concept only, not accepted or in game",
+  "source": "K rug + O rear-planting silhouette/light baseline",
+  "user_intent": "Bench and lower-right bed each about as wide as right-side display frame; one new left partition endpoint potted plant",
+  "right_exhibit_frame_approx": [
+    799,
+    483,
+    1051,
+    635
+  ],
+  "historical_image_sha256": {
+    "lv6-density-k.png": "8a981c466b5de2569c664a7cf0a440a7061d05b33a238323e9676a65a5fbf99e",
+    "lv6-planting-o.png": "f17e42217772812891a395f8fa64928d403ccf617abe40b4bd926dca959935d8"
+  },
+  "source_hashes": {
+    "layout-test/assets/candidate-v1.1/props/bench.png": "f5bb7f45b6073c690857975247891571fdb48029584d52204ed8dec02afddfef",
+    "entrance-front-plants-final-20261025/entrance_plant_left.png": "377ba7b918dba9e02ab816449321b507625c853a09c45647bc07ef9133a54c85",
+    "entrance-front-plants-final-20261025/entrance_plant_right.png": "4709c267e04578765c2e6bc02f65f04828c00d0492ece452a44b68057ada840c",
+    "entrance-plinth-final-20261025/entrance_plinth_right.png": "ae9e8000ee595368fe309cf0a9bcf12f46dfd6af69e65fcd7bdd275c46933e6f",
+    "layout-test/assets/candidate-v1.1/props/potted_plant.png": "1eb75d7bd5f25a343280c1dee9730468bb7903c819ed2ae538afeb5e8e0c4ffe"
+  },
+  "outputs": {
+    "Q": {
+      "bench": {
+        "image_rect": [
+          793,
+          741,
+          257,
+          65
+        ],
+        "right_end": 1050,
+        "frame_right_end_approx": 1052,
+        "9_slice": "original armrest and legs preserved"
+      },
+      "planter": {
+        "rect": [
+          814,
+          829,
+          252,
+          46
+        ],
+        "planting_width": 252,
+        "foliage_count": 10
+      },
+      "left_plant": {
+        "rect": [
+          450,
+          534,
+          65,
+          88
+        ],
+        "source": "candidate-v1.1/props/potted_plant.png, warm-ceramic color study",
+        "role": "opposite visual weight at left partition right endpoint"
+      },
+      "file": "lv6-layout-q.png",
+      "sha256": "cd551ea3067fc5f0f0063577bded3c8aefa1d98cabb2c3b42df23deb673bfe30"
+    },
+    "R": {
+      "bench": {
+        "image_rect": [
+          793,
+          741,
+          232,
+          65
+        ],
+        "right_end": 1025,
+        "frame_right_end_approx": 1052,
+        "9_slice": "original armrest and legs preserved"
+      },
+      "planter": {
+        "rect": [
+          842,
+          829,
+          224,
+          46
+        ],
+        "planting_width": 224,
+        "foliage_count": 9
+      },
+      "left_plant": {
+        "rect": [
+          453,
+          540,
+          61,
+          84
+        ],
+        "source": "candidate-v1.1/props/potted_plant.png, warm-ceramic color study",
+        "role": "opposite visual weight at left partition right endpoint"
+      },
+      "file": "lv6-layout-r.png",
+      "sha256": "5e3c237563ff9b5ee7f67e34253d701f3f795206ab719695fd178b0c5c6c683b"
+    }
+  },
+  "game_changes": "none",
+  "original_files_modified": false,
+  "unaccepted_assets_policy": "Existing materials are preserved and deferred for other galleries."
+}

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "viewport": "iphone390",
+      "tab_count": 18,
+      "zoom": "PASS",
+      "passage_layer": "PASS",
+      "js_errors": 0,
+      "overflow": false
+    },
+    {
+      "viewport": "iphone430",
+      "tab_count": 18,
+      "zoom": "PASS",
+      "passage_layer": "PASS",
+      "js_errors": 0,
+      "overflow": false
+    },
+    {
+      "viewport": "desktop",
+      "tab_count": 18,
+      "zoom": "PASS",
+      "passage_layer": "PASS",
+      "js_errors": 0,
+      "overflow": false
+    }
+  ]
+}

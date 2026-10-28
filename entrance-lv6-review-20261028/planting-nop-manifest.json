@@ -1,0 +1,97 @@
+{
+  "purpose": "A18 Lv6 static placement options: intermediate L/M lighting, wider bench, low planter instead of duplicate old pot, rear partition foliage.",
+  "read_only_baseline_sha256": "8a981c466b5de2569c664a7cf0a440a7061d05b33a238323e9676a65a5fbf99e",
+  "visual_approval": "NOT YET",
+  "collision": "NOT IMPLEMENTED",
+  "app_code": "NOT TOUCHED",
+  "input_sources": {
+    "layout-test/assets/candidate-v1.1/props/bench.png": "f5bb7f45b6073c690857975247891571fdb48029584d52204ed8dec02afddfef",
+    "entrance-front-plants-final-20261025/entrance_plant_left.png": "377ba7b918dba9e02ab816449321b507625c853a09c45647bc07ef9133a54c85",
+    "entrance-front-plants-final-20261025/entrance_plant_right.png": "4709c267e04578765c2e6bc02f65f04828c00d0492ece452a44b68057ada840c",
+    "entrance-plinth-final-20261025/entrance_plinth_right.png": "ae9e8000ee595368fe309cf0a9bcf12f46dfd6af69e65fcd7bdd275c46933e6f"
+  },
+  "lighting_factor": 0.89,
+  "legacy_M_factor": 1.25,
+  "variants": {
+    "N": {
+      "filename": "lv6-planting-n.png",
+      "sha256": "aa47c26d021c4199cc99f4220e6cc204a94d02ce410b05763486fd923b4ee564",
+      "bench": {
+        "rect": [
+          793,
+          742,
+          194,
+          65
+        ],
+        "source_type": "existing bench stretched only at middle segment"
+      },
+      "front_planter": {
+        "planter_rect": [
+          971,
+          784,
+          1100,
+          881
+        ],
+        "material": "existing right wooden plinth + independently masked green foliage"
+      },
+      "rear_growth": null
+    },
+    "O": {
+      "filename": "lv6-planting-o.png",
+      "sha256": "f17e42217772812891a395f8fa64928d403ccf617abe40b4bd926dca959935d8",
+      "bench": {
+        "rect": [
+          793,
+          742,
+          194,
+          65
+        ],
+        "source_type": "existing bench stretched only at middle segment"
+      },
+      "front_planter": {
+        "planter_rect": [
+          971,
+          784,
+          1100,
+          881
+        ],
+        "material": "existing right wooden plinth + independently masked green foliage"
+      },
+      "rear_growth": {
+        "variation": "subtle",
+        "inward_x_min": 750,
+        "wall_top_clip_rule": "y < 483 - 0.043*(x-766)",
+        "frame_occlusion": false
+      }
+    },
+    "P": {
+      "filename": "lv6-planting-p.png",
+      "sha256": "4fdec4ec62e0ecaeca61471b67f02f86acd1799e7509712227547946a1c7789a",
+      "bench": {
+        "rect": [
+          793,
+          742,
+          194,
+          65
+        ],
+        "source_type": "existing bench stretched only at middle segment"
+      },
+      "front_planter": {
+        "planter_rect": [
+          971,
+          784,
+          1100,
+          881
+        ],
+        "material": "existing right wooden plinth + independently masked green foliage"
+      },
+      "rear_growth": {
+        "variation": "visible",
+        "inward_x_min": 734,
+        "wall_top_clip_rule": "y < 483 - 0.043*(x-766)",
+        "frame_occlusion": false
+      }
+    }
+  },
+  "deferred": "All input artwork kept intact; unused plant/sofa material deferred for other galleries."
+}

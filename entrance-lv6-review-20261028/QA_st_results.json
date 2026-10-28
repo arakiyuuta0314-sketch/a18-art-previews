@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "viewport": "iphone390",
+      "tab_cases": 22,
+      "zoom": "PASS",
+      "routes": "PASS",
+      "js_errors": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "viewport": "iphone430",
+      "tab_cases": 22,
+      "zoom": "PASS",
+      "routes": "PASS",
+      "js_errors": 0,
+      "horizontal_overflow": false
+    },
+    {
+      "viewport": "desktop",
+      "tab_cases": 22,
+      "zoom": "PASS",
+      "routes": "PASS",
+      "js_errors": 0,
+      "horizontal_overflow": false
+    }
+  ]
+}

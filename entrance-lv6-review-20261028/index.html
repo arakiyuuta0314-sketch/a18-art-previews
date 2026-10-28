@@ -36,19 +36,21 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 @media(max-width:350px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body>
 <header><div class="eyebrow">とっておき美術館｜エントランス美術検証</div>
-<h1>エントランス Lv.6｜家具の幅と左右バランス</h1>
-<p>O案の雰囲気を維持。ベンチと植え込みを額縁幅に合わせ、左仕切りの端にも植木を追加しました。</p></header>
+<h1>エントランス Lv.6｜植木の高さと緑のボリューム</h1>
+<p>Q案で決まったベンチはそのまま。右下の植え込みを絨毯の右端まで延長し、左の植木を高く、葉を豊かにします。</p></header>
 <main>
-<p class="intro">採用方向のO案と、新しいQ・R案を切り替えてください。ベンチ、植え込みの横幅、左仕切り壁の植木を比較できます。</p>
-<nav aria-label="エントランス家具と植え込み比較">
-<div class="tabs primary-tabs" role="tablist" aria-label="O・Q・Rの新しい比較">
-<button role="tab" id="tabO" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">O案<small>前回の基準</small></button>
-<button role="tab" id="tabQ" aria-selected="true" aria-controls="panel" tabindex="0" type="button">Q案<small>額縁と同じ幅</small></button>
-<button role="tab" id="tabR" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">R案<small>少し余白を残す</small></button>
+<p class="intro">Q案を基準に、右下の植え込みを長く、左植木を高くしたS・T案を比べてください。T案が葉の多い方です。</p>
+<nav aria-label="エントランス植栽の高さと密度比較">
+<div class="tabs primary-tabs" role="tablist" aria-label="Q・S・T案の比較">
+<button role="tab" id="tabQ" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">Q案<small>前回基準</small></button>
+<button role="tab" id="tabS" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">S案<small>緑を増やす</small></button>
+<button role="tab" id="tabT" aria-selected="true" aria-controls="panel" tabindex="0" type="button">T案<small>緑をさらに増やす</small></button>
 </div>
 <details class="history">
-<summary>過去案（Lv.1〜P）も比較する</summary>
+<summary>過去案（Lv.1〜R）も比較する</summary>
 <div class="tabs history-tabs" role="tablist" aria-label="過去の配置案">
+<button role="tab" id="tabO" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">O案<small>壁裏の草</small></button>
+<button role="tab" id="tabR" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">R案<small>短めベンチ</small></button>
 <button role="tab" id="tabN" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">N案<small>壁裏の草なし</small></button>
 <button role="tab" id="tabP" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">P案<small>草を増やす</small></button>
 
@@ -68,10 +70,10 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <button role="tab" id="tabM" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">M案<small>＋強めの光</small></button>
 <button role="tab" id="tabX" aria-selected="false" aria-controls="panel" tabindex="-1" type="button">M＋<small>最大の光</small></button>
 </div></details></nav>
-<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabQ">
-<div class="top"><strong id="label">Q案｜ベンチと植え込みを額縁幅に</strong><span id="status">左右バランス調整の静止案</span></div>
+<section class="panel" id="panel" role="tabpanel" aria-labelledby="tabT">
+<div class="top"><strong id="label">T案｜植え込み延長・左の高木・葉を増量</strong><span id="status">見た目の比較／未実装</span></div>
 <div class="stage" id="stage"><div class="visual-wrap">
-<img id="visual" width="1200" height="880" src="lv6-layout-q.png" alt="額縁幅とほぼ揃えたベンチと長い植え込み、左仕切り壁右端に植木を追加したQ案">
+<img id="visual" width="1200" height="880" src="lv6-lush-t.png" alt="Q案と同じベンチのまま、右下の植え込みをカーペット端まで長くし、左仕切りの植木を高く葉を増やしたT案">
 <svg id="route-overlay" class="route-overlay" viewBox="0 0 1200 880" preserveAspectRatio="xMidYMid meet" hidden role="img" aria-label="左右の通路予定位置はそれぞれの仕切り壁の裏。中央奥は展示室5の扉。">
 <defs><filter id="route-shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity=".45"/></filter></defs>
 <!-- Behind left partition (logical world x≈35..105 / y≈235..275) -->
@@ -89,13 +91,13 @@ footer{font-size:12px;line-height:1.7;color:#7a837a;margin:14px 5px}
 <text x="629" y="137" fill="white" font-size="18" font-weight="bold" text-anchor="middle">奥の扉 → 展示室5</text>
 </svg></div></div>
 <div class="actions"><button id="zoom" type="button" aria-pressed="false">拡大する</button><button id="routes" type="button" aria-pressed="false">通路位置を見る</button><span id="hint">拡大後は指でスクロールできます。</span></div>
-<p class="desc" id="desc">O案の照明・通路裏の緑・絨毯を維持。右側額縁幅約252pxに合わせ、ベンチ257px、下の植え込み252pxへ延長。左の仕切り壁右端にも鉢植えを追加し、左右の重心を整えました。右下はまだ配置調整が必要です。</p>
+<p class="desc" id="desc">Q案のベンチ257pxと照明は固定。右下の植え込みは左へ約55px伸ばしてカーペット右端付近まで延長。ベンチとの隙間を残し、額縁とベンチの間も家具を置きません。左仕切り右端の植木は約143pxの高さへ育て、葉を増やしました。TはSより葉が多い案です。</p>
 </section>
-<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>Q/Rの変更点：</strong>O案は変更せず保持しています。Q案はベンチ257pxと右下の植え込み252pxを、右側の展示額縁の幅（約252px）に揃えました。R案は同じ装飾でベンチ232px・植え込み224px。左側は仕切り壁の右端に新しい鉢植えを追加。どちらも**正式採用前の静止案**で、通路の当たり判定は未実装です。</p><p class="note"><strong>前回の確認：</strong>光量は従来のM案より少し弱く調整しました。ベンチは右方向へ延ばし、右下の同型鉢を低い植え込みへ置換。O案とP案は右仕切り壁の裏から見える葉の量と通路側への張り出し量だけが異なります。<strong>ゲームへの配置・当たり判定は未実装です。</strong> 左側の植物や、他室用の保留素材は変更していません。</p>
+<p class="note"><strong>通路の配置方針：</strong>エントランスから展示室1・2へ進む左右通路は、それぞれの<strong>仕切り壁の裏側</strong>に配置します。中央奥の扉は展示室5。上の「通路位置を見る」は設計位置を可視化するだけで、現在の移動判定を修正したものではありません。</p><p class="note"><strong>今回の変更：</strong>Q案のベンチは寸法・位置とも変更していません。右下の長い植え込みは左へ約55px延ばし、カーペットの右端付近に合わせました。ベンチ下には見える隙間を残し、ベンチと右展示額縁の間は空けたままです。左仕切り壁右端の植木は高くし、葉も増やしました。<strong>まだ静止画の配置案で、実際の歩行判定は未実装です。</strong></p><p class="note"><strong>以前のQ/R：</strong>O案は変更せず保持しています。Q案はベンチ257pxと右下の植え込み252pxを、右側の展示額縁の幅（約252px）に揃えました。R案は同じ装飾でベンチ232px・植え込み224px。左側は仕切り壁の右端に新しい鉢植えを追加。どちらも**正式採用前の静止案**で、通路の当たり判定は未実装です。</p><p class="note"><strong>前回の確認：</strong>光量は従来のM案より少し弱く調整しました。ベンチは右方向へ延ばし、右下の同型鉢を低い植え込みへ置換。O案とP案は右仕切り壁の裏から見える葉の量と通路側への張り出し量だけが異なります。<strong>ゲームへの配置・当たり判定は未実装です。</strong> 左側の植物や、他室用の保留素材は変更していません。</p>
 <details class="history"><summary>旧案の比較方針・保留事項</summary>
 <p class="note"><strong>今回の比較：</strong>Kはロング絨毯のみ、LはKに既存の赤い木製ベンチ（縦横比・接地影調整）を追加、MはLに壁・額縁周辺・床へ広がる柔らかな照明を追加。M＋は照明をさらに強くした比較用で、採用候補の基準はMです。ベンチは既存素材と描き直し案を実際に比較し、既存の木製ベンチの方が現行美術と調和すると評価しました。どの案も当たり判定や作品保存は未実装です。</p><p class="note"><strong>過去の比較：</strong>G案は元のまま保存。H＝建築の縁取り・床と光の質感、I＝H＋旧ベンチ（右手前）、J＝H＋仮の展示写真3点、K＝Hを基にした長い中央絨毯です。Jの写真は以前のテスト素材であり、登録済みの実作品やゲーム内の写真寸法の再現ではありません。Kの絨毯は既存素材を変形した別の配置案で、G案の原本を置き換えてはいません。作品未登録でも成立するLv.6を検討するため、H/IとJを比較します。</p><p class="note"><strong>採用方針と未決事項：</strong>ユーザー確認によりカーペット・柱照明・左右植物・木製台座の<strong>4種類はLv.6へ採用する方向で確定</strong>。具体的なサイズ・位置・微調整は未確定です。D・E案で追加した矢印案内板、額縁、展示灯、天井灯はまだ比較候補です。右の額縁は正式ゲームでは写真の縦横比に連動するため、現在の固定枠は見た目だけの仮配置です。F/Gの受付ランプ・花器・天井飾りは旧独立素材を使い、扉上の館章・受付帳・小さな金具は新規の試作です。<strong>ゲーム本体・当たり判定・保存・Lv.1正本は変更していません。</strong> 使わない素材は他室用として保留し、削除しません。</p>
 </details>
-<footer>基準：2026年10月28日のLv.1実画面。N/O/Pは静止比較で、正式採用ではありません。画像内の「Lv.1」は撮影時のUIです。原本素材と他室用保留素材は削除していません。</footer>
+<footer>基準：2026年10月28日のLv.1実画面。Q/S/Tは静止比較で、ゲームへの実装はありません。画像に見える「Lv.1」は撮影時の表示です。旧素材・他室用の保留素材は削除していません。</footer>
 </main>
 <script>
 (()=>{'use strict';
@@ -160,9 +162,15 @@ const variants={
  desc:'O案の照明・通路裏の緑・絨毯を維持。右側額縁幅約252pxに合わせ、ベンチ257px、下の植え込み252pxへ延長。左の仕切り壁右端にも鉢植えを追加し、左右の重心を整えました。右下はまだ配置調整が必要です。'},
  R:{src:'lv6-layout-r.png',label:'R案｜少し余白のある左右バランス',status:'Q案より少し短い比較',
  alt:'Q案と同様の新しい左側鉢植えと仕切り壁裏の緑を保ち、ベンチと下植え込みだけ少し短くしたR案',
- desc:'Q案に対しベンチを232px、下の植え込みを224pxと少し短くした比較案。左仕切り壁の右端の植木は同じ種類です。通路や人物との余白を見比べてください。'}
+ desc:'Q案に対しベンチを232px、下の植え込みを224pxと少し短くした比較案。左仕切り壁の右端の植木は同じ種類です。通路や人物との余白を見比べてください。'},
+ S:{src:'lv6-lush-s.png',label:'S案｜植え込み延長と高い植木',status:'Q案のベンチを維持した静止比較',
+ alt:'Q案のベンチを残し、右下の植え込みを絨毯端まで延ばし、左の植木を高くしたS案',
+ desc:'右下の植え込みをカーペットの右端近くまで延ばし、左の植木を大きくして葉を追加。ベンチはQと同じ257pxで、木製ベンチの下にも隙間を見せています。'},
+ T:{src:'lv6-lush-t.png',label:'T案｜植え込み延長・左の高木・葉を増量',status:'見た目の比較／未実装',
+ alt:'Q案と同じベンチのまま、右下の植え込みをカーペット端まで長くし、左仕切りの植木を高く葉を増やしたT案',
+ desc:'Q案のベンチ257pxと照明は固定。右下の植え込みは左へ約55px伸ばしてカーペット右端付近まで延長。ベンチとの隙間を残し、額縁とベンチの間も家具を置きません。左仕切り右端の植木は約143pxの高さへ育て、葉を増やしました。TはSより葉が多い案です。'}
 };
-const keys=['1','A','B','C','D','E','F','G','H','I','J','K','L','M','X','N','O','P','Q','R'];let active='Q',expanded=false;
+const keys=['1','A','B','C','D','E','F','G','H','I','J','K','L','M','X','N','O','P','Q','R','S','T'];let active='T',expanded=false;
 function center(){if(!expanded)return;const s=$('stage');s.scrollLeft=(s.scrollWidth-s.clientWidth)/2;s.scrollTop=Math.max(0,(s.scrollHeight-s.clientHeight)/2);}
 function show(k){
  active=k;const v=variants[k];$('visual').src=v.src;$('visual').alt=v.alt;
@@ -174,7 +182,7 @@ keys.forEach(k=>{
  $('tab'+k).onclick=()=>show(k);
  $('tab'+k).onkeydown=e=>{
   if(!['ArrowLeft','ArrowRight'].includes(e.key))return;
-  e.preventDefault();const group=['O','Q','R'].includes(k)?['O','Q','R']:['1','A','B','C','D','E','F','G','H','I','J','K','L','M','X','N','P'];
+  e.preventDefault();const group=['Q','S','T'].includes(k)?['Q','S','T']:['1','A','B','C','D','E','F','G','H','I','J','K','L','M','X','N','O','P','R'];
   const delta=e.key==='ArrowRight'?1:-1;const n=(group.indexOf(k)+delta+group.length)%group.length;
   show(group[n]);$('tab'+group[n]).focus();
  };

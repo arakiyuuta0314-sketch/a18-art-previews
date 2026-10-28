@@ -1,0 +1,100 @@
+{
+  "status": "preview only, not game",
+  "base": "K with Q bench dimensions/light/rear foliage",
+  "base_q_sha256": "cd551ea3067fc5f0f0063577bded3c8aefa1d98cabb2c3b42df23deb673bfe30",
+  "input_source_sha256": {
+    "layout-test/assets/candidate-v1.1/props/bench.png": "f5bb7f45b6073c690857975247891571fdb48029584d52204ed8dec02afddfef",
+    "entrance-front-plants-final-20261025/entrance_plant_left.png": "377ba7b918dba9e02ab816449321b507625c853a09c45647bc07ef9133a54c85",
+    "entrance-front-plants-final-20261025/entrance_plant_right.png": "4709c267e04578765c2e6bc02f65f04828c00d0492ece452a44b68057ada840c",
+    "entrance-plinth-final-20261025/entrance_plinth_right.png": "ae9e8000ee595368fe309cf0a9bcf12f46dfd6af69e65fcd7bdd275c46933e6f",
+    "layout-test/assets/candidate-v1.1/props/potted_plant.png": "1eb75d7bd5f25a343280c1dee9730468bb7903c819ed2ae538afeb5e8e0c4ffe"
+  },
+  "outputs": {
+    "S": {
+      "file": "lv6-lush-s.png",
+      "sha256": "683c0ab92242c9fe6624f1099b58de5c5c36c4d2b8c9ed69495db056696f7bda",
+      "bench": {
+        "image_rect": [
+          793,
+          741,
+          257,
+          65
+        ],
+        "right_end": 1050,
+        "frame_right_end_approx": 1052,
+        "9_slice": "original armrest and legs preserved"
+      },
+      "planter": {
+        "rect": [
+          759,
+          838,
+          307,
+          37
+        ],
+        "left_edge": 759,
+        "carpet_right_edge_approx": 760,
+        "visible_gap_above_leaves_px": 9,
+        "foliage_clumps": 27
+      },
+      "left_tree": {
+        "rect": [
+          436,
+          497,
+          90,
+          135
+        ],
+        "top": 497,
+        "foliage_crowns": 7,
+        "may_overlay_left_partition": true
+      },
+      "lighting": "same as Q",
+      "rear_plant": "same as O"
+    },
+    "T": {
+      "file": "lv6-lush-t.png",
+      "sha256": "b83a33ca5044251a95930cb5d54dddc419fc27f259ed0cfedf7d2c19e7ff80f1",
+      "bench": {
+        "image_rect": [
+          793,
+          741,
+          257,
+          65
+        ],
+        "right_end": 1050,
+        "frame_right_end_approx": 1052,
+        "9_slice": "original armrest and legs preserved"
+      },
+      "planter": {
+        "rect": [
+          759,
+          838,
+          307,
+          37
+        ],
+        "left_edge": 759,
+        "carpet_right_edge_approx": 760,
+        "visible_gap_above_leaves_px": 9,
+        "foliage_clumps": 44
+      },
+      "left_tree": {
+        "rect": [
+          433,
+          492,
+          95,
+          143
+        ],
+        "top": 492,
+        "foliage_crowns": 11,
+        "may_overlay_left_partition": true
+      },
+      "lighting": "same as Q",
+      "rear_plant": "same as O"
+    }
+  },
+  "game_source_changed": false,
+  "corridors": {
+    "bench_to_picture": "visual clearance remains; actual collisions not implemented",
+    "bench_to_planter": "visible light gap, no passage required"
+  },
+  "unused_assets": "preserved for other areas"
+}
